@@ -1,0 +1,22 @@
+name: Check data
+
+# Runs on every push and pull request: makes sure both data files are valid
+# JSON and that every command in the game has a kid-friendly explanation.
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Data files are valid JSON
+        run: |
+          python3 -m json.tool data/commands-data.json > /dev/null
+          python3 -m json.tool data/content.json > /dev/null
+      - name: Every command has an explanation
+        run: python3 scripts/check_coverage.py data/commands-data.json data/content.json

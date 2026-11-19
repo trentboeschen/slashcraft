@@ -1,0 +1,639 @@
+{
+"_categories": {
+  "move":  {"name": "Getting Around", "icon": "🧭"},
+  "items": {"name": "Items & Inventory", "icon": "🎒"},
+  "build": {"name": "Building", "icon": "🧱"},
+  "mobs":  {"name": "Mobs & Players", "icon": "🐷"},
+  "world": {"name": "World, Time & Weather", "icon": "🌦️"},
+  "chat":  {"name": "Messages & Screens", "icon": "💬"},
+  "fx":    {"name": "Sounds & Effects", "icon": "✨"},
+  "logic": {"name": "Logic & Game Making", "icon": "⚙️"},
+  "admin": {"name": "Server & Admin", "icon": "🛡️"},
+  "tools": {"name": "Creator & Debug Tools", "icon": "🔧"}
+},
+
+"teleport": {"cat": "move", "lvl": 1,
+  "kid": "Instantly zooms you (or anyone) to another spot or to another player.",
+  "ex": [
+    ["both", "/tp @s ~ ~20 ~", "Jump 20 blocks straight up into the sky."],
+    ["both", "/tp @s 0 100 0", "Go to the exact spot x=0, y=100, z=0."],
+    ["both", "/tp @a @s", "Bring every player to where you are."]
+  ],
+  "tip": "/tp is the short name for /teleport. They do the same thing.",
+  "block": "In a command block, ~ ~ ~ means the block's spot, not yours. Use /tp @p 100 64 200 to send the nearest player to a fixed place, like a teleporter pad."},
+
+"spawnpoint": {"cat": "move", "lvl": 1,
+  "kid": "Sets where a player comes back to life after they die.",
+  "ex": [
+    ["both", "/spawnpoint @s ~ ~ ~", "Respawn right where you're standing."],
+    ["both", "/spawnpoint @a 0 70 0", "Everyone respawns at 0, 70, 0."]
+  ],
+  "block": "Put it on a button at the start of a parkour level so players restart at that checkpoint: /spawnpoint @p ~ ~1 ~"},
+
+"clearspawnpoint": {"cat": "move", "lvl": 2,
+  "kid": "Erases a player's personal respawn spot, so they go back to the world spawn.",
+  "ex": [["b", "/clearspawnpoint @s", "Forget your own respawn spot."]]},
+
+"setworldspawn": {"cat": "move", "lvl": 2,
+  "kid": "Moves the world's main starting spot, where new players appear.",
+  "ex": [["both", "/setworldspawn ~ ~ ~", "Make where you're standing the new world spawn."]]},
+
+"spreadplayers": {"cat": "move", "lvl": 2,
+  "kid": "Scatters players (or mobs) to random safe spots around a center point. Great for starting a survival game.",
+  "ex": [
+    ["j", "/spreadplayers ~ ~ 10 100 false @a", "Scatter everyone up to 100 blocks away, at least 10 blocks apart."],
+    ["b", "/spreadplayers ~ ~ 10 100 @a", "Scatter everyone up to 100 blocks away, at least 10 blocks apart."]
+  ],
+  "tip": "The two numbers are: how far apart they must be, then how far away they can go."},
+
+"locate": {"cat": "move", "lvl": 1,
+  "kid": "Tells you the coordinates of the nearest village, temple, biome, and more.",
+  "ex": [
+    ["j", "/locate structure #minecraft:village", "Find the closest village of any kind."],
+    ["j", "/locate biome minecraft:cherry_grove", "Find the closest cherry grove."],
+    ["b", "/locate structure village", "Find the closest village."],
+    ["b", "/locate biome cherry_grove", "Find the closest cherry grove."]
+  ],
+  "tip": "It tells you where, it doesn't take you there. Use /tp with the numbers it gives you. On Java you can click the green coordinates in chat to teleport!"},
+
+"ride": {"cat": "move", "lvl": 2,
+  "kid": "Makes one thing ride on top of another, like you riding a pig or a chicken riding a zombie.",
+  "ex": [
+    ["j", "/ride @s mount @e[type=pig,limit=1,sort=nearest]", "Hop onto the closest pig."],
+    ["j", "/ride @s dismount", "Get off whatever you're riding."],
+    ["b", "/ride @s start_riding @e[type=pig,c=1]", "Hop onto the closest pig."],
+    ["b", "/ride @s stop_riding", "Get off whatever you're riding."]
+  ]},
+
+"rotate": {"cat": "move", "lvl": 2,
+  "kid": "Turns a player or mob to face a direction or look at something.",
+  "ex": [
+    ["j", "/rotate @s 180 0", "Turn around to face north, looking straight ahead."],
+    ["j", "/rotate @s facing entity @e[type=cow,limit=1,sort=nearest]", "Look at the nearest cow."]
+  ]},
+
+"spectate": {"cat": "move", "lvl": 2,
+  "kid": "When you're in Spectator mode, lets you see through another player's or mob's eyes.",
+  "ex": [
+    ["j", "/spectate @e[type=bee,limit=1,sort=nearest]", "Ride along inside the nearest bee's view."],
+    ["j", "/spectate", "Stop spectating."]
+  ],
+  "tip": "You have to be in Spectator mode first: /gamemode spectator"},
+
+"give": {"cat": "items", "lvl": 1,
+  "kid": "Puts any item right into a player's inventory.",
+  "ex": [
+    ["both", "/give @s diamond 64", "Get a full stack of 64 diamonds."],
+    ["both", "/give @s diamond_sword", "Get a diamond sword."],
+    ["both", "/give @a cake", "Give everyone a cake."],
+    ["both", "/give @s command_block", "Get a command block (you'll need it for the Command Blocks lessons!)."]
+  ],
+  "tip": "Item names use underscores instead of spaces: golden_apple, oak_log, ender_pearl. Start typing and the game will suggest names.",
+  "block": "Put /give @p diamond 1 on a button to make a prize button. @p means the player standing closest to the block."},
+
+"clear": {"cat": "items", "lvl": 1,
+  "kid": "Removes items from a player's inventory. With no item named, it empties EVERYTHING.",
+  "ex": [
+    ["both", "/clear @s dirt", "Throw away all your dirt."],
+    ["both", "/clear @s", "Empty your whole inventory. Careful!"]
+  ]},
+
+"enchant": {"cat": "items", "lvl": 1,
+  "kid": "Adds an enchantment to the item the player is holding.",
+  "ex": [
+    ["both", "/enchant @s sharpness 5", "Make the sword in your hand super sharp."],
+    ["both", "/enchant @s efficiency 5", "Make your pickaxe dig super fast."]
+  ],
+  "tip": "Hold the item in your hand first! It only works on items that could get that enchantment normally."},
+
+"item": {"cat": "items", "lvl": 2,
+  "kid": "Puts an item into an exact slot, like a helmet slot or a chest slot, replacing what's there.",
+  "ex": [
+    ["j", "/item replace entity @s armor.head with carved_pumpkin", "Wear a pumpkin on your head."],
+    ["j", "/item replace entity @s weapon.offhand with shield", "Put a shield in your other hand."]
+  ]},
+
+"replaceitem": {"cat": "items", "lvl": 2,
+  "kid": "Puts an item into an exact slot, like a helmet slot or a chest slot, replacing what's there.",
+  "ex": [
+    ["b", "/replaceitem entity @s slot.armor.head 0 carved_pumpkin", "Wear a pumpkin on your head."],
+    ["b", "/replaceitem entity @s slot.weapon.offhand 0 shield", "Put a shield in your other hand."]
+  ]},
+
+"loot": {"cat": "items", "lvl": 3,
+  "kid": "Gives out a random set of items, the same way a treasure chest or a defeated mob would.",
+  "ex": [
+    ["j", "/loot give @s loot minecraft:chests/simple_dungeon", "Get the loot from a dungeon chest."],
+    ["b", "/loot give @s loot \"chests/simple_dungeon\"", "Get the loot from a dungeon chest."]
+  ]},
+
+"recipe": {"cat": "items", "lvl": 2,
+  "kid": "Unlocks (or locks) recipes in the recipe book.",
+  "ex": [["both", "/recipe give @s *", "Unlock every recipe at once."]]},
+
+"xp": {"cat": "items", "lvl": 1,
+  "kid": "Gives or takes away experience (the green XP bar you use for enchanting).",
+  "ex": [
+    ["j", "/xp add @s 30 levels", "Get 30 levels, enough for top enchantments."],
+    ["j", "/xp set @s 0 levels", "Reset your levels to zero."],
+    ["b", "/xp 30L @s", "Get 30 levels. The L means levels."],
+    ["b", "/xp 100 @s", "Get 100 XP points (no L means points)."]
+  ],
+  "tip": "On Java the full name is /experience; /xp is the shortcut."},
+
+"setblock": {"cat": "build", "lvl": 1,
+  "kid": "Places one block at an exact spot.",
+  "ex": [
+    ["both", "/setblock ~ ~-1 ~ diamond_block", "Turn the block under your feet into diamond."],
+    ["both", "/setblock ~2 ~ ~ torch", "Put a torch 2 blocks east of you."]
+  ],
+  "block": "Command blocks + /setblock can build doors that open and close: one button runs /setblock x y z air, another puts the block back."},
+
+"fill": {"cat": "build", "lvl": 1,
+  "kid": "Fills a whole box-shaped area with one kind of block. Super fast building!",
+  "ex": [
+    ["both", "/fill ~-3 ~ ~-3 ~3 ~4 ~3 glass hollow", "Build a glass room around you (hollow = empty inside)."],
+    ["both", "/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 grass_block", "Make a flat 11×11 grass floor under you."],
+    ["both", "/fill ~-5 ~ ~-5 ~5 ~5 ~5 air", "Clear out all the blocks around you."]
+  ],
+  "tip": "You give two corners of the box. The first three numbers are one corner, the next three are the opposite corner. Endings: hollow (empty inside), outline (walls only, keeps the inside), keep (only fills empty air), destroy (breaks blocks so they drop)."},
+
+"clone": {"cat": "build", "lvl": 2,
+  "kid": "Copies a box of blocks and pastes it somewhere else, like copy and paste for builds.",
+  "ex": [["both", "/clone ~ ~ ~ ~5 ~5 ~5 ~10 ~ ~", "Copy the 6×6×6 box next to you and paste it 10 blocks east."]],
+  "tip": "First two spots are the corners of what to copy. The last spot is where the copy's lowest, north-west corner goes."},
+
+"place": {"cat": "build", "lvl": 2,
+  "kid": "Instantly places a whole natural thing, like a tree or a village, the way the world would make it.",
+  "ex": [
+    ["j", "/place feature minecraft:oak", "Grow an oak tree right here."],
+    ["j", "/place structure minecraft:village_plains", "Build a plains village right here."]
+  ]},
+
+"structure": {"cat": "build", "lvl": 2,
+  "kid": "Saves a build so you can load copies of it anywhere, anytime.",
+  "ex": [
+    ["b", "/structure save myhouse ~ ~ ~ ~10 ~10 ~10", "Save the 11×11×11 box next to you as \"myhouse\"."],
+    ["b", "/structure load myhouse ~ ~ ~", "Paste a copy of \"myhouse\" right here."],
+    ["b", "/structure load myhouse ~ ~ ~ 90_degrees", "Paste it turned sideways."]
+  ],
+  "tip": "On Java, use a Structure Block instead (/give @s structure_block)."},
+
+"fillbiome": {"cat": "build", "lvl": 2,
+  "kid": "Changes the biome of an area, which changes grass color, music, and more.",
+  "ex": [["j", "/fillbiome ~-10 ~-10 ~-10 ~10 ~10 ~10 minecraft:cherry_grove", "Turn the area around you into a cherry grove."]],
+  "tip": "You might need to leave and come back before the colors update."},
+
+"testforblock": {"cat": "logic", "lvl": 3,
+  "kid": "Checks whether a certain block is at a spot. Used in command block contraptions.",
+  "ex": [["b", "/testforblock ~ ~1 ~ diamond_block", "Is there a diamond block on top of this command block?"]],
+  "tip": "Newer way that works on both editions: /execute if block ... run ..."},
+
+"testforblocks": {"cat": "logic", "lvl": 3,
+  "kid": "Checks whether two areas have exactly the same blocks, like a build-matching puzzle.",
+  "ex": [["b", "/testforblocks 0 64 0 3 67 3 10 64 0", "Does the area at 10 64 0 match the pattern at 0 64 0?"]]},
+
+"summon": {"cat": "mobs", "lvl": 1,
+  "kid": "Makes a mob or thing appear out of nowhere.",
+  "ex": [
+    ["both", "/summon pig", "Make a pig appear on you."],
+    ["both", "/summon lightning_bolt ~ ~ ~5", "Strike lightning 5 blocks south."],
+    ["j", "/summon pig ~ ~ ~ {CustomName:\"Bacon\"}", "Make a pig named Bacon."],
+    ["b", "/summon pig Bacon ~ ~ ~", "Make a pig named Bacon."]
+  ],
+  "tip": "Careful with dangerous mobs like the Wither! Try in a test world first."},
+
+"kill": {"cat": "mobs", "lvl": 1,
+  "kid": "Instantly removes players, mobs, or dropped items.",
+  "ex": [
+    ["j", "/kill @e[type=zombie,distance=..20]", "Remove all zombies within 20 blocks."],
+    ["b", "/kill @e[type=zombie,r=20]", "Remove all zombies within 20 blocks."],
+    ["both", "/kill @e[type=item]", "Clean up every dropped item lying on the ground."]
+  ],
+  "tip": "⚠️ NEVER type /kill @e by itself. @e means every entity, so it removes ALL mobs, pets, item frames, armor stands... and you!"},
+
+"effect": {"cat": "mobs", "lvl": 1,
+  "kid": "Gives potion powers (or takes them away), like speed, jump boost, or night vision.",
+  "ex": [
+    ["j", "/effect give @s speed 60 2", "Run super fast for 60 seconds (power level 3)."],
+    ["j", "/effect give @s night_vision infinite 0 true", "See in the dark forever, with no swirly particles."],
+    ["j", "/effect clear @s", "Remove all your effects."],
+    ["b", "/effect @s speed 60 2", "Run super fast for 60 seconds (power level 3)."],
+    ["b", "/effect @s night_vision infinite 0 true", "See in the dark forever, with no swirly particles."],
+    ["b", "/effect @s clear", "Remove all your effects."]
+  ],
+  "tip": "The numbers are: how many seconds, then strength. Strength starts at 0, so 0 = level I, 1 = level II, 2 = level III. The true at the end hides the particles.",
+  "block": "Speed pad! A Repeat command block, Always Active, with: /execute as @a at @s if block ~ ~-1 ~ gold_block run effect ... (see the Command Blocks lessons)."},
+
+"damage": {"cat": "mobs", "lvl": 2,
+  "kid": "Hurts a player or mob by a certain amount. Each heart is 2 points.",
+  "ex": [
+    ["j", "/damage @e[type=zombie,limit=1,sort=nearest] 4", "Hit the nearest zombie for 2 hearts."],
+    ["b", "/damage @e[type=zombie,c=1] 4", "Hit the nearest zombie for 2 hearts."]
+  ]},
+
+"tag": {"cat": "mobs", "lvl": 2,
+  "kid": "Sticks an invisible name-label on a player or mob so commands can find them later.",
+  "ex": [
+    ["both", "/tag @s add hero", "Label yourself as \"hero\"."],
+    ["both", "/tag @s remove hero", "Take the label off."],
+    ["both", "/tp @a[tag=hero] @s", "Later, [tag=hero] picks only tagged players. This brings the heroes to you."]
+  ],
+  "tip": "Tags are perfect for games: tag players on the red team, players who found the secret, etc."},
+
+"attribute": {"cat": "mobs", "lvl": 2,
+  "kid": "Changes a player's or mob's built-in stats, like size, speed, or max health.",
+  "ex": [
+    ["j", "/attribute @s minecraft:scale base set 3", "Become a GIANT, 3 times bigger!"],
+    ["j", "/attribute @s minecraft:scale base set 0.25", "Shrink to tiny size."],
+    ["j", "/attribute @s minecraft:scale base reset", "Go back to normal size."],
+    ["j", "/attribute @s minecraft:jump_strength base set 1", "Jump way higher."]
+  ]},
+
+"event": {"cat": "mobs", "lvl": 3,
+  "kid": "Triggers a special built-in change on a mob, like making a creeper charged.",
+  "ex": [["b", "/event entity @e[type=creeper,c=1] minecraft:become_charged", "Turn the nearest creeper into a charged creeper."]]},
+
+"playanimation": {"cat": "mobs", "lvl": 3,
+  "kid": "Makes a mob or player play one of their animations once.",
+  "ex": []},
+
+"swing": {"cat": "mobs", "lvl": 2,
+  "kid": "Makes a player or mob swing their arm, like they're hitting something.",
+  "ex": [["j", "/swing @s mainhand", "Swing your main arm."]]},
+
+"data": {"cat": "logic", "lvl": 3,
+  "kid": "Reads or changes the hidden details (called NBT data) stored inside mobs, blocks, and items.",
+  "ex": [
+    ["j", "/data get entity @s Health", "See exactly how much health you have."],
+    ["j", "/data merge entity @e[type=pig,limit=1,sort=nearest] {NoAI:1b}", "Freeze the nearest pig like a statue."]
+  ]},
+
+"gamemode": {"cat": "world", "lvl": 1,
+  "kid": "Switches between Survival, Creative, Adventure, and Spectator.",
+  "ex": [
+    ["both", "/gamemode creative", "Fly and get unlimited blocks."],
+    ["both", "/gamemode survival", "Back to normal survival."],
+    ["both", "/gamemode spectator", "Fly through walls as a ghost (Bedrock: newer versions)."],
+    ["both", "/gamemode adventure @a", "Everyone can play but not break blocks. Perfect for maps you build."]
+  ]},
+
+"defaultgamemode": {"cat": "world", "lvl": 2,
+  "kid": "Sets which game mode new players start in.",
+  "ex": [["j", "/defaultgamemode creative", "New players start in Creative."]]},
+
+"difficulty": {"cat": "world", "lvl": 1,
+  "kid": "Changes how hard the game is: peaceful, easy, normal, or hard.",
+  "ex": [
+    ["both", "/difficulty peaceful", "No hostile mobs, and you never get hungry."],
+    ["both", "/difficulty hard", "Tougher mobs. Hunger can knock you down to half a heart."]
+  ]},
+
+"time": {"cat": "world", "lvl": 1,
+  "kid": "Changes the time of day, or pauses it.",
+  "ex": [
+    ["both", "/time set day", "Make it morning."],
+    ["both", "/time set night", "Make it night."],
+    ["both", "/time set noon", "Sun high in the sky."],
+    ["both", "/time pause", "Stop the sun and moon from moving. /time resume starts it again."]
+  ],
+  "tip": "A whole Minecraft day is 24000 ticks (20 real minutes). You can also use numbers: /time set 6000 is noon."},
+
+"daylock": {"cat": "world", "lvl": 1,
+  "kid": "Freezes time so it never turns night (or unfreezes it).",
+  "ex": [
+    ["b", "/daylock true", "Lock the time. Do /time set day first for forever daytime."],
+    ["b", "/daylock false", "Let time move again."]
+  ],
+  "tip": "Its other name is /alwaysday."},
+
+"weather": {"cat": "world", "lvl": 1,
+  "kid": "Makes it sunny, rainy, or thunderstormy.",
+  "ex": [
+    ["both", "/weather clear", "Sunshine!"],
+    ["both", "/weather rain", "Rain (snow in cold places)."],
+    ["both", "/weather thunder", "Thunderstorm with lightning."]
+  ]},
+
+"toggledownfall": {"cat": "world", "lvl": 2,
+  "kid": "Switches rain on if it's off, or off if it's on.",
+  "ex": [["b", "/toggledownfall", "Flip the rain on or off."]]},
+
+"gamerule": {"cat": "world", "lvl": 1,
+  "kid": "Changes the world's rules, like keeping your stuff when you die or stopping fire from spreading.",
+  "ex": [
+    ["j", "/gamerule keep_inventory true", "Keep all your items when you die."],
+    ["j", "/gamerule mob_griefing false", "Creepers can't blow up blocks, endermen can't take blocks."],
+    ["j", "/gamerule advance_time false", "Stop the day/night cycle."],
+    ["j", "/gamerule command_block_output false", "Stop command blocks from spamming chat."],
+    ["b", "/gamerule keepinventory true", "Keep all your items when you die."],
+    ["b", "/gamerule mobgriefing false", "Creepers can't blow up blocks, endermen can't take blocks."],
+    ["b", "/gamerule showcoordinates true", "Show your coordinates on screen."],
+    ["b", "/gamerule commandblockoutput false", "Stop command blocks from spamming chat."]
+  ],
+  "tip": "The rule names are spelled differently! Java uses underscores (keep_inventory). Bedrock squishes the words together (keepinventory). Type /gamerule and a space to see the full list."},
+
+"worldborder": {"cat": "world", "lvl": 2,
+  "kid": "Puts an invisible wall around the world so nobody can go too far.",
+  "ex": [
+    ["j", "/worldborder set 200", "Make the world a 200×200 square."],
+    ["j", "/worldborder center ~ ~", "Center it on where you're standing."],
+    ["j", "/worldborder set 20 60s", "Shrink it to 20 wide over 60 seconds. Battle royale!"]
+  ]},
+
+"tick": {"cat": "world", "lvl": 2,
+  "kid": "Controls the speed of the whole game world: freeze it, slow it down, or speed it up.",
+  "ex": [
+    ["j", "/tick freeze", "Freeze everything! Mobs, water, and redstone all stop. (You can still move.)"],
+    ["j", "/tick unfreeze", "Unfreeze."],
+    ["j", "/tick rate 5", "Slow motion (normal is 20)."],
+    ["j", "/tick rate 20", "Back to normal speed."]
+  ]},
+
+"tickingarea": {"cat": "world", "lvl": 3,
+  "kid": "Keeps a part of the world running even when no player is near it, so farms and command blocks keep working.",
+  "ex": [
+    ["b", "/tickingarea add circle ~ ~ ~ 2 myfarm", "Keep the area around you always running."],
+    ["b", "/tickingarea list", "See all your ticking areas."]
+  ]},
+
+"forceload": {"cat": "world", "lvl": 3,
+  "kid": "Keeps a part of the world running even when no player is near it.",
+  "ex": [["j", "/forceload add ~ ~", "Keep the chunk you're in always loaded."]]},
+
+"mobevent": {"cat": "world", "lvl": 3,
+  "kid": "Turns certain mob events, like pillager patrols or wandering traders, on or off.",
+  "ex": [["b", "/mobevent minecraft:pillager_patrols_event false", "Stop pillager patrols from showing up."]]},
+
+"seed": {"cat": "world", "lvl": 1,
+  "kid": "Shows the world's seed, the secret number that made your world. Share it so friends can make the same world!",
+  "ex": [["j", "/seed", "Show the world seed."]],
+  "tip": "On Bedrock, the seed is shown in World Settings."},
+
+"say": {"cat": "chat", "lvl": 1,
+  "kid": "Posts a message in chat for everyone, with your name in front.",
+  "ex": [["both", "/say Hello everyone!", "Shows [YourName] Hello everyone!"]],
+  "block": "From a command block, the message shows as [@] Hello. Nice for announcements."},
+
+"tell": {"cat": "chat", "lvl": 1,
+  "kid": "Sends a secret message only one player can see.",
+  "ex": [["both", "/tell Steve meet me at the castle", "Only Steve sees this."]],
+  "tip": "Also works as /msg or /w."},
+
+"me": {"cat": "chat", "lvl": 1,
+  "kid": "Posts an action message, like * Alex is dancing.",
+  "ex": [["both", "/me is dancing", "Shows * YourName is dancing"]]},
+
+"title": {"cat": "chat", "lvl": 1,
+  "kid": "Shows BIG text in the middle of the screen, or small text above the hotbar.",
+  "ex": [
+    ["j", "/title @a title \"Welcome!\"", "Giant text in the middle of everyone's screen."],
+    ["j", "/title @a subtitle \"to my castle\"", "Smaller text under the title. Do this one first, then the title."],
+    ["j", "/title @a actionbar \"Find the gold!\"", "Small text above the hotbar."],
+    ["b", "/title @a title Welcome!", "Giant text in the middle of everyone's screen."],
+    ["b", "/title @a subtitle to my castle", "Smaller text under the title. Do this one first, then the title."],
+    ["b", "/title @a actionbar Find the gold!", "Small text above the hotbar."]
+  ],
+  "block": "Put a pressure plate in your doorway with a command block underneath: /title @p title \"Welcome!\""},
+
+"titleraw": {"cat": "chat", "lvl": 3,
+  "kid": "Like /title, but uses fancy JSON text so you can mix colors and show scores.",
+  "ex": [["b", "/titleraw @a title {\"rawtext\":[{\"text\":\"§6Gold Title\"}]}", "A gold-colored title."]]},
+
+"tellraw": {"cat": "chat", "lvl": 2,
+  "kid": "Sends a chat message with colors and no name in front. It uses a special format called JSON.",
+  "ex": [
+    ["j", "/tellraw @a {\"text\":\"You found the treasure!\",\"color\":\"gold\"}", "A gold message in chat."],
+    ["b", "/tellraw @a {\"rawtext\":[{\"text\":\"§6You found the treasure!\"}]}", "A gold message in chat. §6 means gold."]
+  ],
+  "tip": "Watch the punctuation carefully: every { needs a }, and every quote \" needs a partner."},
+
+"teammsg": {"cat": "chat", "lvl": 2,
+  "kid": "Sends a message only your team can see.",
+  "ex": [["j", "/tm attack at sunset!", "Only your teammates see it."]]},
+
+"dialog": {"cat": "chat", "lvl": 3,
+  "kid": "Shows a pop-up window with text and buttons. These are made with data packs.",
+  "ex": []},
+
+"dialogue": {"cat": "chat", "lvl": 3,
+  "kid": "Opens the talking window of an NPC (a villager-like character you set up in Education/creator worlds).",
+  "ex": []},
+
+"bossbar": {"cat": "chat", "lvl": 2,
+  "kid": "Makes your own boss health bar at the top of the screen.",
+  "ex": [
+    ["j", "/bossbar add boss \"Dragon Lord\"", "Create a bar named Dragon Lord."],
+    ["j", "/bossbar set minecraft:boss players @a", "Show it to everyone."],
+    ["j", "/bossbar set minecraft:boss color red", "Make it red."],
+    ["j", "/bossbar remove minecraft:boss", "Delete it."]
+  ]},
+
+"playsound": {"cat": "fx", "lvl": 1,
+  "kid": "Plays any sound from the game.",
+  "ex": [
+    ["j", "/playsound minecraft:entity.player.levelup master @s", "The level-up \"ding!\""],
+    ["j", "/playsound minecraft:entity.ender_dragon.growl master @a", "A scary dragon roar."],
+    ["b", "/playsound random.levelup @s", "The level-up \"ding!\""],
+    ["b", "/playsound mob.enderdragon.growl @a", "A scary dragon roar."]
+  ],
+  "tip": "Sound names are different on each edition. Start typing and let the suggestions help."},
+
+"stopsound": {"cat": "fx", "lvl": 2,
+  "kid": "Stops sounds that are playing.",
+  "ex": [["both", "/stopsound @a", "Stop all sounds for everyone."]]},
+
+"particle": {"cat": "fx", "lvl": 1,
+  "kid": "Makes sparkles, hearts, smoke, flames, and other visual effects appear.",
+  "ex": [
+    ["j", "/particle minecraft:heart ~ ~2 ~ 0.5 0.5 0.5 0 10", "A burst of 10 hearts above you."],
+    ["j", "/particle minecraft:flame ~ ~1 ~", "A little flame."],
+    ["b", "/particle minecraft:heart_particle ~ ~2 ~", "A heart above you."],
+    ["b", "/particle minecraft:basic_flame_particle ~ ~1 ~", "A little flame."]
+  ],
+  "block": "A Repeat command block running /particle makes a never-ending fountain of sparkles."},
+
+"music": {"cat": "fx", "lvl": 2,
+  "kid": "Plays or stops the background music.",
+  "ex": [["b", "/music stop 2", "Fade out the music over 2 seconds."]]},
+
+"camerashake": {"cat": "fx", "lvl": 2,
+  "kid": "Shakes the player's screen, like an earthquake!",
+  "ex": [
+    ["b", "/camerashake add @a 0.5 3", "Medium shake for 3 seconds."],
+    ["b", "/camerashake stop @a", "Stop shaking."]
+  ]},
+
+"camera": {"cat": "fx", "lvl": 3,
+  "kid": "Takes control of a player's camera: fade the screen, change zoom, or move the view like a movie.",
+  "ex": [
+    ["b", "/camera @s fade time 1 2 1", "Fade to black for 1 second, stay 2, fade back in 1."],
+    ["b", "/camera @s clear", "Give the camera back to normal."]
+  ]},
+
+"fog": {"cat": "fx", "lvl": 3,
+  "kid": "Adds or removes fog settings that come from add-on packs.",
+  "ex": []},
+
+"posteffect": {"cat": "fx", "lvl": 2,
+  "kid": "Puts a screen filter on a player's view, like blur or upside-down colors.",
+  "ex": [
+    ["j", "/posteffect add @s minecraft:invert", "Flip all the colors on your screen."],
+    ["j", "/posteffect add @s minecraft:creeper", "See the world like a creeper (green and pixel-y)."],
+    ["j", "/posteffect clear @s", "Back to normal."]
+  ],
+  "tip": "Other filters: minecraft:blur, minecraft:spider, minecraft:entity_outline."},
+
+"hud": {"cat": "fx", "lvl": 2,
+  "kid": "Hides or shows parts of the screen, like the hotbar or hearts.",
+  "ex": [
+    ["b", "/hud @s hide all", "Hide everything for a clean screenshot."],
+    ["b", "/hud @s reset", "Show everything again."]
+  ]},
+
+"waypoint": {"cat": "fx", "lvl": 2,
+  "kid": "Changes how players show up on the locator bar (the bar that points toward other players).",
+  "ex": [
+    ["j", "/waypoint list", "See all waypoints."],
+    ["j", "/waypoint modify @s color red", "Make your dot red on everyone's locator bar."]
+  ]},
+
+"execute": {"cat": "logic", "lvl": 2,
+  "kid": "The super-command! It runs another command, but only for certain players, at certain places, or when something is true. Read it like a sentence: as WHO, at WHERE, if SOMETHING, run THIS.",
+  "ex": [
+    ["both", "/execute as @a at @s run summon chicken", "For every player, at their spot, summon a chicken."],
+    ["j", "/execute as @a at @s if block ~ ~-1 ~ gold_block run effect give @s speed 2 2 true", "Anyone standing on gold gets speed."],
+    ["b", "/execute as @a at @s if block ~ ~-1 ~ gold_block run effect @s speed 2 2 true", "Anyone standing on gold gets speed."],
+    ["j", "/execute if entity @e[type=zombie,distance=..10] run say Zombie nearby!", "Warn if a zombie is close."],
+    ["b", "/execute if entity @e[type=zombie,r=10] run say Zombie nearby!", "Warn if a zombie is close."]
+  ],
+  "tip": "There's a whole lesson on this in Command Blocks → Commands inside commands.",
+  "block": "Most cool command block tricks use /execute in a Repeat block set to Always Active."},
+
+"scoreboard": {"cat": "logic", "lvl": 2,
+  "kid": "Keeps score! Make points, kill counts, timers, and show them on the side of the screen.",
+  "ex": [
+    ["both", "/scoreboard objectives add points dummy Points", "Make a score called points."],
+    ["both", "/scoreboard objectives setdisplay sidebar points", "Show it on the right side of the screen."],
+    ["both", "/scoreboard players add @p points 1", "Give the nearest player 1 point."],
+    ["both", "/scoreboard players set @a points 0", "Reset everyone to 0."]
+  ],
+  "tip": "dummy means \"only commands change this score.\"",
+  "block": "Put /scoreboard players add @p points 1 on a button for a point-scoring button."},
+
+"testfor": {"cat": "logic", "lvl": 3,
+  "kid": "Checks if any player or mob matches what you're looking for. Used with comparators and Conditional command blocks.",
+  "ex": [["b", "/testfor @a[r=5]", "Is any player within 5 blocks of this command block?"]],
+  "tip": "Newer way: /execute if entity ..."},
+
+"function": {"cat": "logic", "lvl": 3,
+  "kid": "Runs a whole list of commands saved in a file (from a data pack on Java, or a behavior pack on Bedrock).",
+  "ex": []},
+
+"schedule": {"cat": "logic", "lvl": 3,
+  "kid": "Runs a function later, after a delay.",
+  "ex": [["j", "/schedule function mypack:boom 5s", "Run the boom function in 5 seconds."]]},
+
+"random": {"cat": "logic", "lvl": 2,
+  "kid": "Rolls a random number, like dice.",
+  "ex": [
+    ["j", "/random roll 1..6", "Roll a six-sided die and show everyone."],
+    ["j", "/random value 1..100", "Pick a secret random number from 1 to 100."]
+  ]},
+
+"return": {"cat": "logic", "lvl": 3, "kid": "Stops a function early and sends back a number.", "ex": []},
+
+"trigger": {"cat": "logic", "lvl": 3,
+  "kid": "Lets regular players (not operators) change a special score, often by clicking chat buttons in custom maps.",
+  "ex": [["j", "/trigger vote", "Add 1 to your vote score (only if a map maker enabled it)."]]},
+
+"compute": {"cat": "logic", "lvl": 3,
+  "kid": "Calculates a number, including random numbers, for data pack makers.",
+  "ex": [["j", "/compute default integer {type:\"minecraft:uniform\",min:1,max:6}", "Roll a random number from 1 to 6."]]},
+
+"stopwatch": {"cat": "logic", "lvl": 2,
+  "kid": "Makes a timer that counts up. Great for timing races and parkour.",
+  "ex": [
+    ["j", "/stopwatch create race", "Start a stopwatch named race."],
+    ["j", "/stopwatch query race", "How long since it started?"],
+    ["j", "/stopwatch restart race", "Start over from zero."]
+  ]},
+
+"team": {"cat": "logic", "lvl": 2,
+  "kid": "Makes teams with colors. Teammates' names show in the team color.",
+  "ex": [
+    ["j", "/team add red", "Make a team called red."],
+    ["j", "/team modify red color red", "Make the team's names red."],
+    ["j", "/team join red @s", "Join the red team."],
+    ["j", "/team modify red friendlyFire false", "Teammates can't hurt each other."]
+  ]},
+
+"advancement": {"cat": "logic", "lvl": 2,
+  "kid": "Gives or takes away advancements (the achievement pop-ups on Java).",
+  "ex": [
+    ["j", "/advancement grant @s everything", "Unlock every advancement."],
+    ["j", "/advancement revoke @s everything", "Lock them all again."]
+  ]},
+
+"scriptevent": {"cat": "tools", "lvl": 3, "kid": "Sends a message to scripts in an add-on.", "ex": []},
+
+"inputpermission": {"cat": "logic", "lvl": 2,
+  "kid": "Turns a player's controls on or off, like stopping them from moving or looking around.",
+  "ex": [
+    ["b", "/inputpermission set @a movement disabled", "Nobody can walk (\"Freeze!\")."],
+    ["b", "/inputpermission set @a movement enabled", "Everyone can walk again."]
+  ]},
+
+"controlscheme": {"cat": "tools", "lvl": 3, "kid": "Changes how the player's controls work, for special camera setups made by creators.", "ex": []},
+"aimassist": {"cat": "tools", "lvl": 3, "kid": "Turns on aim assist, which gently helps a player aim at things.", "ex": []},
+
+"help": {"cat": "admin", "lvl": 1,
+  "kid": "Lists commands and shows how to type them.",
+  "ex": [
+    ["both", "/help", "List commands."],
+    ["both", "/help give", "Show how to type /give."]
+  ]},
+
+"list": {"cat": "admin", "lvl": 1, "kid": "Shows who's playing right now.", "ex": [["both", "/list", "Show everyone online."]]},
+
+"op": {"cat": "admin", "lvl": 3, "kid": "Makes a player an operator, which means they can use commands.", "ex": [["both", "/op Steve", "Let Steve use commands."]]},
+"deop": {"cat": "admin", "lvl": 3, "kid": "Takes away a player's operator powers.", "ex": [["both", "/deop Steve", "Steve can't use commands anymore."]]},
+"kick": {"cat": "admin", "lvl": 3, "kid": "Removes a player from the game. They can join again.", "ex": [["both", "/kick Steve", "Kick Steve out."]]},
+"ban": {"cat": "admin", "lvl": 3, "kid": "Bans a player from a server so they can't come back.", "ex": []},
+"ban-ip": {"cat": "admin", "lvl": 3, "kid": "Bans a computer's internet address from a server.", "ex": []},
+"banlist": {"cat": "admin", "lvl": 3, "kid": "Shows who is banned.", "ex": []},
+"pardon": {"cat": "admin", "lvl": 3, "kid": "Un-bans a player.", "ex": []},
+"pardon-ip": {"cat": "admin", "lvl": 3, "kid": "Un-bans an internet address.", "ex": []},
+"whitelist": {"cat": "admin", "lvl": 3, "kid": "Controls the list of players allowed to join a server.", "ex": []},
+"allowlist": {"cat": "admin", "lvl": 3, "kid": "Controls the list of players allowed to join a server.", "ex": []},
+"permission": {"cat": "admin", "lvl": 3, "kid": "Reloads who is allowed to do what on a dedicated server.", "ex": []},
+"stop": {"cat": "admin", "lvl": 3, "kid": "Shuts down the server.", "ex": []},
+"save": {"cat": "admin", "lvl": 3, "kid": "Controls saving the world on a server (for making backups).", "ex": []},
+"save-all": {"cat": "admin", "lvl": 3, "kid": "Saves the world right now.", "ex": []},
+"save-off": {"cat": "admin", "lvl": 3, "kid": "Turns off automatic saving.", "ex": []},
+"save-on": {"cat": "admin", "lvl": 3, "kid": "Turns automatic saving back on.", "ex": []},
+"reload": {"cat": "admin", "lvl": 3, "kid": "Reloads data packs (Java) or behavior pack functions and scripts (Bedrock) after you change them.", "ex": [["both", "/reload", "Reload packs."]]},
+"transfer": {"cat": "admin", "lvl": 3, "kid": "Sends a player to a different server.", "ex": []},
+"setidletimeout": {"cat": "admin", "lvl": 3, "kid": "Kicks players who stay still too long on a server.", "ex": []},
+"setmaxplayers": {"cat": "admin", "lvl": 3, "kid": "Sets how many players can join.", "ex": []},
+"publish": {"cat": "admin", "lvl": 3, "kid": "Opens your single-player world to others on your home network (LAN).", "ex": []},
+"unpublish": {"cat": "admin", "lvl": 3, "kid": "Closes your world to LAN players.", "ex": []},
+"changesetting": {"cat": "admin", "lvl": 3, "kid": "Changes a setting on a dedicated server while it's running.", "ex": []},
+"reloadconfig": {"cat": "admin", "lvl": 3, "kid": "Reloads a dedicated server's settings files.", "ex": []},
+"reloadpacketlimitconfig": {"cat": "admin", "lvl": 3, "kid": "Reloads a dedicated server's network limit settings.", "ex": []},
+"serveridentity": {"cat": "admin", "lvl": 3, "kid": "Manages a dedicated server's identity key.", "ex": []},
+"editor-allowlist": {"cat": "admin", "lvl": 3, "kid": "Controls who can use Bedrock Editor mode on a server.", "ex": []},
+"sendshowstoreoffer": {"cat": "admin", "lvl": 3, "kid": "Shows a Marketplace store offer to a player (used by servers).", "ex": []},
+"datapack": {"cat": "tools", "lvl": 3, "kid": "Turns data packs on or off and lists them.", "ex": [["j", "/datapack list", "See which data packs are installed."]]},
+"version": {"cat": "tools", "lvl": 2, "kid": "Tells you which version of the game is running.", "ex": [["j", "/version", "Show the game version."]]},
+"fetchprofile": {"cat": "tools", "lvl": 3, "kid": "Looks up a player's account name, ID, and skin.", "ex": [["j", "/fetchprofile entity @s", "Show your own profile, with a button to get your own head!"]]},
+"debug": {"cat": "tools", "lvl": 3, "kid": "Records how fast the game is running, for finding lag.", "ex": []},
+"jfr": {"cat": "tools", "lvl": 3, "kid": "Records detailed performance info for experts.", "ex": []},
+"perf": {"cat": "tools", "lvl": 3, "kid": "Records 10 seconds of performance info on a server.", "ex": []},
+"test": {"cat": "tools", "lvl": 3, "kid": "Runs automatic tests that game makers build to check their creations.", "ex": []},
+"gametest": {"cat": "tools", "lvl": 3, "kid": "Runs automatic tests that add-on makers build.", "ex": []},
+"script": {"cat": "tools", "lvl": 3, "kid": "Tools for debugging add-on scripts.", "ex": []},
+"wsserver": {"cat": "tools", "lvl": 3, "kid": "Connects the game to an outside coding tool (a WebSocket server).", "ex": []},
+"project": {"cat": "tools", "lvl": 3, "kid": "Manages a project in Bedrock Editor mode.", "ex": []},
+"packstack": {"cat": "tools", "lvl": 3, "kid": "Lists which resource and behavior packs are loaded.", "ex": []}
+}

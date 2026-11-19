@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slashcraft: Command Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Nunito:wght@500;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: friendly, patient, a little playful; written for a kid who has never typed a command.
+   IDEA: an adventurer's guide book for commands. Grass-and-dirt top band, pages as stone-edged cards.
+   PICTURE: a drawn command block on the grass band; command cards with chunky colour-coded code.
+   COLOUR and TYPE: grass green lead, dirt brown support, command-block orange accent; Pixelify Sans titles, Nunito body, JetBrains Mono code.
+   LAYOUT: band header with edition switch, three tabs, single readable column; command list as a wrapping grid; detail as a sheet. */
+:root{color-scheme:light dark;
+ --bg:light-dark(#fbfaf7,#141613);--card:light-dark(#ffffff,#1e221d);--ink:light-dark(#1f2a1a,#e8eee3);--soft:light-dark(#5b6656,#a9b5a2);
+ --line:light-dark(#dfe3d8,#323a2f);--grass:#5b9a2e;--grass2:#79b83f;--dirt:#7a5332;--dirt2:#5e3e24;--orange:#e07a1f;--chain:#3f9c7a;--repeat:#7a58b8;
+ --code:light-dark(#f1f3ec,#0e100d);--codeink:light-dark(#213019,#d9f3c9);--tip:light-dark(#fff6e3,#2a2416);--warn:light-dark(#fdecea,#2d1a18)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Nunito,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Pixelify Sans",Nunito,sans-serif;line-height:1.1;text-wrap:balance;margin:0}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.top{background:linear-gradient(var(--grass2) 0 14px,var(--grass) 14px 28px,var(--dirt) 28px);color:#fff;padding:40px max(5vw,16px) 0;position:relative}
+.top::after{content:"";display:block;height:16px;margin:0 calc(-1*max(5vw,16px));background:repeating-linear-gradient(90deg,var(--dirt2) 0 16px,var(--dirt) 16px 32px)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end;max-width:1100px;margin:0 auto}
+.hero h1{font-size:clamp(34px,6vw,52px);text-shadow:3px 3px 0 #0005}
+.hero p{margin:8px 0 18px;max-width:52ch;opacity:.95}
+.blockpic{width:clamp(90px,16vw,150px);height:auto;margin-bottom:-6px;filter:drop-shadow(4px 6px 0 #0004)}
+.ed{display:inline-flex;background:#0003;border-radius:12px;padding:4px;gap:4px;margin-bottom:18px;flex-wrap:wrap}
+.ed button{border:0;background:none;color:#fff;padding:10px 16px;border-radius:9px;min-height:44px;font-weight:800}
+.ed small{font-size:15px;opacity:.85}.ed button[aria-pressed=true]{background:#fff;color:var(--dirt2)}
+.tabs{display:flex;gap:6px;max-width:1100px;margin:0 auto;flex-wrap:wrap;position:relative;z-index:1;padding-bottom:0}
+.tabs a{color:#fff;text-decoration:none;font-weight:800;padding:12px 16px;border-radius:10px 10px 0 0;background:#0003;min-height:44px}
+.tabs a[aria-current=page]{background:var(--bg);color:var(--ink)}
+.tabs .gear{margin-left:auto;background:none;border:0;color:#fff;font-weight:800;padding:12px 10px}
+main{max-width:1100px;margin:0 auto;padding:28px max(5vw,16px) 60px}
+section[hidden]{display:none}
+.intro{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:20px}
+.intro h2{font-size:clamp(26px,4vw,34px)}
+.pill{border:2px solid var(--line);background:var(--card);border-radius:999px;padding:8px 16px;font-weight:700;min-height:44px}
+.lesson{background:var(--card);border:2px solid var(--line);border-radius:16px;margin:0 0 16px;overflow:hidden}
+.lesson>header{display:flex;align-items:center;gap:12px;padding:16px 18px}
+.lesson>header h3{font-size:24px;flex:1}
+.num{flex:none;width:36px;height:36px;border-radius:8px;display:grid;place-items:center;background:var(--grass);color:#fff;font-family:"Pixelify Sans";font-size:20px}
+.lesson .body{padding:0 18px 18px}
+.lesson .body>*:first-child{margin-top:0}
+.lesson.known>header{padding:10px 18px;cursor:pointer}
+.lesson.known>header h3{font-size:18px;color:var(--soft)}
+.lesson.known .num{background:var(--line);color:var(--soft)}
+.lesson.known .body{display:none}
+.lesson.known.open .body{display:block}
+.know{border:2px solid var(--grass);background:none;color:var(--grass);border-radius:10px;padding:8px 14px;font-weight:800;min-height:44px}
+.lesson.known .know{border-color:var(--line);color:var(--soft)}
+body.hideknown .lesson.known{display:none}
+.steps{padding-left:1.3em}.steps li{margin:6px 0}
+kbd{font:600 14px "JetBrains Mono",monospace;background:var(--code);border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:1px 7px;white-space:nowrap}
+.cmd{display:flex;align-items:flex-start;gap:8px;background:var(--code);border-radius:10px;padding:10px 12px;margin:8px 0;font:500 15px/1.5 "JetBrains Mono",monospace;color:var(--codeink)}
+.cmd code{flex:1;overflow-wrap:anywhere}
+.cmd .copy{flex:none;border:0;background:var(--grass);color:#fff;border-radius:8px;padding:6px 10px;font:800 13px Nunito;min-height:34px}
+.sel{color:var(--orange);font-weight:700}.pos{color:#2aa3c9}.str{color:#b5651d}
+
+.ex p{margin:2px 0 14px;color:var(--soft)}
+.tip,.warn,.blk,.remind{border-radius:12px;padding:12px 14px;margin:12px 0}
+.tip{background:var(--tip)}.warn{background:var(--warn)}
+.blk{border:2px dashed var(--orange)}.remind{border:2px solid var(--line);font-size:15px}
+body:not(.reminders) .remind{display:none}
+body.java [data-ed=b],body.bedrock [data-ed=j]{display:none}
+.tbl{width:100%;border-collapse:collapse;margin:10px 0}.tbl td,.tbl th{border-bottom:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}
+.tbl td:first-child{white-space:nowrap}
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:12px 0}
+.types div{border-radius:12px;padding:12px;color:#fff}
+.types b{font-family:"Pixelify Sans";font-size:20px;display:block}
+.search{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.search input{flex:1 1 260px;font-size:17px;padding:12px 14px;border:2px solid var(--line);border-radius:12px;background:var(--card);min-height:48px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chips button{border:2px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;min-height:40px;font-weight:700;font-size:15px}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{text-align:left;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px;border-bottom-width:5px}
+.card:hover{border-color:var(--grass)}
+.card b{font:500 18px "JetBrains Mono",monospace;color:var(--ink)}
+.card span{color:var(--soft);font-size:15px}
+.stars{font-size:13px;color:var(--orange);letter-spacing:1px}
+.catrow{grid-column:1/-1;margin:14px 0 2px;font-family:"Pixelify Sans";font-size:22px}
+.empty{color:var(--soft);padding:20px 0}
+.sheet{position:fixed;inset:0;background:#0007;display:flex;justify-content:center;align-items:flex-start;padding:4vh 12px;overflow:auto;z-index:10}
+.sheet[hidden]{display:none}
+.sheet .in{background:var(--bg);border-radius:18px;max-width:760px;width:100%;padding:22px;position:relative}
+.sheet h2{font:500 clamp(26px,5vw,36px) "JetBrains Mono",monospace}
+.close{position:absolute;top:12px;right:12px;border:0;background:var(--line);border-radius:10px;width:44px;height:44px;font-size:22px}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.badges span{font-size:13px;font-weight:800;border-radius:999px;padding:3px 10px;background:var(--line)}
+.badges .on{background:var(--grass);color:#fff}
+.lead{font-size:20px;margin:6px 0 10px}
+details.syn{margin-top:14px;border-top:2px solid var(--line);padding-top:10px}
+details.syn summary{font-weight:800;cursor:pointer;min-height:36px}
+.syn pre{background:var(--code);color:var(--codeink);padding:12px;border-radius:10px;font:14px/1.6 "JetBrains Mono",monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.set label{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line)}
+.set input{width:22px;height:22px;flex:none;margin-top:3px;accent-color:var(--grass)}
+.set small{display:block;color:var(--soft)}
+footer{max-width:1100px;margin:0 auto;padding:20px max(5vw,16px) 40px;color:var(--soft);font-size:14px;border-top:2px solid var(--line)}
+footer a{color:inherit}
+@media(max-width:600px){.hero{grid-template-columns:1fr}.chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;margin-inline:calc(-1*max(5vw,16px));padding-inline:max(5vw,16px)}.chips button{flex:none}.ed button{padding:10px 12px}.blockpic{display:none}.tabs a{padding:10px 12px;font-size:15px}.lesson>header h3{font-size:20px}.tbl td:first-child{white-space:normal}}
+@media(prefers-reduced-motion:no-preference){.card{transition:transform .12s}.card:hover{transform:translateY(-2px)}}
+</style>
+</head>
+<body class="java reminders">
+<div class="top">
+ <div class="hero">
+  <div>
+   <h1>Slashcraft</h1>
+   <p>Every Minecraft command, explained simply, plus how to make command blocks do amazing things.</p>
+   <div class="ed" role="group" aria-label="Which Minecraft?">
+    <button data-set-ed="java" aria-pressed="true">Java <small>· PC</small></button>
+    <button data-set-ed="bedrock" aria-pressed="false">Bedrock <small>· Xbox</small></button>
+   </div>
+  </div>
+  <svg class="blockpic" viewBox="0 0 120 130" aria-hidden="true">
+   <polygon points="60,6 112,32 60,58 8,32" fill="#f0a24a"/>
+   <polygon points="8,32 60,58 60,122 8,96" fill="#d0701c"/>
+   <polygon points="112,32 60,58 60,122 112,96" fill="#a8550f"/>
+   <polygon points="60,18 88,32 60,46 32,32" fill="#c8641a" opacity=".55"/>
+   <polygon points="20,52 48,66 48,96 20,82" fill="#8a4a14" opacity=".55"/>
+   <polyline points="27,66 34,77 41,73" fill="none" stroke="#ffd9a8" stroke-width="4" stroke-linejoin="miter"/>
+   <polygon points="72,66 100,52 100,82 72,96" fill="#6e3608" opacity=".45"/>
+   <polyline points="79,80 86,71 93,75" fill="none" stroke="#ffcf96" stroke-width="4"/>
+   <polygon points="60,6 112,32 106,35 60,12 14,35 8,32" fill="#fff" opacity=".3"/>
+  </svg>
+ </div>
+ <nav class="tabs">
+  <a href="#learn" data-tab="learn">Start here</a>
+  <a href="#commands" data-tab="commands">All commands</a>
+  <a href="#blocks" data-tab="blocks">Command blocks</a>
+  <button class="gear" id="openSet" aria-label="Settings">⚙ Settings</button>
+ </nav>
+</div>
+
+<main>
+<section id="learn">
+ <div class="intro">
+  <h2>Start here: your first commands</h2>
+  <button class="pill" data-know-all="learn">I already know all of this</button>
+ </div>
+ <p>Commands are like magic spells you type. Read these one at a time. When you've got one, press <b>“I know this”</b> to fold it away.</p>
+
+ <article class="lesson" data-id="cheats"><header><span class="num">1</span><h3>Turn on cheats</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>Commands only work in worlds where <b>cheats</b> are turned on. It's best to make a <b>new test world</b> just for trying commands.</p>
+  <div data-ed="j"><ol class="steps">
+   <li>Click <b>Singleplayer</b>, then <b>Create New World</b>.</li>
+   <li>Find <b>Allow Commands</b> and switch it to <b>ON</b>.</li>
+   <li>Click <b>Create New World</b>.</li></ol>
+   <div class="tip"><b>Already have a world?</b> Inside the world, press <kbd>Esc</kbd> → <b>Open to LAN</b> → set <b>Allow Commands: ON</b> → <b>Start LAN World</b>. This only lasts until you quit, so you'll need to do it each time.</div>
+  </div>
+  <div data-ed="b"><ol class="steps">
+   <li>Go to <b>Play</b> and pick a world (or make a new one).</li>
+   <li>Open the world's settings (the pencil ✏️ button next to the world).</li>
+   <li>Find the <b>Cheats</b> section and turn on <b>Activate Cheats</b>.</li>
+   <li>Press <b>Play</b>.</li></ol>
+   <div class="warn">⚠️ <b>Achievements:</b> Turning on cheats turns off achievements for that world <b>forever</b>, even if you turn cheats off later. That's why a separate test world is a great idea.</div>
+  </div>
+ </div></article>
+
+ <article class="lesson" data-id="chat"><header><span class="num">2</span><h3>Open chat and type a command</h3><button class="know">I know this ✓</button></header><div class="body">
+  <div data-ed="j"><ol class="steps">
+   <li>Press <kbd>/</kbd> (the slash key). Chat opens with the <kbd>/</kbd> already typed. (Or press <kbd>T</kbd> and type the <kbd>/</kbd> yourself.)</li>
+   <li>Type <b>time set day</b>.</li>
+   <li>Press <kbd>Enter</kbd>. It's morning!</li></ol>
+   <div class="tip"><b>Pro tricks:</b> Press <kbd>Tab</kbd> to finish a word for you. Press <kbd>↑</kbd> (up arrow) in chat to bring back your last command.</div></div>
+  <div data-ed="b"><ol class="steps">
+   <li>Press <b>right on the D-pad</b> to open chat.</li>
+   <li>Select the text box and type <b>/time set day</b> on the on-screen keyboard. Every command starts with <kbd>/</kbd>.</li>
+   <li>Press the <b>Enter / ✓</b> button on the keyboard to send it. It's morning!</li></ol>
+   <div class="tip"><b>Pro trick:</b> As you type, the game shows suggestions above the chat box. You can also plug a USB keyboard into the Xbox, which makes typing commands much faster.</div></div>
+  <div class="cmd"><code>/time set day</code></div>
+ </div></article>
+
+ <article class="lesson" data-id="parts"><header><span class="num">3</span><h3>How to read a command</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>A command is like a sentence: <b>do what</b> → <b>to who</b> → <b>with what</b> → <b>how many</b>.</p>
+  <div class="cmd"><code>/give @s diamond 5</code></div>
+  <table class="tbl"><tr><td><code>/give</code></td><td>The action: give something.</td></tr>
+  <tr><td><code class="sel">@s</code></td><td>Who gets it: <b>s</b>elf (you).</td></tr>
+  <tr><td><code>diamond</code></td><td>What to give.</td></tr>
+  <tr><td><code>5</code></td><td>How many.</td></tr></table>
+  <div class="tip"><b>Spaces matter!</b> One space between each part. Names with two words use an underscore: <code>golden_apple</code>, <code>oak_log</code>.</div>
+  <p>In this guide's <b>How it's typed</b> boxes, you'll see two kinds of brackets:</p>
+  <table class="tbl"><tr><td><code>&lt;item&gt;</code></td><td>Angle brackets: you <b>must</b> fill this in. Don't type the brackets!</td></tr>
+  <tr><td><code>[count]</code></td><td>Square brackets: you <b>can</b> skip this part.</td></tr></table>
+ </div></article>
+
+ <article class="lesson" data-id="selectors"><header><span class="num">4</span><h3>Who? The @ shortcuts</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>Instead of typing a player's name, you can use these shortcuts, called <b>target selectors</b>:</p>
+  <table class="tbl">
+   <tr><td><code class="sel">@s</code></td><td><b>Self:</b> you (whoever ran the command).</td></tr>
+   <tr><td><code class="sel">@p</code></td><td><b>Player nearby:</b> the closest player.</td></tr>
+   <tr><td><code class="sel">@a</code></td><td><b>All</b> players.</td></tr>
+   <tr><td><code class="sel">@r</code></td><td>A <b>random</b> player.</td></tr>
+   <tr><td><code class="sel">@e</code></td><td><b>Every entity:</b> all players, mobs, dropped items, arrows, boats... everything!</td></tr>
+  </table>
+  <div class="warn">⚠️ Be careful with <code class="sel">@e</code>. <code>/kill @e</code> removes every mob in loaded chunks, all your pets, and you too. Always add a filter (next lesson).</div>
+ </div></article>
+
+ <article class="lesson" data-id="filters"><header><span class="num">5</span><h3>Picking exactly who: filters in [ ]</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>Add square brackets after a selector to narrow it down. Separate filters with commas, no spaces.</p>
+  <div data-ed="j"><table class="tbl">
+   <tr><td><code><span class="sel">@e[type=cow]</span></code></td><td>Only cows.</td></tr>
+   <tr><td><code><span class="sel">@e[type=cow,distance=..10]</span></code></td><td>Cows within 10 blocks. <code>..10</code> means “up to 10”.</td></tr>
+   <tr><td><code><span class="sel">@e[type=cow,limit=1,sort=nearest]</span></code></td><td>Just the single closest cow.</td></tr>
+   <tr><td><code><span class="sel">@a[tag=hero]</span></code></td><td>Players with the tag “hero” (see /tag).</td></tr>
+   <tr><td><code><span class="sel">@a[name=Steve]</span></code></td><td>The player named Steve.</td></tr>
+   <tr><td><code><span class="sel">@e[type=!player]</span></code></td><td>Everything that is NOT a player. <code>!</code> means “not”.</td></tr>
+  </table></div>
+  <div data-ed="b"><table class="tbl">
+   <tr><td><code><span class="sel">@e[type=cow]</span></code></td><td>Only cows.</td></tr>
+   <tr><td><code><span class="sel">@e[type=cow,r=10]</span></code></td><td>Cows within 10 blocks. <b>r</b> means radius.</td></tr>
+   <tr><td><code><span class="sel">@e[type=cow,c=1]</span></code></td><td>Just the single closest cow. <b>c</b> means count.</td></tr>
+   <tr><td><code><span class="sel">@a[tag=hero]</span></code></td><td>Players with the tag “hero” (see /tag).</td></tr>
+   <tr><td><code><span class="sel">@a[name=Steve]</span></code></td><td>The player named Steve.</td></tr>
+   <tr><td><code><span class="sel">@e[type=!player]</span></code></td><td>Everything that is NOT a player. <code>!</code> means “not”.</td></tr>
+  </table></div>
+  <div class="tip"><b>Java and Bedrock spell two filters differently.</b> Java: <code>distance=..10</code> and <code>limit=1,sort=nearest</code>. Bedrock: <code>r=10</code> and <code>c=1</code>. Use the switch at the top to see each one.</div>
+ </div></article>
+
+ <article class="lesson" data-id="coords"><header><span class="num">6</span><h3>Where? Coordinates and the ~ squiggle</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>Every block has an address of three numbers: <b>x</b> (east/west), <b>y</b> (up/down), <b>z</b> (south/north).</p>
+  <div data-ed="j"><div class="tip">To see your coordinates, press <kbd>F3</kbd> and look for <b>XYZ</b> on the left. (On some laptops it's <kbd>Fn</kbd> + <kbd>F3</kbd>.)</div></div>
+  <div data-ed="b"><div class="tip">To see your coordinates, turn on <b>Show Coordinates</b> in the world settings, or type <code>/gamerule showcoordinates true</code>.</div></div>
+  <table class="tbl">
+   <tr><td><code>100 64 -20</code></td><td><b>Exact spot:</b> always the same place in the world.</td></tr>
+   <tr><td><code class="pos">~ ~ ~</code></td><td><b>Right here:</b> where the command is running from (you, or the command block).</td></tr>
+   <tr><td><code class="pos">~ ~5 ~</code></td><td><b>5 blocks above here.</b> The number after ~ means “this many more”.</td></tr>
+   <tr><td><code class="pos">~3 ~ ~-2</code></td><td>3 blocks east and 2 blocks north. A minus sign goes the other way.</td></tr>
+   <tr><td><code class="pos">^ ^ ^5</code></td><td><b>Caret ^:</b> 5 blocks in front of where you're <b>looking</b>. The three ^ spots are left, up, forward.</td></tr>
+  </table>
+  <div class="cmd"><code>/tp @s ^ ^ ^10</code></div><p>Zap 10 blocks forward, whichever way you're facing.</p>
+ </div></article>
+
+ <article class="lesson" data-id="errors"><header><span class="num">7</span><h3>When it doesn't work</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>Red text means the game didn't understand. Check these:</p>
+  <ul class="steps"><li>Did you spell everything right? Item names use underscores: <code>iron_sword</code>.</li>
+   <li>Is there exactly one space between each part?</li>
+   <li>Are cheats on? (Lesson 1)</li>
+   <li>Are you using the <b>Java</b> way in <b>Bedrock</b>, or the other way around? Some commands are typed differently. Check the switch at the top.</li>
+   <li>Is there an extra or missing <code>]</code>, <code>}</code> or <code>"</code>?</li></ul>
+  <div class="warn">⚠️ <b>There is no undo button for commands.</b> A big <code>/fill</code> or <code>/kill</code> can't be taken back. Try new ideas in a test world first!</div>
+ </div></article>
+
+ <article class="lesson" data-id="diff"><header><span class="num">8</span><h3>Java vs Bedrock: what's different</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>Most commands are the same on both, but some are typed differently. Here are the big ones:</p>
+  <table class="tbl"><tr><th>Doing this</th><th>Java (PC)</th><th>Bedrock (Xbox)</th></tr>
+   <tr><td>Give an effect</td><td><code>/effect give @s speed</code></td><td><code>/effect @s speed</code></td></tr>
+   <tr><td>Closest one</td><td><code>limit=1,sort=nearest</code></td><td><code>c=1</code></td></tr>
+   <tr><td>Within 10 blocks</td><td><code>distance=..10</code></td><td><code>r=10</code></td></tr>
+   <tr><td>Add 5 levels</td><td><code>/xp add @s 5 levels</code></td><td><code>/xp 5L @s</code></td></tr>
+   <tr><td>Keep items on death</td><td><code>keep_inventory</code></td><td><code>keepinventory</code></td></tr>
+   <tr><td>Sound names</td><td><code>entity.player.levelup</code></td><td><code>random.levelup</code></td></tr>
+  </table>
+  <p>Every command page in this guide shows the right way for the edition you picked at the top.</p>
+ </div></article>
+</section>
+
+<section id="commands" hidden>
+ <div class="intro"><h2 id="cmdTitle">All commands</h2></div>
+ <div class="search"><input id="q" type="search" placeholder="Search: teleport, sword, rain, fly..." aria-label="Search commands"></div>
+ <div class="chips" id="cats"></div>
+ <div class="grid" id="list"></div>
+</section>
+
+<section id="blocks" hidden>
+ <div class="intro">
+  <h2>Command blocks</h2>
+  <button class="pill" data-know-all="blocks">I already know the basics</button>
+ </div>
+ <p>A command block is a block that runs a command for you, whenever it gets a redstone signal or all the time. With them you can build traps, shops, teleporters, mini-games, and more.</p>
+
+ <article class="lesson" data-id="cb-get"><header><span class="num">1</span><h3>Get a command block</h3><button class="know">I know this ✓</button></header><div class="body">
+  <ol class="steps"><li>Switch to Creative: <code>/gamemode creative</code></li>
+   <li>Give yourself one: <div class="cmd"><code>/give @s command_block</code></div></li>
+   <li>Place it like any block.</li></ol>
+  <div data-ed="j"><div class="tip">On a server, the server owner must set <code>enable-command-block=true</code>. In your own world with cheats on, they just work.</div></div>
+  <div data-ed="b"><div class="tip">Command blocks need <b>Command Blocks Enabled</b> turned on in the world's Cheats settings. It's usually on already.</div></div>
+ </div></article>
+
+ <article class="lesson" data-id="cb-open"><header><span class="num">2</span><h3>Open it and type inside</h3><button class="know">I know this ✓</button></header><div class="body">
+  <div data-ed="j"><ol class="steps"><li>Look at the block and <b>right-click</b> it.</li>
+   <li>Type your command in the <b>Console Command</b> box. The slash is optional here.</li>
+   <li>Set the three buttons (next lessons explain them).</li>
+   <li>Click <b>Done</b>. If you press Esc instead, your command is <b>not saved</b>!</li></ol></div>
+  <div data-ed="b"><ol class="steps"><li>Look at the block and press <b>LT</b> (left trigger, the same button you use to place blocks).</li>
+   <li>Type your command in the <b>Command Input</b> box. The slash is optional here.</li>
+   <li>Pick the <b>Block Type</b>, <b>Condition</b> and <b>Redstone</b> settings on the left (next lessons explain them).</li>
+   <li>Press <b>B</b> to close. It saves automatically.</li></ol></div>
+  <div class="tip">You can only open command blocks in <b>Creative</b> mode.</div>
+ </div></article>
+
+ <article class="lesson" data-id="cb-power"><header><span class="num">3</span><h3>Turning it on: Needs Redstone or Always Active</h3><button class="know">I know this ✓</button></header><div class="body">
+  <table class="tbl"><tr><td><b>Needs Redstone</b></td><td>Waits for a signal. Put a <b>button</b>, <b>lever</b>, or <b>pressure plate</b> right on it or next to it.</td></tr>
+   <tr><td><b>Always Active</b></td><td>Turned on by itself. No redstone needed.</td></tr></table>
+  <p><b>Try it:</b> set a command block to <code>/time set night</code>, Needs Redstone. Put a button on it and press it. Spooky!</p>
+ </div></article>
+
+ <article class="lesson" data-id="cb-types"><header><span class="num">4</span><h3>The three colors</h3><button class="know">I know this ✓</button></header><div class="body">
+  <div class="types">
+   <div style="background:var(--orange)"><b>Impulse (orange)</b>Runs <b>once</b> each time it gets turned on. Best for buttons.</div>
+   <div style="background:var(--chain)"><b>Chain (green)</b>Runs <b>right after</b> the block pointing into it runs. Used to do several things in a row.</div>
+   <div style="background:var(--repeat)"><b>Repeat (purple)</b>Runs <b>20 times every second</b> while it's on. Best for things that always check, like a speed pad.</div>
+  </div>
+  <div data-ed="j"><p>To change the type, click the button that says <b>Impulse</b> until it says the one you want.</p></div>
+  <div data-ed="b"><p>To change the type, use the <b>Block Type</b> dropdown.</p>
+   <div class="tip"><b>Bedrock bonus:</b> <b>Delay in Ticks</b> waits before running. 20 ticks = 1 second.</div></div>
+  <div class="warn">⚠️ A Repeat block that gives items or summons mobs will do it 20 times a second. That's 1,200 creepers a minute! Use Repeat for <i>checking</i>, and Impulse for <i>giving</i>.</div>
+ </div></article>
+
+ <article class="lesson" data-id="cb-chain"><header><span class="num">5</span><h3>Chains: doing several things in a row</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>Look closely at the sides of a command block: there's an <b>arrow pattern</b>. It shows which way the block “points”.</p>
+  <ol class="steps"><li>Place an <b>Impulse</b> block with a button on it.</li>
+   <li>Place a <b>Chain</b> block right where the first block's arrow points.</li>
+   <li>Set the chain block to <b>Always Active</b>. (Chain blocks almost always should be.)</li>
+   <li>Keep adding chain blocks in a line, each one where the last one points.</li></ol>
+  <p>Now one button press runs the whole line, in order, super fast.</p>
+  <div class="tip">If a chain doesn't run, the arrow is probably pointing the wrong way. Break the block and place it again while facing a different direction.</div>
+ </div></article>
+
+ <article class="lesson" data-id="cb-cond"><header><span class="num">6</span><h3>Conditional: only if the last one worked</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>A <b>Conditional</b> block only runs if the block pointing into it <b>succeeded</b>. <b>Unconditional</b> (the normal setting) always runs.</p>
+  <p><b>Example: a shop.</b> Pay 1 gold, get a sword.</p>
+  <p>Block 1: Impulse, Needs Redstone, with a button. It takes 1 gold ingot, but fails if you don't have any:</p>
+  <div data-ed="j" class="cmd"><code>clear @p gold_ingot 1</code></div>
+  <div data-ed="b" class="cmd"><code>clear @p gold_ingot 0 1</code></div>
+  <p>Block 2: Chain, <b>Conditional</b>, Always Active. Only runs if block 1 took the gold:</p>
+  <div class="cmd"><code>give @p iron_sword</code></div>
+  <p>No gold? No sword!</p>
+ </div></article>
+
+ <article class="lesson" data-id="cb-who"><header><span class="num">7</span><h3>Who is “me” when a block runs it?</h3><button class="know">I know this ✓</button></header><div class="body">
+  <ul class="steps"><li><code class="sel">@p</code> means the player <b>closest to the block</b>. That's usually the person who pressed the button.</li>
+   <li><code class="pos">~ ~ ~</code> means the <b>block's</b> spot, not yours. <code>~ ~1 ~</code> is the space right on top of the block.</li>
+   <li><code class="sel">@s</code> doesn't work by itself in a command block, because a block isn't a player. Use <code class="sel">@p</code>, or use <code>/execute as</code> (next lesson).</li></ul>
+ </div></article>
+
+ <article class="lesson" data-id="cb-execute"><header><span class="num">8</span><h3>Commands inside commands: /execute</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p><code>/execute</code> wraps around another command, like a sentence with extra parts. Let's build one, piece by piece.</p>
+  <p><b>Step 1.</b> A plain command. The block says hi:</p>
+  <div class="cmd"><code>say hi</code></div>
+  <p><b>Step 2.</b> Add <b>as</b> = <i>who</i> does it. Now every player says hi. <code>run</code> always comes right before the inside command:</p>
+  <div class="cmd"><code>execute as @a run say hi</code></div>
+  <p><b>Step 3.</b> Add <b>at</b> = <i>where</i>. <code>at @s</code> means “at that player's spot”. Inside execute, <code>@s</code> means <b>the player we're doing it for right now</b>. Now a chicken appears above every player:</p>
+  <div class="cmd"><code>execute as @a at @s run summon chicken ~ ~3 ~</code></div>
+  <p><b>Step 4.</b> Add <b>if</b> = <i>only when</i>. Now it only happens to players standing on a gold block:</p>
+  <div class="cmd"><code>execute as @a at @s if block ~ ~-1 ~ gold_block run summon chicken ~ ~3 ~</code></div>
+  <table class="tbl"><tr><td><code>as …</code></td><td><b>Who</b> runs it (changes what @s means).</td></tr>
+   <tr><td><code>at …</code></td><td><b>Where</b> it happens (changes what ~ ~ ~ means).</td></tr>
+   <tr><td><code>if …</code> / <code>unless …</code></td><td><b>Only when</b> something is true / not true.</td></tr>
+   <tr><td><code>run …</code></td><td><b>Do this.</b> Always last.</td></tr></table>
+  <div class="tip">Read it out loud: “Execute <b>as</b> all players, <b>at</b> themselves, <b>if</b> the block below is gold, <b>run</b> summon chicken.”</div>
+ </div></article>
+
+ <article class="lesson" data-id="cb-quiet"><header><span class="num">9</span><h3>Stop the chat spam</h3><button class="know">I know this ✓</button></header><div class="body">
+  <p>Command blocks post a message in chat every time they run. A Repeat block fills chat super fast. Turn it off:</p>
+  <div data-ed="j" class="cmd"><code>/gamerule command_block_output false</code></div>
+  <div data-ed="b" class="cmd"><code>/gamerule commandblockoutput false</code></div>
+ </div></article>
+
+ <h2 style="margin:34px 0 8px;font-size:30px">Projects to build</h2>
+ <p>Each one tells you exactly what to set. These stay visible even when you hide the lessons.</p>
+ <div id="projects"></div>
+</section>
+</main>
+
+<footer id="foot"></footer>
+
+<div class="sheet" id="sheet" hidden><div class="in" role="dialog" aria-modal="true" aria-labelledby="dTitle"><button class="close" id="closeSheet" aria-label="Close">×</button><div id="detail"></div></div></div>
+
+<div class="sheet" id="setSheet" hidden><div class="in set" role="dialog" aria-modal="true" aria-labelledby="sTitle"><button class="close" data-close aria-label="Close">×</button>
+ <h2 id="sTitle" style="font-family:'Pixelify Sans';margin-bottom:10px">Settings</h2>
+ <label><input type="checkbox" id="sHide"><span><b>Hide lessons I know</b><small>Lessons marked “I know this” disappear completely instead of folding into a small line.</small></span></label>
+ <label><input type="checkbox" id="sRemind"><span><b>Show beginner reminders</b><small>The “how to type it” help box on every command page.</small></span></label>
+ <label><input type="checkbox" id="sExpert"><span><b>Show expert &amp; server commands</b><small>Commands for running servers, add-on makers, and data packs.</small></span></label>
+ <label><input type="checkbox" id="sSyntax"><span><b>Open “How it's typed” automatically</b><small>Shows the full official command patterns on every command page.</small></span></label>
+ <p><button class="pill" id="resetKnown">Show all lessons again</button></p>
+</div></div>
+
+<script>
+let DATA,CONTENT;
+const PROJECTS=[
+ {t:"Prize button",steps:[{type:"Impulse",power:"Needs Redstone",cmd:{both:"give @p diamond 1"}}],how:"Put a stone button on the side of the block. Press it for a diamond!"},
+ {t:"Welcome mat",steps:[{type:"Impulse",power:"Needs Redstone",cmd:{j:'title @p title "Welcome!"',b:"title @p title Welcome!"}}],how:"Put a pressure plate right on top of the command block. Anyone who steps on it sees a giant Welcome!"},
+ {t:"Teleporter pad",steps:[{type:"Impulse",power:"Needs Redstone",cmd:{both:"tp @p 100 70 200"}}],how:"Stand where you want to arrive and write down your coordinates. Put those three numbers in place of 100 70 200. Then put a pressure plate on top of the block."},
+ {t:"Speed pad",steps:[{type:"Repeat",power:"Always Active",cmd:{j:"execute as @a at @s if block ~ ~-1 ~ gold_block run effect give @s speed 2 3 true",b:"execute as @a at @s if block ~ ~-1 ~ gold_block run effect @s speed 2 3 true"}}],how:"Place the block anywhere (hide it underground). Then make a path of gold blocks. Anyone who walks on gold gets super speed!"},
+ {t:"Point button with sound",pre:"First, set up the score once in chat:",precmd:["/scoreboard objectives add points dummy Points","/scoreboard objectives setdisplay sidebar points"],steps:[
+   {type:"Impulse",power:"Needs Redstone",cmd:{both:"scoreboard players add @p points 1"}},
+   {type:"Chain",power:"Always Active",cmd:{j:"playsound minecraft:entity.experience_orb.pickup master @p",b:"playsound random.orb @p"}},
+   {type:"Chain",power:"Always Active",cmd:{j:'title @p actionbar "+1 point!"',b:"title @p actionbar +1 point!"}}],how:"Line up the three blocks so each one points into the next, and put a button on the first. Every press: +1 point, a ding, and a message."},
+ {t:"Gold-for-sword shop",steps:[
+   {type:"Impulse",power:"Needs Redstone",cmd:{j:"clear @p gold_ingot 1",b:"clear @p gold_ingot 0 1"}},
+   {type:"Chain",power:"Always Active",cond:true,cmd:{both:"give @p iron_sword"}}],how:"Button on the first block. The second block is Conditional, so the sword only comes if the gold was taken."}
+];
+Promise.all(['data/commands-data.json','data/content.json'].map(u=>fetch(u).then(r=>{if(!r.ok)throw new Error(u);return r.json()}))).then(([d,c])=>{DATA=d;CONTENT=c;
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const store={get(){try{return JSON.parse(localStorage.getItem('mccmd')||'{}')}catch(e){return{}}},set(v){try{localStorage.setItem('mccmd',JSON.stringify(v))}catch(e){}}};
+const S=Object.assign({ed:'java',known:{},hide:false,remind:true,expert:false,syntax:false,cat:'all'},store.get());
+const save=()=>store.set(S);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const hl=s=>esc(s).replace(/(&quot;.*?&quot;)/g,'<span class="str">$1</span>').replace(/(@[aeprs]|@initiator)(\[[^\]\s]*\])?/g,'<span class="sel">$&</span>').replace(/(^|\s)([~^][-\d.]*)(?=\s|$)/g,'$1<span class="pos">$2</span>');
+const cmdBox=c=>`<div class="cmd"><code>${hl(c)}</code><button class="copy" data-copy="${esc(c)}">Copy</button></div>`;
+const edKey=()=>S.ed==='java'?'j':'b';
+const edName=e=>e==='java'?'Java':'Bedrock';
+const cats=CONTENT._categories;
+const all=Object.keys(CONTENT).filter(k=>k[0]!=='_');
+
+function inEd(name,ed){return !!DATA[ed].commands[name]}
+function typed(name,ed){const d=DATA[ed].commands[name];return d?d.typed:name}
+
+function applyEd(){
+ document.body.classList.toggle('java',S.ed==='java');document.body.classList.toggle('bedrock',S.ed==='bedrock');
+ $$('[data-set-ed]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.setEd===S.ed));
+ renderList();renderProjects();
+ if(!$('#sheet').hidden&&openName)openCmd(openName);
+}
+function applySettings(){
+ document.body.classList.toggle('hideknown',S.hide);document.body.classList.toggle('reminders',S.remind);
+ $('#sHide').checked=S.hide;$('#sRemind').checked=S.remind;$('#sExpert').checked=S.expert;$('#sSyntax').checked=S.syntax;
+ $$('.lesson[data-id]').forEach(l=>{const k=!!S.known[l.dataset.id];l.classList.toggle('known',k);l.querySelector('.know').textContent=k?'Show again':'I know this ✓'});
+}
+
+function renderList(){
+ const q=$('#q').value.trim().toLowerCase();
+ const ed=S.ed;
+ $('#cmdTitle').textContent=`All ${edName(ed)} commands`;
+ let names=all.filter(n=>inEd(n,ed));
+ const counts={};names.forEach(n=>{if(S.expert||CONTENT[n].lvl<3){const c=CONTENT[n].cat;counts[c]=(counts[c]||0)+1}});
+ $('#cats').innerHTML=[`<button data-cat="all" aria-pressed="${S.cat==='all'}">Everything</button>`].concat(Object.entries(cats).filter(([k])=>counts[k]).map(([k,c])=>`<button data-cat="${k}" aria-pressed="${S.cat===k}">${c.icon} ${c.name}</button>`)).join('');
+ if(!S.expert)names=names.filter(n=>CONTENT[n].lvl<3||(q&&n.includes(q)));
+ if(S.cat!=='all'&&!q)names=names.filter(n=>CONTENT[n].cat===S.cat);
+ if(q)names=names.filter(n=>{const c=CONTENT[n];const d=DATA[ed].commands[n];return (n+' '+d.typed+' '+(d.aliases||[]).join(' ')+' '+c.kid+' '+c.ex.map(e=>e[1]+' '+e[2]).join(' ')+' '+(d.official||'')).toLowerCase().includes(q)});
+ names.sort((a,b)=>CONTENT[a].lvl-CONTENT[b].lvl||a.localeCompare(b));
+ const card=n=>`<button class="card" data-cmd="${n}"><b>/${esc(typed(n,ed))}</b><span class="stars">${'★'.repeat(CONTENT[n].lvl)}${'☆'.repeat(3-CONTENT[n].lvl)}</span><span>${esc(CONTENT[n].kid)}</span></button>`;
+ let html='';
+ if(S.cat==='all'&&!q){for(const k of Object.keys(cats)){const g=names.filter(n=>CONTENT[n].cat===k);if(g.length)html+=`<div class="catrow">${cats[k].icon} ${cats[k].name}</div>`+g.map(card).join('')}}
+ else html=names.map(card).join('');
+ if(q){const other=S.ed==='java'?'bedrock':'java';const o=all.filter(n=>!inEd(n,ed)&&inEd(n,other)&&(n.includes(q)||CONTENT[n].kid.toLowerCase().includes(q)));
+  if(o.length)html+=`<p class="empty" style="grid-column:1/-1">Only on ${edName(other)}: ${o.map(n=>`<a href="#cmd-${n}">/${n}</a>`).join(', ')}</p>`}
+ $('#list').innerHTML=html||`<p class="empty">No commands match “${esc(q)}”. Try a simpler word, like “sword” or “fly”.</p>`;
+}
+
+let openName=null;
+function openCmd(n){
+ const c=CONTENT[n];if(!c)return;openName=n;
+ const ed=S.ed,other=ed==='java'?'bedrock':'java';
+ const d=DATA[ed].commands[n],od=DATA[other].commands[n];
+ const k=edKey();
+ let h=`<h2 id="dTitle">/${esc(d?d.typed:typed(n,other))}</h2><div class="badges"><span class="${DATA.java.commands[n]?'on':''}">${DATA.java.commands[n]?'✓':'✗'} Java</span><span class="${DATA.bedrock.commands[n]?'on':''}">${DATA.bedrock.commands[n]?'✓':'✗'} Bedrock</span><span>${['','★ Starter','★★ Builder','★★★ Expert'][c.lvl]}</span><span>${cats[c.cat].icon} ${cats[c.cat].name}</span></div>`;
+ h+=`<p class="lead">${esc(c.kid)}</p>`;
+ if(!d){h+=`<div class="warn">This command is <b>only in ${edName(other)}</b>. It won't work in ${edName(ed)}. Switch editions at the top to see how to use it.</div>`}
+ const al=d&&d.aliases&&d.aliases.length?d.aliases:[];
+ if(al.length)h+=`<p>Also works as: ${al.map(a=>'<code>/'+esc(a)+'</code>').join(', ')}</p>`;
+ if(d){
+  const ex=c.ex.filter(e=>e[0]==='both'||e[0]===k);
+  if(ex.length)h+=`<h3 style="margin:16px 0 4px">Try it</h3>`+ex.map(e=>`<div class="ex">${cmdBox(e[1])}<p>${esc(e[2])}</p></div>`).join('');
+  h+=`<div class="remind">👋 <b>How to use it:</b> ${ed==='java'?'Press <kbd>/</kbd> to open chat':'Press <b>right on the D-pad</b> to open chat'}, type the command, and press Enter. Commands need cheats turned on. In “How it's typed” below, fill in the &lt;angle brackets&gt;; [square brackets] are optional.</div>`;
+  if(c.tip)h+=`<div class="tip">💡 ${esc(c.tip)}</div>`;
+  if(c.block)h+=`<div class="blk">🟧 <b>In a command block:</b> ${esc(c.block)}</div>`;
+  h+=`<details class="syn"${S.syntax?' open':''}><summary>How it's typed (official, ${edName(ed)} ${esc(DATA[ed].version)})</summary>${d.official?`<p>Mojang's description: “${esc(d.official)}”</p>`:''}<pre>${d.syntax.map(esc).join('\n')}</pre><p style="font-size:14px;color:var(--soft)">A “…” means more parts can follow; the examples above show complete commands.</p></details>`;
+ }
+ if(d&&!od)h+=`<p style="color:var(--soft);font-size:15px">This one is only in ${edName(ed)}.</p>`;
+ $('#detail').innerHTML=h;$('#sheet').hidden=false;$('#closeSheet').focus();
+ if(location.hash!=='#cmd-'+n)history.replaceState(null,'','#cmd-'+n);
+}
+function closeCmd(){$('#sheet').hidden=true;openName=null;if(location.hash.startsWith('#cmd-'))history.replaceState(null,'','#commands')}
+
+function renderProjects(){
+ const k=edKey();const col={Impulse:'var(--orange)',Chain:'var(--chain)',Repeat:'var(--repeat)'};
+ $('#projects').innerHTML=PROJECTS.map((p,i)=>`<article class="lesson"><header><span class="num" style="background:var(--orange)">★</span><h3>${esc(p.t)}</h3></header><div class="body">${p.pre?`<p>${esc(p.pre)}</p>`+p.precmd.map(cmdBox).join(''):''}${p.steps.map((s,j)=>`<p style="margin:12px 0 0"><b>Block ${j+1}:</b> <span style="background:${col[s.type]};color:#fff;border-radius:6px;padding:1px 8px;font-weight:800">${s.type}</span> · ${s.cond?'<b>Conditional</b>':'Unconditional'} · ${s.power}</p>${cmdBox(s.cmd.both||s.cmd[k])}`).join('')}<p>${esc(p.how)}</p></div></article>`).join('');
+}
+
+function route(){
+ const h=location.hash.slice(1);
+ if(h.startsWith('cmd-')){showTab('commands');openCmd(h.slice(4));return}
+ if(!$('#sheet').hidden)$('#sheet').hidden=true;
+ showTab(['learn','commands','blocks'].includes(h)?h:(S.tab||'learn'));
+}
+function showTab(t){S.tab=t;save();$$('main>section').forEach(s=>s.hidden=s.id!==t);$$('.tabs a').forEach(a=>a.setAttribute('aria-current',a.dataset.tab===t?'page':'false'))}
+
+document.addEventListener('click',e=>{
+ const t=e.target.closest('button,a,header');if(!t)return;
+ if(t.dataset.setEd){S.ed=t.dataset.setEd;save();applyEd();return}
+ if(t.dataset.cat){S.cat=t.dataset.cat;$('#q').value='';save();renderList();return}
+ if(t.dataset.cmd){openCmd(t.dataset.cmd);return}
+ if(t.dataset.copy!==undefined){navigator.clipboard?.writeText(t.dataset.copy).then(()=>{t.textContent='Copied!';setTimeout(()=>t.textContent='Copy',1200)}).catch(()=>{t.textContent='Select & copy'});return}
+ if(t.classList.contains('know')){e.stopPropagation();const l=t.closest('.lesson');const id=l.dataset.id;if(S.known[id])delete S.known[id];else S.known[id]=1;l.classList.remove('open');save();applySettings();return}
+ if(t.dataset.knowAll){$$('#'+t.dataset.knowAll+' .lesson[data-id]').forEach(l=>S.known[l.dataset.id]=1);save();applySettings();return}
+ if(t.tagName==='HEADER'){const l=t.closest('.lesson.known');if(l)l.classList.toggle('open');return}
+ if(t.id==='closeSheet'){closeCmd();return}
+ if(t.id==='openSet'){$('#setSheet').hidden=false;return}
+ if(t.hasAttribute('data-close')){$('#setSheet').hidden=true;return}
+ if(t.id==='resetKnown'){S.known={};save();applySettings();return}
+});
+$('#sheet').addEventListener('click',e=>{if(e.target.id==='sheet')closeCmd()});
+$('#setSheet').addEventListener('click',e=>{if(e.target.id==='setSheet')$('#setSheet').hidden=true});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('#sheet').hidden)closeCmd();$('#setSheet').hidden=true}});
+[['sHide','hide'],['sRemind','remind'],['sExpert','expert'],['sSyntax','syntax']].forEach(([id,k])=>$('#'+id).addEventListener('change',e=>{S[k]=e.target.checked;save();applySettings();renderList()}));
+$('#q').addEventListener('input',renderList);
+window.addEventListener('hashchange',route);
+$('#foot').innerHTML=`Command lists come straight from Mojang's own game files: <b>Java ${esc(DATA.java.version)}</b> (the game's data generator, via <a href="https://github.com/misode/mcmeta">misode/mcmeta</a>) and <b>Bedrock ${esc(DATA.bedrock.version)}</b> (<a href="https://github.com/Mojang/bedrock-samples">Mojang/bedrock-samples</a>). Last updated ${esc(DATA.built)}. Not an official Minecraft product. <a href="https://github.com/trentboeschen/slashcraft">Source on GitHub</a>.`;
+applySettings();applyEd();route();
+}).catch(e=>{document.querySelector('main').insertAdjacentHTML('afterbegin','<p class="warn">The command list could not load. Try refreshing the page.</p>')});
+</script>
+</body>
+</html>

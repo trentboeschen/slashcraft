@@ -1,0 +1,2016 @@
+{
+ "built": "2026-11-19",
+ "java": {
+  "version": "26.3",
+  "commands": {
+   "advancement": {
+    "typed": "advancement",
+    "level": 2,
+    "syntax": [
+     "/advancement grant <targets> everything",
+     "/advancement grant <targets> from <advancement>",
+     "/advancement grant <targets> only <advancement> [<criterion>]",
+     "/advancement grant <targets> through <advancement>",
+     "/advancement grant <targets> until <advancement>",
+     "/advancement revoke <targets> everything",
+     "/advancement revoke <targets> from <advancement>",
+     "/advancement revoke <targets> only <advancement> [<criterion>]",
+     "/advancement revoke <targets> through <advancement>",
+     "/advancement revoke <targets> until <advancement>"
+    ]
+   },
+   "attribute": {
+    "typed": "attribute",
+    "level": 2,
+    "syntax": [
+     "/attribute <target> <attribute> base get [<scale>]",
+     "/attribute <target> <attribute> base reset",
+     "/attribute <target> <attribute> base set <value>",
+     "/attribute <target> <attribute> get [<scale>]",
+     "/attribute <target> <attribute> modifier add <id> <value> add_multiplied_base",
+     "/attribute <target> <attribute> modifier add <id> <value> add_multiplied_total",
+     "/attribute <target> <attribute> modifier add <id> <value> add_value",
+     "/attribute <target> <attribute> modifier remove <id>",
+     "/attribute <target> <attribute> modifier value get <id> [<scale>]"
+    ]
+   },
+   "ban": {
+    "typed": "ban",
+    "level": 3,
+    "syntax": [
+     "/ban <targets> [<reason>]"
+    ]
+   },
+   "ban-ip": {
+    "typed": "ban-ip",
+    "level": 3,
+    "syntax": [
+     "/ban-ip <target> [<reason>]"
+    ]
+   },
+   "banlist": {
+    "typed": "banlist",
+    "level": 3,
+    "syntax": [
+     "/banlist",
+     "/banlist ips",
+     "/banlist players"
+    ]
+   },
+   "bossbar": {
+    "typed": "bossbar",
+    "level": 2,
+    "syntax": [
+     "/bossbar add <id> \u2026",
+     "/bossbar get <id> \u2026",
+     "/bossbar list",
+     "/bossbar remove <id>",
+     "/bossbar set <id> \u2026"
+    ]
+   },
+   "clear": {
+    "typed": "clear",
+    "level": 2,
+    "syntax": [
+     "/clear [<targets> [<item> [<maxCount>]]]"
+    ]
+   },
+   "clone": {
+    "typed": "clone",
+    "level": 2,
+    "syntax": [
+     "/clone <begin> <end> \u2026",
+     "/clone from <sourceDimension> \u2026"
+    ]
+   },
+   "compute": {
+    "typed": "compute",
+    "level": 2,
+    "syntax": [
+     "/compute block <computePos> float <provider> [<scale>]",
+     "/compute block <computePos> integer <provider>",
+     "/compute default float <provider> [<scale>]",
+     "/compute default integer <provider>",
+     "/compute entity <computeTarget> float <provider> [<scale>]",
+     "/compute entity <computeTarget> integer <provider>"
+    ]
+   },
+   "damage": {
+    "typed": "damage",
+    "level": 2,
+    "syntax": [
+     "/damage <target> <amount>",
+     "/damage <target> <amount> <damageType>",
+     "/damage <target> <amount> <damageType> at <location>",
+     "/damage <target> <amount> <damageType> by <entity> [from <cause>]"
+    ]
+   },
+   "data": {
+    "typed": "data",
+    "level": 2,
+    "syntax": [
+     "/data get block \u2026",
+     "/data get entity \u2026",
+     "/data get storage \u2026",
+     "/data merge block \u2026",
+     "/data merge entity \u2026",
+     "/data merge storage \u2026",
+     "/data modify block \u2026",
+     "/data modify entity \u2026",
+     "/data modify storage \u2026",
+     "/data remove block \u2026",
+     "/data remove entity \u2026",
+     "/data remove storage \u2026"
+    ]
+   },
+   "datapack": {
+    "typed": "datapack",
+    "level": 2,
+    "syntax": [
+     "/datapack create <id> <description>",
+     "/datapack disable <name>",
+     "/datapack enable <name>",
+     "/datapack enable <name> after <existing>",
+     "/datapack enable <name> before <existing>",
+     "/datapack enable <name> first",
+     "/datapack enable <name> last",
+     "/datapack list",
+     "/datapack list available",
+     "/datapack list enabled"
+    ]
+   },
+   "debug": {
+    "typed": "debug",
+    "level": 3,
+    "syntax": [
+     "/debug function <name>",
+     "/debug start",
+     "/debug stop"
+    ]
+   },
+   "defaultgamemode": {
+    "typed": "defaultgamemode",
+    "level": 2,
+    "syntax": [
+     "/defaultgamemode <gamemode>"
+    ]
+   },
+   "deop": {
+    "typed": "deop",
+    "level": 3,
+    "syntax": [
+     "/deop <targets>"
+    ]
+   },
+   "dialog": {
+    "typed": "dialog",
+    "level": 2,
+    "syntax": [
+     "/dialog clear <targets>",
+     "/dialog show <targets> <dialog>"
+    ]
+   },
+   "difficulty": {
+    "typed": "difficulty",
+    "level": 2,
+    "syntax": [
+     "/difficulty",
+     "/difficulty easy",
+     "/difficulty hard",
+     "/difficulty normal",
+     "/difficulty peaceful"
+    ]
+   },
+   "effect": {
+    "typed": "effect",
+    "level": 2,
+    "syntax": [
+     "/effect clear [<targets> [<effect>]]",
+     "/effect give <targets> <effect>",
+     "/effect give <targets> <effect> <seconds> [<amplifier> [<hideParticles>]]",
+     "/effect give <targets> <effect> infinite [<amplifier> [<hideParticles>]]"
+    ]
+   },
+   "enchant": {
+    "typed": "enchant",
+    "level": 2,
+    "syntax": [
+     "/enchant <targets> <enchantment> [<level>]"
+    ]
+   },
+   "execute": {
+    "typed": "execute",
+    "level": 2,
+    "syntax": [
+     "/execute align \u2026",
+     "/execute anchored \u2026",
+     "/execute as \u2026",
+     "/execute at \u2026",
+     "/execute facing \u2026",
+     "/execute if \u2026",
+     "/execute in \u2026",
+     "/execute on \u2026",
+     "/execute positioned \u2026",
+     "/execute rotated \u2026",
+     "/execute store \u2026",
+     "/execute summon \u2026",
+     "/execute unless \u2026"
+    ]
+   },
+   "xp": {
+    "typed": "experience",
+    "level": 2,
+    "syntax": [
+     "/experience add <target> <amount>",
+     "/experience add <target> <amount> levels",
+     "/experience add <target> <amount> points",
+     "/experience query <target> levels",
+     "/experience query <target> points",
+     "/experience set <target> <amount>",
+     "/experience set <target> <amount> levels",
+     "/experience set <target> <amount> points"
+    ],
+    "aliases": [
+     "xp"
+    ]
+   },
+   "fetchprofile": {
+    "typed": "fetchprofile",
+    "level": 2,
+    "syntax": [
+     "/fetchprofile entity <entity>",
+     "/fetchprofile id <id>",
+     "/fetchprofile name <name>"
+    ]
+   },
+   "fill": {
+    "typed": "fill",
+    "level": 2,
+    "syntax": [
+     "/fill <from> <to> <block>",
+     "/fill <from> <to> <block> destroy",
+     "/fill <from> <to> <block> hollow",
+     "/fill <from> <to> <block> keep",
+     "/fill <from> <to> <block> outline",
+     "/fill <from> <to> <block> replace",
+     "/fill <from> <to> <block> replace <filter>",
+     "/fill <from> <to> <block> replace <filter> destroy",
+     "/fill <from> <to> <block> replace <filter> hollow",
+     "/fill <from> <to> <block> replace <filter> outline",
+     "/fill <from> <to> <block> replace <filter> strict",
+     "/fill <from> <to> <block> strict"
+    ]
+   },
+   "fillbiome": {
+    "typed": "fillbiome",
+    "level": 2,
+    "syntax": [
+     "/fillbiome <from> <to> <biome> [replace <filter>]"
+    ]
+   },
+   "forceload": {
+    "typed": "forceload",
+    "level": 2,
+    "syntax": [
+     "/forceload add <from> [<to>]",
+     "/forceload query [<pos>]",
+     "/forceload remove <from> [<to>]",
+     "/forceload remove all"
+    ]
+   },
+   "function": {
+    "typed": "function",
+    "level": 2,
+    "syntax": [
+     "/function <name>",
+     "/function <name> <arguments>",
+     "/function <name> with block <source> [<path>]",
+     "/function <name> with entity <source> [<path>]",
+     "/function <name> with storage <source> [<path>]"
+    ]
+   },
+   "gamemode": {
+    "typed": "gamemode",
+    "level": 2,
+    "syntax": [
+     "/gamemode <gamemode> [<target>]"
+    ]
+   },
+   "gamerule": {
+    "typed": "gamerule",
+    "level": 2,
+    "syntax": [
+     "/gamerule advance_time \u2026",
+     "/gamerule advance_weather \u2026",
+     "/gamerule allow_entering_nether_using_portals \u2026",
+     "/gamerule block_drops \u2026",
+     "/gamerule block_explosion_drop_decay \u2026",
+     "/gamerule command_block_output \u2026",
+     "/gamerule command_blocks_work \u2026",
+     "/gamerule drowning_damage \u2026",
+     "/gamerule elytra_movement_check \u2026",
+     "/gamerule ender_pearls_vanish_on_death \u2026",
+     "/gamerule entity_drops \u2026",
+     "/gamerule fall_damage \u2026",
+     "/gamerule fire_damage \u2026",
+     "/gamerule fire_spread_radius_around_player \u2026",
+     "/gamerule forgive_dead_players \u2026",
+     "/gamerule freeze_damage \u2026",
+     "/gamerule global_sound_events \u2026",
+     "/gamerule immediate_respawn \u2026",
+     "/gamerule keep_inventory \u2026",
+     "/gamerule lava_source_conversion \u2026",
+     "/gamerule limited_crafting \u2026",
+     "/gamerule locator_bar \u2026",
+     "/gamerule log_admin_commands \u2026",
+     "/gamerule max_block_modifications \u2026",
+     "/gamerule max_command_forks \u2026",
+     "/gamerule max_command_sequence_length \u2026",
+     "/gamerule max_entity_cramming \u2026",
+     "/gamerule max_minecart_speed \u2026",
+     "/gamerule max_snow_accumulation_height \u2026",
+     "/gamerule minecraft:advance_time \u2026",
+     "/gamerule minecraft:advance_weather \u2026",
+     "/gamerule minecraft:allow_entering_nether_using_portals \u2026",
+     "/gamerule minecraft:block_drops \u2026",
+     "/gamerule minecraft:block_explosion_drop_decay \u2026",
+     "/gamerule minecraft:command_block_output \u2026",
+     "/gamerule minecraft:command_blocks_work \u2026",
+     "/gamerule minecraft:drowning_damage \u2026",
+     "/gamerule minecraft:elytra_movement_check \u2026",
+     "/gamerule minecraft:ender_pearls_vanish_on_death \u2026",
+     "/gamerule minecraft:entity_drops \u2026",
+     "/gamerule minecraft:fall_damage \u2026",
+     "/gamerule minecraft:fire_damage \u2026",
+     "/gamerule minecraft:fire_spread_radius_around_player \u2026",
+     "/gamerule minecraft:forgive_dead_players \u2026",
+     "/gamerule minecraft:freeze_damage \u2026",
+     "/gamerule minecraft:global_sound_events \u2026",
+     "/gamerule minecraft:immediate_respawn \u2026",
+     "/gamerule minecraft:keep_inventory \u2026",
+     "/gamerule minecraft:lava_source_conversion \u2026",
+     "/gamerule minecraft:limited_crafting \u2026",
+     "/gamerule minecraft:locator_bar \u2026",
+     "/gamerule minecraft:log_admin_commands \u2026",
+     "/gamerule minecraft:max_block_modifications \u2026",
+     "/gamerule minecraft:max_command_forks \u2026",
+     "/gamerule minecraft:max_command_sequence_length \u2026",
+     "/gamerule minecraft:max_entity_cramming \u2026",
+     "/gamerule minecraft:max_minecart_speed \u2026",
+     "/gamerule minecraft:max_snow_accumulation_height \u2026",
+     "/gamerule minecraft:mob_drops \u2026",
+     "/gamerule minecraft:mob_explosion_drop_decay \u2026",
+     "/gamerule minecraft:mob_griefing \u2026",
+     "/gamerule minecraft:natural_health_regeneration \u2026",
+     "/gamerule minecraft:player_movement_check \u2026",
+     "/gamerule minecraft:players_nether_portal_creative_delay \u2026",
+     "/gamerule minecraft:players_nether_portal_default_delay \u2026",
+     "/gamerule minecraft:players_sleeping_percentage \u2026",
+     "/gamerule minecraft:projectiles_can_break_blocks \u2026",
+     "/gamerule minecraft:pvp \u2026",
+     "/gamerule minecraft:raids \u2026",
+     "/gamerule minecraft:random_tick_speed \u2026",
+     "/gamerule minecraft:reduced_debug_info \u2026",
+     "/gamerule minecraft:respawn_radius \u2026",
+     "/gamerule minecraft:send_command_feedback \u2026",
+     "/gamerule minecraft:show_advancement_messages \u2026",
+     "/gamerule minecraft:show_death_messages \u2026",
+     "/gamerule minecraft:spawn_mobs \u2026",
+     "/gamerule minecraft:spawn_monsters \u2026",
+     "/gamerule minecraft:spawn_patrols \u2026",
+     "/gamerule minecraft:spawn_phantoms \u2026",
+     "/gamerule minecraft:spawn_wandering_traders \u2026",
+     "/gamerule minecraft:spawn_wardens \u2026",
+     "/gamerule minecraft:spawner_blocks_work \u2026",
+     "/gamerule minecraft:spectators_generate_chunks \u2026",
+     "/gamerule minecraft:spread_vines \u2026",
+     "/gamerule minecraft:tnt_explodes \u2026",
+     "/gamerule minecraft:tnt_explosion_drop_decay \u2026",
+     "/gamerule minecraft:universal_anger \u2026",
+     "/gamerule minecraft:water_source_conversion \u2026",
+     "/gamerule mob_drops \u2026",
+     "/gamerule mob_explosion_drop_decay \u2026",
+     "/gamerule mob_griefing \u2026",
+     "/gamerule natural_health_regeneration \u2026",
+     "/gamerule player_movement_check \u2026",
+     "/gamerule players_nether_portal_creative_delay \u2026",
+     "/gamerule players_nether_portal_default_delay \u2026",
+     "/gamerule players_sleeping_percentage \u2026",
+     "/gamerule projectiles_can_break_blocks \u2026",
+     "/gamerule pvp \u2026",
+     "/gamerule raids \u2026",
+     "/gamerule random_tick_speed \u2026",
+     "/gamerule reduced_debug_info \u2026",
+     "/gamerule respawn_radius \u2026",
+     "/gamerule send_command_feedback \u2026",
+     "/gamerule show_advancement_messages \u2026",
+     "/gamerule show_death_messages \u2026",
+     "/gamerule spawn_mobs \u2026",
+     "/gamerule spawn_monsters \u2026",
+     "/gamerule spawn_patrols \u2026",
+     "/gamerule spawn_phantoms \u2026",
+     "/gamerule spawn_wandering_traders \u2026",
+     "/gamerule spawn_wardens \u2026",
+     "/gamerule spawner_blocks_work \u2026",
+     "/gamerule spectators_generate_chunks \u2026",
+     "/gamerule spread_vines \u2026",
+     "/gamerule tnt_explodes \u2026",
+     "/gamerule tnt_explosion_drop_decay \u2026",
+     "/gamerule universal_anger \u2026",
+     "/gamerule water_source_conversion \u2026"
+    ]
+   },
+   "give": {
+    "typed": "give",
+    "level": 2,
+    "syntax": [
+     "/give <targets> <item> [<count>]"
+    ]
+   },
+   "help": {
+    "typed": "help",
+    "level": 0,
+    "syntax": [
+     "/help [<command>]"
+    ]
+   },
+   "item": {
+    "typed": "item",
+    "level": 2,
+    "syntax": [
+     "/item fill block \u2026",
+     "/item fill entity \u2026",
+     "/item modify block \u2026",
+     "/item modify entity \u2026",
+     "/item override block \u2026",
+     "/item override entity \u2026",
+     "/item replace block \u2026",
+     "/item replace entity \u2026"
+    ]
+   },
+   "jfr": {
+    "typed": "jfr",
+    "level": 4,
+    "syntax": [
+     "/jfr start",
+     "/jfr stop"
+    ]
+   },
+   "kick": {
+    "typed": "kick",
+    "level": 3,
+    "syntax": [
+     "/kick <targets> [<reason>]"
+    ]
+   },
+   "kill": {
+    "typed": "kill",
+    "level": 2,
+    "syntax": [
+     "/kill [<targets>]"
+    ]
+   },
+   "list": {
+    "typed": "list",
+    "level": 0,
+    "syntax": [
+     "/list [uuids]"
+    ]
+   },
+   "locate": {
+    "typed": "locate",
+    "level": 2,
+    "syntax": [
+     "/locate biome <biome>",
+     "/locate poi <poi>",
+     "/locate structure <structure>"
+    ]
+   },
+   "loot": {
+    "typed": "loot",
+    "level": 2,
+    "syntax": [
+     "/loot give <players> \u2026",
+     "/loot insert <targetPos> \u2026",
+     "/loot replace block \u2026",
+     "/loot replace entity \u2026",
+     "/loot spawn <targetPos> \u2026"
+    ]
+   },
+   "me": {
+    "typed": "me",
+    "level": 0,
+    "syntax": [
+     "/me <action>"
+    ]
+   },
+   "tell": {
+    "typed": "msg",
+    "level": 0,
+    "syntax": [
+     "/msg <targets> <message>"
+    ],
+    "aliases": [
+     "tell",
+     "w"
+    ]
+   },
+   "op": {
+    "typed": "op",
+    "level": 3,
+    "syntax": [
+     "/op <targets>"
+    ]
+   },
+   "pardon": {
+    "typed": "pardon",
+    "level": 3,
+    "syntax": [
+     "/pardon <targets>"
+    ]
+   },
+   "pardon-ip": {
+    "typed": "pardon-ip",
+    "level": 3,
+    "syntax": [
+     "/pardon-ip <target>"
+    ]
+   },
+   "particle": {
+    "typed": "particle",
+    "level": 2,
+    "syntax": [
+     "/particle <name>",
+     "/particle <name> <pos>",
+     "/particle <name> <pos> <delta> <speed> <count>",
+     "/particle <name> <pos> <delta> <speed> <count> force [<viewers>]",
+     "/particle <name> <pos> <delta> <speed> <count> normal [<viewers>]"
+    ]
+   },
+   "perf": {
+    "typed": "perf",
+    "level": 4,
+    "syntax": [
+     "/perf start",
+     "/perf stop"
+    ]
+   },
+   "place": {
+    "typed": "place",
+    "level": 2,
+    "syntax": [
+     "/place feature <feature> [<pos>]",
+     "/place jigsaw <pool> <target> <max_depth> [<position>]",
+     "/place structure <structure> [<pos>]",
+     "/place template <template> [<pos> [<rotation> [<mirror> [<integrity> [<seed> [strict]]]]]]"
+    ]
+   },
+   "playsound": {
+    "typed": "playsound",
+    "level": 2,
+    "syntax": [
+     "/playsound <sound>",
+     "/playsound <sound> ambient [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> block [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> hostile [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> master [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> music [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> neutral [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> player [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> record [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> ui [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> voice [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]",
+     "/playsound <sound> weather [<targets> [<pos> [<volume> [<pitch> [<minVolume>]]]]]"
+    ]
+   },
+   "posteffect": {
+    "typed": "posteffect",
+    "level": 2,
+    "syntax": [
+     "/posteffect add <targets> <posteffect>",
+     "/posteffect clear <targets>",
+     "/posteffect list <target>",
+     "/posteffect remove <targets> <posteffect>"
+    ]
+   },
+   "publish": {
+    "typed": "publish",
+    "level": 4,
+    "syntax": [
+     "/publish [<allowCommands> [<port>]]"
+    ]
+   },
+   "random": {
+    "typed": "random",
+    "level": 0,
+    "syntax": [
+     "/random reset * [<seed> [<includeWorldSeed> [<includeSequenceId>]]]",
+     "/random reset <sequence> [<seed> [<includeWorldSeed> [<includeSequenceId>]]]",
+     "/random roll <range> [<sequence>]",
+     "/random value <range> [<sequence>]"
+    ]
+   },
+   "recipe": {
+    "typed": "recipe",
+    "level": 2,
+    "syntax": [
+     "/recipe give <targets> *",
+     "/recipe give <targets> <recipe>",
+     "/recipe take <targets> *",
+     "/recipe take <targets> <recipe>"
+    ]
+   },
+   "reload": {
+    "typed": "reload",
+    "level": 2,
+    "syntax": [
+     "/reload"
+    ]
+   },
+   "return": {
+    "typed": "return",
+    "level": 2,
+    "syntax": [
+     "/return <value>",
+     "/return fail"
+    ]
+   },
+   "ride": {
+    "typed": "ride",
+    "level": 2,
+    "syntax": [
+     "/ride <target> dismount",
+     "/ride <target> mount <vehicle>"
+    ]
+   },
+   "rotate": {
+    "typed": "rotate",
+    "level": 2,
+    "syntax": [
+     "/rotate <target> <rotation>",
+     "/rotate <target> facing <facingLocation>",
+     "/rotate <target> facing entity <facingEntity> [<facingAnchor>]"
+    ]
+   },
+   "save-all": {
+    "typed": "save-all",
+    "level": 4,
+    "syntax": [
+     "/save-all [flush]"
+    ]
+   },
+   "save-off": {
+    "typed": "save-off",
+    "level": 4,
+    "syntax": [
+     "/save-off"
+    ]
+   },
+   "save-on": {
+    "typed": "save-on",
+    "level": 4,
+    "syntax": [
+     "/save-on"
+    ]
+   },
+   "say": {
+    "typed": "say",
+    "level": 2,
+    "syntax": [
+     "/say <message>"
+    ]
+   },
+   "schedule": {
+    "typed": "schedule",
+    "level": 2,
+    "syntax": [
+     "/schedule clear <function>",
+     "/schedule function <function> <time>",
+     "/schedule function <function> <time> append",
+     "/schedule function <function> <time> replace"
+    ]
+   },
+   "scoreboard": {
+    "typed": "scoreboard",
+    "level": 2,
+    "syntax": [
+     "/scoreboard objectives add \u2026",
+     "/scoreboard objectives list",
+     "/scoreboard objectives modify \u2026",
+     "/scoreboard objectives remove \u2026",
+     "/scoreboard objectives setdisplay \u2026",
+     "/scoreboard players add \u2026",
+     "/scoreboard players display \u2026",
+     "/scoreboard players enable \u2026",
+     "/scoreboard players get \u2026",
+     "/scoreboard players list \u2026",
+     "/scoreboard players operation \u2026",
+     "/scoreboard players remove \u2026",
+     "/scoreboard players reset \u2026",
+     "/scoreboard players set \u2026"
+    ]
+   },
+   "seed": {
+    "typed": "seed",
+    "level": 2,
+    "syntax": [
+     "/seed"
+    ]
+   },
+   "setblock": {
+    "typed": "setblock",
+    "level": 2,
+    "syntax": [
+     "/setblock <pos> <block>",
+     "/setblock <pos> <block> destroy",
+     "/setblock <pos> <block> keep",
+     "/setblock <pos> <block> replace",
+     "/setblock <pos> <block> strict"
+    ]
+   },
+   "setidletimeout": {
+    "typed": "setidletimeout",
+    "level": 3,
+    "syntax": [
+     "/setidletimeout <minutes>"
+    ]
+   },
+   "setworldspawn": {
+    "typed": "setworldspawn",
+    "level": 2,
+    "syntax": [
+     "/setworldspawn [<pos> [<rotation>]]"
+    ]
+   },
+   "spawnpoint": {
+    "typed": "spawnpoint",
+    "level": 2,
+    "syntax": [
+     "/spawnpoint [<targets> [<pos> [<rotation>]]]"
+    ]
+   },
+   "spectate": {
+    "typed": "spectate",
+    "level": 2,
+    "syntax": [
+     "/spectate [<target> [<player>]]"
+    ]
+   },
+   "spreadplayers": {
+    "typed": "spreadplayers",
+    "level": 2,
+    "syntax": [
+     "/spreadplayers <center> <spreadDistance> <maxRange> <respectTeams> <targets>",
+     "/spreadplayers <center> <spreadDistance> <maxRange> under <maxHeight> <respectTeams> <targets>"
+    ]
+   },
+   "stop": {
+    "typed": "stop",
+    "level": 4,
+    "syntax": [
+     "/stop"
+    ]
+   },
+   "stopsound": {
+    "typed": "stopsound",
+    "level": 2,
+    "syntax": [
+     "/stopsound <targets>",
+     "/stopsound <targets> * <sound>",
+     "/stopsound <targets> ambient [<sound>]",
+     "/stopsound <targets> block [<sound>]",
+     "/stopsound <targets> hostile [<sound>]",
+     "/stopsound <targets> master [<sound>]",
+     "/stopsound <targets> music [<sound>]",
+     "/stopsound <targets> neutral [<sound>]",
+     "/stopsound <targets> player [<sound>]",
+     "/stopsound <targets> record [<sound>]",
+     "/stopsound <targets> ui [<sound>]",
+     "/stopsound <targets> voice [<sound>]",
+     "/stopsound <targets> weather [<sound>]"
+    ]
+   },
+   "stopwatch": {
+    "typed": "stopwatch",
+    "level": 2,
+    "syntax": [
+     "/stopwatch create <id>",
+     "/stopwatch query <id> [<scale>]",
+     "/stopwatch remove <id>",
+     "/stopwatch restart <id>"
+    ]
+   },
+   "summon": {
+    "typed": "summon",
+    "level": 2,
+    "syntax": [
+     "/summon <entity> [<pos> [<nbt>]]"
+    ]
+   },
+   "swing": {
+    "typed": "swing",
+    "level": 2,
+    "syntax": [
+     "/swing",
+     "/swing <targets>",
+     "/swing <targets> mainhand [<animation> [<duration>]]",
+     "/swing <targets> offhand [<animation> [<duration>]]"
+    ]
+   },
+   "tag": {
+    "typed": "tag",
+    "level": 2,
+    "syntax": [
+     "/tag <targets> add <name>",
+     "/tag <targets> list",
+     "/tag <targets> remove <name>"
+    ]
+   },
+   "team": {
+    "typed": "team",
+    "level": 2,
+    "syntax": [
+     "/team add <team> \u2026",
+     "/team empty <team>",
+     "/team join <team> \u2026",
+     "/team leave <members>",
+     "/team list [<team>]",
+     "/team modify <team> \u2026",
+     "/team remove <team>"
+    ]
+   },
+   "teammsg": {
+    "typed": "teammsg",
+    "level": 0,
+    "syntax": [
+     "/teammsg <message>"
+    ],
+    "aliases": [
+     "tm"
+    ]
+   },
+   "teleport": {
+    "typed": "teleport",
+    "level": 2,
+    "syntax": [
+     "/teleport <destination>",
+     "/teleport <location>",
+     "/teleport <targets> <destination>",
+     "/teleport <targets> <location>",
+     "/teleport <targets> <location> <rotation>",
+     "/teleport <targets> <location> facing <facingLocation>",
+     "/teleport <targets> <location> facing entity <facingEntity> [<facingAnchor>]"
+    ],
+    "aliases": [
+     "tp"
+    ]
+   },
+   "tellraw": {
+    "typed": "tellraw",
+    "level": 2,
+    "syntax": [
+     "/tellraw <targets> <message>"
+    ]
+   },
+   "test": {
+    "typed": "test",
+    "level": 2,
+    "syntax": [
+     "/test clearall \u2026",
+     "/test clearthat",
+     "/test clearthese",
+     "/test create \u2026",
+     "/test locate \u2026",
+     "/test pos \u2026",
+     "/test resetclosest",
+     "/test resetthat",
+     "/test resetthese",
+     "/test run \u2026",
+     "/test runclosest \u2026",
+     "/test runfailed",
+     "/test runfailed \u2026",
+     "/test runmultiple \u2026",
+     "/test runthat \u2026",
+     "/test runthese \u2026",
+     "/test stop",
+     "/test verify \u2026"
+    ]
+   },
+   "tick": {
+    "typed": "tick",
+    "level": 3,
+    "syntax": [
+     "/tick freeze",
+     "/tick query",
+     "/tick rate <rate>",
+     "/tick sprint <time>",
+     "/tick sprint stop",
+     "/tick step",
+     "/tick step <time>",
+     "/tick step stop",
+     "/tick unfreeze"
+    ]
+   },
+   "time": {
+    "typed": "time",
+    "level": 2,
+    "syntax": [
+     "/time add <time>",
+     "/time of <clock> \u2026",
+     "/time pause",
+     "/time query <timeline> \u2026",
+     "/time query gametime",
+     "/time query time",
+     "/time rate <rate>",
+     "/time resume",
+     "/time set <time>",
+     "/time set <timemarker>"
+    ]
+   },
+   "title": {
+    "typed": "title",
+    "level": 2,
+    "syntax": [
+     "/title <targets> actionbar <title>",
+     "/title <targets> clear",
+     "/title <targets> reset",
+     "/title <targets> subtitle <title>",
+     "/title <targets> times <fadeIn> <stay> <fadeOut>",
+     "/title <targets> title <title>"
+    ]
+   },
+   "transfer": {
+    "typed": "transfer",
+    "level": 3,
+    "syntax": [
+     "/transfer <hostname> [<port> [<players>]]"
+    ]
+   },
+   "trigger": {
+    "typed": "trigger",
+    "level": 0,
+    "syntax": [
+     "/trigger <objective>",
+     "/trigger <objective> add <value>",
+     "/trigger <objective> set <value>"
+    ]
+   },
+   "unpublish": {
+    "typed": "unpublish",
+    "level": 4,
+    "syntax": [
+     "/unpublish"
+    ]
+   },
+   "version": {
+    "typed": "version",
+    "level": 2,
+    "syntax": [
+     "/version"
+    ]
+   },
+   "waypoint": {
+    "typed": "waypoint",
+    "level": 2,
+    "syntax": [
+     "/waypoint list",
+     "/waypoint modify <waypoint> color <color>",
+     "/waypoint modify <waypoint> color hex <color>",
+     "/waypoint modify <waypoint> color reset",
+     "/waypoint modify <waypoint> style reset",
+     "/waypoint modify <waypoint> style set <style>"
+    ]
+   },
+   "weather": {
+    "typed": "weather",
+    "level": 2,
+    "syntax": [
+     "/weather clear [<duration>]",
+     "/weather rain [<duration>]",
+     "/weather thunder [<duration>]"
+    ]
+   },
+   "whitelist": {
+    "typed": "whitelist",
+    "level": 3,
+    "syntax": [
+     "/whitelist add <targets>",
+     "/whitelist list",
+     "/whitelist off",
+     "/whitelist on",
+     "/whitelist reload",
+     "/whitelist remove <targets>"
+    ]
+   },
+   "worldborder": {
+    "typed": "worldborder",
+    "level": 2,
+    "syntax": [
+     "/worldborder add <distance> [<time>]",
+     "/worldborder center <pos>",
+     "/worldborder damage amount <damagePerBlock>",
+     "/worldborder damage buffer <distance>",
+     "/worldborder get",
+     "/worldborder set <distance> [<time>]",
+     "/worldborder warning distance <distance>",
+     "/worldborder warning time <time>"
+    ]
+   }
+  }
+ },
+ "bedrock": {
+  "version": "1.26.60",
+  "commands": {
+   "aimassist": {
+    "typed": "aimassist",
+    "official": "Enable Aim Assist",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/aimassist <players> set [x angle] [y angle] [max distance] [distance|angle] [preset id]",
+     "/aimassist <players> clear"
+    ]
+   },
+   "allowlist": {
+    "typed": "allowlist",
+    "official": "Manages the server allowlist.",
+    "level": 4,
+    "cheats": true,
+    "aliases": [
+     "whitelist"
+    ],
+    "syntax": [
+     "/allowlist <add|remove|off|list|reload|on> [name]"
+    ]
+   },
+   "camera": {
+    "typed": "camera",
+    "official": "Issues a camera instruction",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/camera <players> attach_to_entity \u2026",
+     "/camera <players> clear",
+     "/camera <players> detach_from_entity",
+     "/camera <players> fade",
+     "/camera <players> fade \u2026",
+     "/camera <players> fov_clear \u2026",
+     "/camera <players> fov_set \u2026",
+     "/camera <players> play_spline \u2026",
+     "/camera <players> remove_target",
+     "/camera <players> set \u2026",
+     "/camera <players> target_entity \u2026"
+    ]
+   },
+   "camerashake": {
+    "typed": "camerashake",
+    "official": "Applies shaking to the players' camera with a specified intensity and duration.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/camerashake add <player> [intensity] [seconds] [positional|rotational]",
+     "/camerashake stop [player]"
+    ]
+   },
+   "changesetting": {
+    "typed": "changesetting",
+    "official": "Changes a setting on the dedicated server while it's running.",
+    "level": 4,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/changesetting allow-cheats <true|false>",
+     "/changesetting difficulty <value>"
+    ]
+   },
+   "clear": {
+    "typed": "clear",
+    "official": "Clears items from player inventory.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/clear [player] [itemName] [data] [maxCount]"
+    ]
+   },
+   "clearspawnpoint": {
+    "typed": "clearspawnpoint",
+    "official": "Removes the spawn point for a player.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/clearspawnpoint [player]"
+    ]
+   },
+   "clone": {
+    "typed": "clone",
+    "official": "Clones blocks from one region to another.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/clone <begin> <end> <destination> [replace|masked] [normal|force|move]",
+     "/clone <begin> <end> <destination> filtered <normal|force|move> <tileName> [blockStates]"
+    ]
+   },
+   "controlscheme": {
+    "typed": "controlscheme",
+    "official": "Sets or clears control scheme.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/controlscheme <players> set <camera_relative_strafe|camera_relative|player_relative_strafe|player_relative|locked_player_relative_strafe>",
+     "/controlscheme <players> clear"
+    ]
+   },
+   "damage": {
+    "typed": "damage",
+    "official": "Apply damage to the specified entities.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/damage <target> <amount> [cause]",
+     "/damage <target> <amount> <cause> entity <damager>"
+    ]
+   },
+   "daylock": {
+    "typed": "daylock",
+    "official": "Locks and unlocks the day-night cycle.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [
+     "alwaysday"
+    ],
+    "syntax": [
+     "/daylock [true|false]"
+    ]
+   },
+   "deop": {
+    "typed": "deop",
+    "official": "Revokes operator status from a player.",
+    "level": 2,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/deop <player>"
+    ]
+   },
+   "dialogue": {
+    "typed": "dialogue",
+    "official": "Opens NPC dialogue for a player.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/dialogue open <npc> <player> [sceneName]",
+     "/dialogue change <npc> <sceneName> [players]"
+    ]
+   },
+   "difficulty": {
+    "typed": "difficulty",
+    "official": "Sets the difficulty level.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/difficulty <difficulty>"
+    ]
+   },
+   "editor-allowlist": {
+    "typed": "editor-allowlist",
+    "official": "Manages the editor allowlist.",
+    "level": 4,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/editor-allowlist reload"
+    ]
+   },
+   "effect": {
+    "typed": "effect",
+    "official": "Add or remove status effects.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/effect <player> clear [effect]",
+     "/effect <player> <effect> [seconds] [amplifier] [true|false]",
+     "/effect <player> <effect> infinite [amplifier] [true|false]"
+    ]
+   },
+   "enchant": {
+    "typed": "enchant",
+    "official": "Adds an enchantment to a player's selected item.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/enchant <player> <enchantmentName> [level]",
+     "/enchant <player> <enchantmentId> [level]"
+    ]
+   },
+   "event": {
+    "typed": "event",
+    "official": "Triggers an event for the specified object(s)",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/event entity <target> <eventName>"
+    ]
+   },
+   "execute": {
+    "typed": "execute",
+    "official": "Executes a command on behalf of one or more entities.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/execute <if|unless> \u2026",
+     "/execute align \u2026",
+     "/execute anchored \u2026",
+     "/execute as \u2026",
+     "/execute at \u2026",
+     "/execute facing \u2026",
+     "/execute in \u2026",
+     "/execute positioned \u2026",
+     "/execute rotated \u2026",
+     "/execute run \u2026"
+    ]
+   },
+   "fill": {
+    "typed": "fill",
+    "official": "Fills all or parts of a region with a specific block.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/fill <from> <to> <tileName> <blockStates> [outline|hollow|destroy|keep]",
+     "/fill <from> <to> <tileName> [outline|hollow|destroy|keep]",
+     "/fill <from> <to> <tileName> <blockStates> replace [replaceTileName] [replaceBlockStates]",
+     "/fill <from> <to> <tileName> replace [replaceTileName] [replaceBlockStates]"
+    ]
+   },
+   "fog": {
+    "typed": "fog",
+    "official": "Add or remove fog settings file",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/fog <victim> push <fogId> <userProvidedId>",
+     "/fog <victim> <pop|remove> <userProvidedId>"
+    ]
+   },
+   "function": {
+    "typed": "function",
+    "official": "Runs commands found in the corresponding function file.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/function <name>"
+    ]
+   },
+   "gamemode": {
+    "typed": "gamemode",
+    "official": "Sets a player's game mode.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/gamemode <gameMode> [player]"
+    ]
+   },
+   "gamerule": {
+    "typed": "gamerule",
+    "official": "Sets or queries a game rule value.",
+    "level": 1,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/gamerule",
+     "/gamerule playerwaypoints <everyone|off>",
+     "/gamerule <rule> [true|false]",
+     "/gamerule <maxcommandchainlength|randomtickspeed|functioncommandlimit|spawnradius|playerssleepingpercentage> [value]"
+    ]
+   },
+   "gametest": {
+    "typed": "gametest",
+    "official": "Interacts with gametest.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/gametest runthis",
+     "/gametest run <testName> [rotationSteps]",
+     "/gametest run <testName> <true|false> <repeatCount> [rotationSteps]",
+     "/gametest runset [tag] [rotationSteps]",
+     "/gametest runsetuntilfail [tag] [rotationSteps]",
+     "/gametest clearall",
+     "/gametest pos",
+     "/gametest create <testName> [width] [height] [depth]",
+     "/gametest runthese",
+     "/gametest stopall"
+    ]
+   },
+   "give": {
+    "typed": "give",
+    "official": "Gives an item to a player.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/give <player> <itemName> [amount] [data] [components]"
+    ]
+   },
+   "help": {
+    "typed": "help",
+    "official": "Provides help/list of commands.",
+    "level": 0,
+    "cheats": false,
+    "aliases": [
+     "?"
+    ],
+    "syntax": [
+     "/help [command]",
+     "/help <page>"
+    ]
+   },
+   "hud": {
+    "typed": "hud",
+    "official": "Changes the visibility of hud elements.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/hud <target> <hide|reset> [hud_element]"
+    ]
+   },
+   "inputpermission": {
+    "typed": "inputpermission",
+    "official": "Sets whether or not a player's input can affect their character.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/inputpermission set <targets> <permission> <enabled|disabled>",
+     "/inputpermission query <targets> <permission> [enabled|disabled]"
+    ]
+   },
+   "kick": {
+    "typed": "kick",
+    "official": "Kicks a player from the server.",
+    "level": 1,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/kick <name> <reason>"
+    ]
+   },
+   "kill": {
+    "typed": "kill",
+    "official": "Kills entities (players, mobs, etc.).",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/kill [target]"
+    ]
+   },
+   "list": {
+    "typed": "list",
+    "official": "Lists players on the server.",
+    "level": 0,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/list"
+    ]
+   },
+   "locate": {
+    "typed": "locate",
+    "official": "Displays the coordinates for the closest structure or biome of a given type.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/locate structure <structure> [true|false]",
+     "/locate biome <biome>",
+     "/locate poi <poi_type>",
+     "/locate poi <tags>"
+    ]
+   },
+   "loot": {
+    "typed": "loot",
+    "official": "Drops the given loot table into the specified inventory or into the world.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/loot give <players> \u2026",
+     "/loot insert <position> \u2026",
+     "/loot replace block \u2026",
+     "/loot replace entity \u2026",
+     "/loot spawn <position> \u2026"
+    ]
+   },
+   "me": {
+    "typed": "me",
+    "official": "Displays a message about yourself.",
+    "level": 0,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/me <message>"
+    ]
+   },
+   "mobevent": {
+    "typed": "mobevent",
+    "official": "Controls what mob events are allowed to run.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/mobevent <minecraft:pillager_patrols_event|minecraft:wandering_trader_event|minecraft:ender_dragon_event|events_enabled> [true|false]"
+    ]
+   },
+   "music": {
+    "typed": "music",
+    "official": "Allows you to control playing music tracks.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/music queue <trackName> [volume] [fadeSeconds] [play_once|loop]",
+     "/music play <trackName> [volume] [fadeSeconds] [play_once|loop]",
+     "/music stop [fadeSeconds]",
+     "/music volume <volume>"
+    ]
+   },
+   "op": {
+    "typed": "op",
+    "official": "Grants operator status to a player.",
+    "level": 2,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/op <player>"
+    ]
+   },
+   "packstack": {
+    "typed": "packstack",
+    "official": "Prints client or server pack stack to chat",
+    "level": 0,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/packstack <server|client> [verbose] [exclude-vanilla]"
+    ]
+   },
+   "particle": {
+    "typed": "particle",
+    "official": "Creates a particle emitter",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/particle <effect> [position]"
+    ]
+   },
+   "permission": {
+    "typed": "permission",
+    "official": "Reloads and applies permissions.",
+    "level": 2,
+    "cheats": false,
+    "aliases": [
+     "ops"
+    ],
+    "syntax": [
+     "/permission <set|list|reload>",
+     "/permission <set|list|reload> <player> [visitor|member|operator]"
+    ]
+   },
+   "place": {
+    "typed": "place",
+    "official": "Places a jigsaw structure, feature, or feature rule in the world.",
+    "level": 2,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/place structure <structure> [pos] [true|false] [true|false] [true|false] [apply_waterlogging|ignore_waterlogging]",
+     "/place jigsaw <pool> <jigsawTarget> <maxDepth> [pos] [true|false] [true|false] [apply_waterlogging|ignore_waterlogging]",
+     "/place feature <feature> [position]",
+     "/place featurerule <featurerule> [position]"
+    ]
+   },
+   "playanimation": {
+    "typed": "playanimation",
+    "official": "Makes one or more entities play a one-off animation. Assumes all variables are setup correctly.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/playanimation <entity> <animation> [next_state] [blend_out_time] [stop_expression] [controller]"
+    ]
+   },
+   "playsound": {
+    "typed": "playsound",
+    "official": "Plays a sound.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/playsound <sound> [player] [position] [volume] [pitch] [minimumVolume]"
+    ]
+   },
+   "project": {
+    "typed": "project",
+    "official": "Manipulate the currently loaded project",
+    "level": 1,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/project export <project|template|world>"
+    ]
+   },
+   "recipe": {
+    "typed": "recipe",
+    "official": "Unlocks recipe in the recipe book for a player.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/recipe give <player> <recipe>",
+     "/recipe take <player> <recipe>"
+    ]
+   },
+   "reload": {
+    "typed": "reload",
+    "official": "Reloads all function and script files from all behavior packs, or optionally reloads the world and all resource and behavior packs.",
+    "level": 2,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/reload [all]"
+    ]
+   },
+   "reloadconfig": {
+    "typed": "reloadconfig",
+    "official": "Reloads configuration files relating to variables, secrets, permissions, etc.",
+    "level": 4,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/reloadconfig"
+    ]
+   },
+   "reloadpacketlimitconfig": {
+    "typed": "reloadpacketlimitconfig",
+    "official": "Reload packet limit config from file",
+    "level": 4,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/reloadpacketlimitconfig"
+    ]
+   },
+   "replaceitem": {
+    "typed": "replaceitem",
+    "official": "Replaces items in inventories.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/replaceitem block <position> slot.container <slotId> <itemName> [amount] [data] [components]",
+     "/replaceitem entity <target> <slotType> <slotId> <itemName> [amount] [data] [components]",
+     "/replaceitem block <position> slot.container <slotId> <destroy|keep> <itemName> [amount] [data] [components]",
+     "/replaceitem entity <target> <slotType> <slotId> <destroy|keep> <itemName> [amount] [data] [components]"
+    ]
+   },
+   "ride": {
+    "typed": "ride",
+    "official": "Makes entities ride other entities, stops entities from riding, makes rides evict their riders, or summons rides or riders.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/ride <riders> start_riding <ride> [teleport_rider|teleport_ride] [until_full|if_group_fits]",
+     "/ride <riders> stop_riding",
+     "/ride <rides> evict_riders",
+     "/ride <rides> summon_rider <entityType> [spawnEvent] [nameTag]",
+     "/ride <riders> summon_ride <entityType> [no_ride_change|reassign_rides|skip_riders] [spawnEvent] [nameTag]"
+    ]
+   },
+   "save": {
+    "typed": "save",
+    "official": "Control or check how the game saves data to disk.",
+    "level": 4,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/save <query|resume|hold>"
+    ]
+   },
+   "say": {
+    "typed": "say",
+    "official": "Sends a message in the chat to other players.",
+    "level": 1,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/say <message>"
+    ]
+   },
+   "schedule": {
+    "typed": "schedule",
+    "official": "Schedules an action to be executed once an area is loaded, or after a certain amount of time.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/schedule delay add <function> <time> [replace|append]",
+     "/schedule delay clear <function>",
+     "/schedule clear <function>",
+     "/schedule on_area_loaded add <from> <to> <function>",
+     "/schedule on_area_loaded add circle <center> <radius> <function>",
+     "/schedule on_area_loaded add tickingarea <name> <function>",
+     "/schedule on_area_loaded clear tickingarea <name> [function]",
+     "/schedule on_area_loaded clear function <function>"
+    ]
+   },
+   "scoreboard": {
+    "typed": "scoreboard",
+    "official": "Tracks and displays scores for various objectives.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/scoreboard objectives add <objective> dummy [displayName]",
+     "/scoreboard objectives remove <objective>",
+     "/scoreboard objectives list",
+     "/scoreboard objectives setdisplay <list|sidebar> [objective] [ascending|descending]",
+     "/scoreboard objectives setdisplay belowname [objective]",
+     "/scoreboard players list [playername]",
+     "/scoreboard players reset <player> [objective]",
+     "/scoreboard players test <player> <objective> <min> [max]",
+     "/scoreboard players random <player> <objective> <min> <max>",
+     "/scoreboard players <set|add|remove> <player> <objective> <count>",
+     "/scoreboard players operation <targetName> <targetObjective> <operation> <selector> <objective>"
+    ]
+   },
+   "script": {
+    "typed": "script",
+    "official": "Script debugger commands.",
+    "level": 2,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/script debugger listen <port>",
+     "/script debugger connect [host] [port]",
+     "/script debugger close",
+     "/script profiler start",
+     "/script profiler stop",
+     "/script diagnostics startcapture",
+     "/script diagnostics stopcapture"
+    ]
+   },
+   "scriptevent": {
+    "typed": "scriptevent",
+    "official": "Triggers a script event with an ID and message.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/scriptevent <messageId> <message>"
+    ]
+   },
+   "sendshowstoreoffer": {
+    "typed": "sendshowstoreoffer",
+    "official": "Sends a request to show a store offer to the target player.",
+    "level": 4,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/sendshowstoreoffer <player> <marketplace|character> <offerId>",
+     "/sendshowstoreoffer <player> server"
+    ]
+   },
+   "serveridentity": {
+    "typed": "serveridentity",
+    "official": "Manages the server identity key. Use save, delete, or status.",
+    "level": 4,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/serveridentity <save|delete|status>"
+    ]
+   },
+   "setblock": {
+    "typed": "setblock",
+    "official": "Changes a block to another block.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/setblock <position> <tileName> <blockStates> [replace|destroy|keep]",
+     "/setblock <position> <tileName> [replace|destroy|keep]"
+    ]
+   },
+   "setmaxplayers": {
+    "typed": "setmaxplayers",
+    "official": "Sets the maximum number of players for this game session.",
+    "level": 3,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/setmaxplayers <maxPlayers>"
+    ]
+   },
+   "setworldspawn": {
+    "typed": "setworldspawn",
+    "official": "Sets the world spawn.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/setworldspawn [spawnPoint]"
+    ]
+   },
+   "spawnpoint": {
+    "typed": "spawnpoint",
+    "official": "Sets the spawn point for a player.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/spawnpoint [player] [spawnPos]"
+    ]
+   },
+   "spreadplayers": {
+    "typed": "spreadplayers",
+    "official": "Teleports entities to random locations.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/spreadplayers <x> <z> <spreadDistance> <maxRange> <victim> [maxHeight]"
+    ]
+   },
+   "stop": {
+    "typed": "stop",
+    "official": "Stops the server.",
+    "level": 4,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/stop"
+    ]
+   },
+   "stopsound": {
+    "typed": "stopsound",
+    "official": "Stops a sound.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/stopsound <player> [sound]"
+    ]
+   },
+   "structure": {
+    "typed": "structure",
+    "official": "Saves or loads a structure in the world.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/structure save <name> <from> <to> [disk|memory]",
+     "/structure save <name> <from> <to> [true|false] [disk|memory] [true|false]",
+     "/structure delete <name>",
+     "/structure load <name> <to> [0_degrees|90_degrees|180_degrees|270_degrees] [x|z|none|xz] [true|false] [true|false] [true|false] [integrity] [seed]",
+     "/structure load <name> <to> [0_degrees|90_degrees|180_degrees|270_degrees] [x|z|none|xz] [block_by_block|layer_by_layer] [animationSeconds] [true|false] [true|false] [true|false] [integrity] [seed]"
+    ]
+   },
+   "summon": {
+    "typed": "summon",
+    "official": "Summons an entity.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/summon <entityType> [spawnPos] [yRot] [xRot] [spawnEvent] [nameTag]",
+     "/summon <entityType> <nameTag> [spawnPos]",
+     "/summon <entityType> [spawnPos] facing <lookAtPosition> [spawnEvent] [nameTag]",
+     "/summon <entityType> [spawnPos] facing <lookAtEntity> [spawnEvent] [nameTag]"
+    ]
+   },
+   "tag": {
+    "typed": "tag",
+    "official": "Manages tags stored in entities.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/tag <entity> <add|remove> <name>",
+     "/tag <entity> list"
+    ]
+   },
+   "teleport": {
+    "typed": "teleport",
+    "official": "Teleports entities (players, mobs, etc.).",
+    "level": 1,
+    "cheats": true,
+    "aliases": [
+     "tp"
+    ],
+    "syntax": [
+     "/teleport <destination> [true|false] [true|false]",
+     "/teleport <destination> [yRot] [xRot] [true|false] [true|false]",
+     "/teleport <destination> facing <lookAtPosition> [true|false] [true|false]",
+     "/teleport <destination> facing <lookAtEntity> [true|false] [true|false]",
+     "/teleport <victim> <destination> [yRot] [xRot] [true|false] [true|false]",
+     "/teleport <victim> <destination> [true|false] [true|false]",
+     "/teleport <victim> <destination> facing <lookAtPosition> [true|false] [true|false]",
+     "/teleport <victim> <destination> facing <lookAtEntity> [true|false] [true|false]",
+     "/teleport <destination>"
+    ]
+   },
+   "tell": {
+    "typed": "tell",
+    "official": "Sends a private message to one or more players.",
+    "level": 0,
+    "cheats": false,
+    "aliases": [
+     "w",
+     "msg"
+    ],
+    "syntax": [
+     "/tell <target> <message>"
+    ]
+   },
+   "tellraw": {
+    "typed": "tellraw",
+    "official": "Sends a JSON message to players.",
+    "level": 1,
+    "cheats": false,
+    "aliases": [],
+    "syntax": [
+     "/tellraw <target> <raw json message>"
+    ]
+   },
+   "testfor": {
+    "typed": "testfor",
+    "official": "Counts entities (players, mobs, items, etc.) matching specified conditions.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/testfor <victim>"
+    ]
+   },
+   "testforblock": {
+    "typed": "testforblock",
+    "official": "Tests whether a certain block is in a specific location.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/testforblock <position> <tileName> [blockStates]"
+    ]
+   },
+   "testforblocks": {
+    "typed": "testforblocks",
+    "official": "Tests whether the blocks in two regions match.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/testforblocks <begin> <end> <destination> [masked|all]"
+    ]
+   },
+   "tickingarea": {
+    "typed": "tickingarea",
+    "official": "Add, remove, or list ticking areas.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/tickingarea add <from> <to> [name] [true|false]",
+     "/tickingarea add circle <center> <radius> [name] [true|false]",
+     "/tickingarea remove <position>",
+     "/tickingarea remove <name>",
+     "/tickingarea remove_all",
+     "/tickingarea list [all-dimensions]",
+     "/tickingarea preload <position> [true|false]",
+     "/tickingarea preload <name> [true|false]"
+    ]
+   },
+   "time": {
+    "typed": "time",
+    "official": "Changes or queries the world's game time.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/time add <amount>",
+     "/time set <amount>",
+     "/time set <timeMarkerName> [next|previous|stay]",
+     "/time query <time|daytime|gametime|day>",
+     "/time pause",
+     "/time resume",
+     "/time of minecraft:overworld add <amount>",
+     "/time of minecraft:overworld set <amount>",
+     "/time of minecraft:overworld set <timeMarkerName> [next|previous|stay]",
+     "/time of minecraft:overworld query time",
+     "/time of minecraft:overworld pause",
+     "/time of minecraft:overworld resume"
+    ]
+   },
+   "title": {
+    "typed": "title",
+    "official": "Controls screen titles.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/title <player> clear",
+     "/title <player> reset",
+     "/title <player> <title|subtitle|actionbar> <titleText>",
+     "/title <player> times <fadeIn> <stay> <fadeOut>"
+    ]
+   },
+   "titleraw": {
+    "typed": "titleraw",
+    "official": "Controls screen titles with JSON messages.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/titleraw <player> clear",
+     "/titleraw <player> reset",
+     "/titleraw <player> <title|subtitle|actionbar> <raw json titleText>",
+     "/titleraw <player> times <fadeIn> <stay> <fadeOut>"
+    ]
+   },
+   "toggledownfall": {
+    "typed": "toggledownfall",
+    "official": "Toggles the weather.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/toggledownfall"
+    ]
+   },
+   "transfer": {
+    "typed": "transfer",
+    "official": "Transfers a player to another server.",
+    "level": 4,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/transfer <pfidOrMSA> <server> [port]"
+    ]
+   },
+   "weather": {
+    "typed": "weather",
+    "official": "Sets the weather.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/weather <clear|rain|thunder> [duration]",
+     "/weather query"
+    ]
+   },
+   "wsserver": {
+    "typed": "wsserver",
+    "official": "Attempts to connect to the websocket server on the provided URL.",
+    "level": 2,
+    "cheats": true,
+    "aliases": [
+     "connect"
+    ],
+    "syntax": [
+     "/wsserver <serverUri>"
+    ]
+   },
+   "xp": {
+    "typed": "xp",
+    "official": "Adds or removes player experience.",
+    "level": 1,
+    "cheats": true,
+    "aliases": [],
+    "syntax": [
+     "/xp <amount> [player]"
+    ]
+   }
+  }
+ }
+}

@@ -1,0 +1,59 @@
+name: Check for new Minecraft commands
+
+# Once a week (and whenever you press "Run workflow"), download the latest
+# official command data. If a new Java or Bedrock release is out, open a pull
+# request with the refreshed data/commands-data.json. If the release added
+# commands, the pull request lists them so explanations can be written.
+#
+# Needs: Settings -> Actions -> General -> Workflow permissions ->
+#        "Allow GitHub Actions to create and approve pull requests".
+on:
+  schedule:
+    - cron: "17 15 * * 2" # Tuesdays, 15:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh command data
+        id: update
+        run: |
+          set +e
+          scripts/update.sh > update.log 2>&1
+          code=$?
+          cat update.log
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          {
+            echo 'log<<EOF'
+            cat update.log
+            echo 'EOF'
+          } >> "$GITHUB_OUTPUT"
+          rm update.log
+          # 0 = updated or already current, 2 = updated but new commands need explanations
+          if [ "$code" != "0" ] && [ "$code" != "2" ]; then exit "$code"; fi
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: update-command-data
+          commit-message: Update command data from Mojang's latest releases
+          title: ${{ steps.update.outputs.code == '2' && 'New Minecraft commands need explanations' || 'Update command data to the latest Minecraft releases' }}
+          body: |
+            The weekly check found a new Java or Bedrock release and rebuilt `data/commands-data.json`.
+
+            ${{ steps.update.outputs.code == '2' && '**Some new commands have no explanation yet.** Add entries for them to `data/content.json` on this branch before merging (see the README).' || 'Every command already has an explanation. Skim the examples for any command whose syntax changed, then merge.' }}
+
+            ```
+            ${{ steps.update.outputs.log }}
+            ```
+          add-paths: data/commands-data.json
