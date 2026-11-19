@@ -86,6 +86,34 @@ body.java [data-ed=b],body.bedrock [data-ed=j]{display:none}
 .stars{font-size:13px;color:var(--orange);letter-spacing:1px}
 .catrow{grid-column:1/-1;margin:14px 0 2px;font-family:"Pixelify Sans";font-size:22px}
 .empty{color:var(--soft);padding:20px 0}
+.builder{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;background:var(--card);border:2px solid var(--line);border-radius:18px;padding:18px;margin:8px 0 26px}
+.bform label{display:block;font-weight:700;margin:0 0 10px}
+.bform select,.bform input:not([type=checkbox]){display:block;width:100%;margin-top:4px;font-size:16px;padding:10px 12px;border:2px solid var(--line);border-radius:10px;background:var(--bg);min-height:44px}
+.bform .chk{display:flex;gap:8px;align-items:center;font-weight:500;margin-top:-4px}
+.bform .chk input{width:20px;height:20px;accent-color:var(--grass)}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.bform details{border-top:2px solid var(--line);padding-top:8px;margin:6px 0 12px}.bform summary{font-weight:800;cursor:pointer;min-height:36px}
+.bout{position:sticky;top:12px;align-self:start}
+.bsel{background:var(--code);color:var(--codeink);border-radius:14px;padding:18px;font:500 clamp(18px,2.6vw,24px)/1.4 "JetBrains Mono",monospace;overflow-wrap:anywhere;min-height:90px}
+.bsay{font-size:15px;color:var(--soft);margin:8px 0}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:14px}
+.fcard{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:16px}
+.fcard h4{font:700 20px "Pixelify Sans",Nunito,sans-serif;margin:0 0 4px}
+.fcard .form{font:500 14px "JetBrains Mono",monospace;background:var(--code);border-radius:8px;padding:6px 10px;margin:8px 0;overflow-wrap:anywhere}
+.fcard .other{font-size:14px;color:var(--soft)}
+.fcard .no{font-weight:800;color:var(--soft)}
+.sub{margin:30px 0 10px;font-size:26px}
+.chipset{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 4px}
+.chipset span,.chipset a{font-size:14px;border-radius:999px;padding:3px 10px;background:var(--line);color:var(--ink);text-decoration:none}
+.chipset a:hover{background:var(--grass);color:#fff}
+.grp{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:12px 14px;margin:0 0 10px}
+.grp code{font-weight:700}
+.ecard{text-align:left;background:var(--card);border:2px solid var(--line);border-bottom-width:5px;border-radius:14px;padding:12px 14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 10px;align-items:center}
+.ecard:hover{border-color:var(--grass)}
+.ecard .ic{grid-row:span 2;font-size:26px}
+.ecard b{font-size:17px}.ecard code{font-size:13px;color:var(--soft);overflow-wrap:anywhere}
+.ids td:first-child{font-weight:800}
+
 .sheet{position:fixed;inset:0;background:#0007;display:flex;justify-content:center;align-items:flex-start;padding:4vh 12px;overflow:auto;z-index:10}
 .sheet[hidden]{display:none}
 .sheet .in{background:var(--bg);border-radius:18px;max-width:760px;width:100%;padding:22px;position:relative}
@@ -103,7 +131,8 @@ details.syn summary{font-weight:800;cursor:pointer;min-height:36px}
 .set small{display:block;color:var(--soft)}
 footer{max-width:1100px;margin:0 auto;padding:20px max(5vw,16px) 40px;color:var(--soft);font-size:14px;border-top:2px solid var(--line)}
 footer a{color:inherit}
-@media(max-width:600px){.hero{grid-template-columns:1fr}.chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;margin-inline:calc(-1*max(5vw,16px));padding-inline:max(5vw,16px)}.chips button{flex:none}.ed button{padding:10px 12px}.blockpic{display:none}.tabs a{padding:10px 12px;font-size:15px}.lesson>header h3{font-size:20px}.tbl td:first-child{white-space:normal}}
+@media(max-width:760px){.builder{grid-template-columns:1fr}.bout{position:static;order:-1}}
+@media(max-width:600px){.hero{grid-template-columns:1fr}.row2{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}.chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;margin-inline:calc(-1*max(5vw,16px));padding-inline:max(5vw,16px)}.chips button{flex:none}.ed button{padding:10px 12px}.blockpic{display:none}.tabs a{padding:10px 12px;font-size:15px}.lesson>header h3{font-size:20px}.tbl td:first-child{white-space:normal}}
 @media(prefers-reduced-motion:no-preference){.card{transition:transform .12s}.card:hover{transform:translateY(-2px)}}
 </style>
 </head>
@@ -133,6 +162,8 @@ footer a{color:inherit}
  <nav class="tabs">
   <a href="#learn" data-tab="learn">Start here</a>
   <a href="#commands" data-tab="commands">All commands</a>
+  <a href="#filters" data-tab="filters">Filters</a>
+  <a href="#mobs" data-tab="mobs">Mobs &amp; more</a>
   <a href="#blocks" data-tab="blocks">Command blocks</a>
   <button class="gear" id="openSet" aria-label="Settings">⚙ Settings</button>
  </nav>
@@ -221,6 +252,7 @@ footer a{color:inherit}
    <tr><td><code><span class="sel">@e[type=!player]</span></code></td><td>Everything that is NOT a player. <code>!</code> means “not”.</td></tr>
   </table></div>
   <div class="tip"><b>Java and Bedrock spell two filters differently.</b> Java: <code>distance=..10</code> and <code>limit=1,sort=nearest</code>. Bedrock: <code>r=10</code> and <code>c=1</code>. Use the switch at the top to see each one.</div>
+  <p><a href="#filters"><b>See every filter, plus a filter builder →</b></a></p>
  </div></article>
 
  <article class="lesson" data-id="coords"><header><span class="num">6</span><h3>Where? Coordinates and the ~ squiggle</h3><button class="know">I know this ✓</button></header><div class="body">
@@ -266,6 +298,68 @@ footer a{color:inherit}
  <div class="search"><input id="q" type="search" placeholder="Search: teleport, sword, rain, fly..." aria-label="Search commands"></div>
  <div class="chips" id="cats"></div>
  <div class="grid" id="list"></div>
+</section>
+
+<section id="filters" hidden>
+ <div class="intro"><h2>Filters: pick exactly who</h2></div>
+ <p>A filter goes in [square brackets] right after an @ shortcut, like <code><span class="sel">@e[type=zombie]</span></code>. Build one below and watch it change as you pick.</p>
+ <div class="builder">
+  <div class="bform">
+   <label>Who are you looking for?<select id="bWho"></select></label>
+   <label>What kind of thing?<select id="bType"></select></label>
+   <label class="chk"><input type="checkbox" id="bNotType"> Everything <b>except</b> this kind</label>
+   <label>Or a whole group<select id="bGroup"></select></label>
+   <div class="row2"><label>Within how many blocks?<input id="bMax" type="number" min="0" inputmode="numeric" placeholder="any"></label><label>At least how far away?<input id="bMin" type="number" min="0" inputmode="numeric" placeholder="any"></label></div>
+   <div class="row2"><label>How many?<input id="bCount" type="number" min="1" inputmode="numeric" placeholder="all"></label><label>Which ones?<select id="bSort"><option value="nearest">The closest</option><option value="furthest">The farthest</option><option value="random">Random ones</option></select></label></div>
+   <div class="row2"><label>With the tag<input id="bTag" placeholder="like hero" autocomplete="off"></label><label>Named<input id="bName" placeholder="like Bacon" autocomplete="off"></label></div>
+   <label class="chk"><input type="checkbox" id="bNotTag"> Does <b>not</b> have the tag</label>
+   <details><summary>Players only: game mode, level, score</summary>
+    <label>Game mode<select id="bMode"><option value="">Any</option><option>survival</option><option>creative</option><option>adventure</option><option>spectator</option></select></label>
+    <div class="row2"><label>Level at least<input id="bLvMin" type="number" min="0" inputmode="numeric"></label><label>Level at most<input id="bLvMax" type="number" min="0" inputmode="numeric"></label></div>
+    <label>Score name<input id="bObj" placeholder="like points" autocomplete="off"></label>
+    <div class="row2"><label>Score at least<input id="bScMin" type="number" inputmode="numeric"></label><label>Score at most<input id="bScMax" type="number" inputmode="numeric"></label></div>
+   </details>
+   <button class="pill" id="bReset" type="button">Start over</button>
+  </div>
+  <div class="bout">
+   <div class="bsel" id="bOut" aria-live="polite"></div>
+   <p class="bsay" id="bSay"></p>
+   <div id="bWarn"></div>
+   <p style="margin:12px 0 0"><b>Try it!</b> This lists everything you picked in chat:</p>
+   <div id="bTry"></div>
+  </div>
+ </div>
+
+ <h3 class="sub">The @ shortcuts</h3>
+ <table class="tbl" id="selTable"></table>
+
+ <h3 class="sub">Filter rules</h3>
+ <div class="grp"><ul class="steps" style="margin:0">
+  <li>Put filters in <b>[square brackets]</b> right after the @ shortcut. No space before the [.</li>
+  <li>Use a <b>comma</b> between filters: <code>@e[type=cow,tag=pet]</code>. Things must match <b>every</b> filter.</li>
+  <li><b>!</b> means “not”: <code>type=!player</code> is everything that isn't a player.</li>
+  <li>Number ranges: <code>5</code> is exactly 5, <code>5..</code> is 5 or more, <code>..5</code> is 5 or less, <code>2..8</code> is 2 to 8.</li>
+  <li>Names with spaces need quotes: <code>name="Sir Bacon"</code>.</li>
+  <li data-ed="j">On Java, <code>@a</code>, <code>@p</code> and <code>@r</code> only ever find players. Use <code>@e</code> or <code>@n</code> for mobs.</li>
+  <li data-ed="b">On Bedrock, <code>@a</code> and <code>@p</code> only find players. <code>@r</code> can find mobs: <code>@r[type=cow]</code>.</li>
+ </ul></div>
+
+ <div id="filterList"></div>
+
+ <h3 class="sub">Handy recipes</h3>
+ <div id="recipes"></div>
+
+ <h3 class="sub" id="groupsTitle">Groups</h3>
+ <p id="groupsIntro"></p>
+ <div id="groupList"></div>
+</section>
+
+<section id="mobs" hidden>
+ <div class="intro"><h2 id="mobTitle">Mobs &amp; more</h2></div>
+ <p>Everything a filter can find: every mob, ride, flying thing and special object, with its ID for <code>type=</code>, the groups it belongs to, and how to summon it.</p>
+ <div class="search"><input id="mq" type="search" placeholder="Search: zombie, boat, arrow, undead..." aria-label="Search mobs and things"></div>
+ <div class="chips" id="kinds"></div>
+ <div class="grid" id="mlist"></div>
 </section>
 
 <section id="blocks" hidden>
@@ -397,13 +491,14 @@ const PROJECTS=[
    {type:"Impulse",power:"Needs Redstone",cmd:{j:"clear @p gold_ingot 1",b:"clear @p gold_ingot 0 1"}},
    {type:"Chain",power:"Always Active",cond:true,cmd:{both:"give @p iron_sword"}}],how:"Button on the first block. The second block is Conditional, so the sword only comes if the gold was taken."}
 ];
-Promise.all(['data/commands-data.json','data/content.json'].map(u=>fetch(u).then(r=>{if(!r.ok)throw new Error(u);return r.json()}))).then(([d,c])=>{DATA=d;CONTENT=c;
+let FIL,EDATA,ENT;
+Promise.all(['data/commands-data.json','data/content.json','data/filters.json','data/entities-data.json','data/entities.json'].map(u=>fetch(u).then(r=>{if(!r.ok)throw new Error(u);return r.json()}))).then(([d,c,f,ed,en])=>{DATA=d;CONTENT=c;FIL=f;EDATA=ed;ENT=en;
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const store={get(){try{return JSON.parse(localStorage.getItem('mccmd')||'{}')}catch(e){return{}}},set(v){try{localStorage.setItem('mccmd',JSON.stringify(v))}catch(e){}}};
-const S=Object.assign({ed:'java',known:{},hide:false,remind:true,expert:false,syntax:false,cat:'all'},store.get());
+const S=Object.assign({ed:'java',known:{},hide:false,remind:true,expert:false,syntax:false,cat:'all',kind:'all'},store.get());
 const save=()=>store.set(S);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const hl=s=>esc(s).replace(/(&quot;.*?&quot;)/g,'<span class="str">$1</span>').replace(/(@[aeprs]|@initiator)(\[[^\]\s]*\])?/g,'<span class="sel">$&</span>').replace(/(^|\s)([~^][-\d.]*)(?=\s|$)/g,'$1<span class="pos">$2</span>');
+const hl=s=>esc(s).replace(/(&quot;.*?&quot;)/g,'<span class="str">$1</span>').replace(/(@initiator|@[aenprs])(\[[^\]\s]*\])?/g,'<span class="sel">$&</span>').replace(/(^|\s)([~^][-\d.]*)(?=\s|$)/g,'$1<span class="pos">$2</span>');
 const cmdBox=c=>`<div class="cmd"><code>${hl(c)}</code><button class="copy" data-copy="${esc(c)}">Copy</button></div>`;
 const edKey=()=>S.ed==='java'?'j':'b';
 const edName=e=>e==='java'?'Java':'Bedrock';
@@ -416,8 +511,9 @@ function typed(name,ed){const d=DATA[ed].commands[name];return d?d.typed:name}
 function applyEd(){
  document.body.classList.toggle('java',S.ed==='java');document.body.classList.toggle('bedrock',S.ed==='bedrock');
  $$('[data-set-ed]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.setEd===S.ed));
- renderList();renderProjects();
+ renderList();renderProjects();renderFilters();renderMobs();
  if(!$('#sheet').hidden&&openName)openCmd(openName);
+ if(!$('#sheet').hidden&&openEntName)openEnt(openEntName);
 }
 function applySettings(){
  document.body.classList.toggle('hideknown',S.hide);document.body.classList.toggle('reminders',S.remind);
@@ -468,7 +564,144 @@ function openCmd(n){
  $('#detail').innerHTML=h;$('#sheet').hidden=false;$('#closeSheet').focus();
  if(location.hash!=='#cmd-'+n)history.replaceState(null,'','#cmd-'+n);
 }
-function closeCmd(){$('#sheet').hidden=true;openName=null;if(location.hash.startsWith('#cmd-'))history.replaceState(null,'','#commands')}
+function closeCmd(){$('#sheet').hidden=true;openName=null;if(location.hash.startsWith('#cmd-'))history.replaceState(null,'','#commands');if(openEntName&&location.hash.startsWith('#mob-'))history.replaceState(null,'','#'+(S.tab||'mobs'));openEntName=null}
+
+/* ---------- entities ---------- */
+const ER=()=>EDATA.entities;
+const kinds=()=>ENT._kinds;
+const entIn=(k,ed)=>!!(ER()[k]&&ER()[k][ed].length);
+const entName=k=>(ENT[k]&&ENT[k].name)||k.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+function pickId(k,ed){const r=ER()[k];if(ed==='java'){if(k==='boat')return '#minecraft:boat';if(k==='chest_boat')return 'oak_chest_boat';return r.java.includes(k)?k:r.java[0]}return r.bedrock.includes(k)?k:r.bedrock[0]}
+const entKeys=()=>Object.keys(ER()).sort((a,b)=>entName(a).localeCompare(entName(b)));
+
+function renderMobs(){
+ const ed=S.ed,q=$('#mq').value.trim().toLowerCase();
+ $('#mobTitle').textContent=`Mobs & more in ${edName(ed)}`;
+ let keys=entKeys().filter(k=>entIn(k,ed));
+ const counts={};keys.forEach(k=>{const kk=ENT[k].kind;counts[kk]=(counts[kk]||0)+1});
+ $('#kinds').innerHTML=[`<button data-kind="all" aria-pressed="${S.kind==='all'}">Everything (${keys.length})</button>`].concat(Object.entries(kinds()).filter(([k])=>counts[k]).map(([k,v])=>`<button data-kind="${k}" aria-pressed="${S.kind===k}">${v.icon} ${v.name}</button>`)).join('');
+ const hay=k=>{const r=ER()[k];return [k,entName(k),r.java.join(' '),r.bedrock.join(' '),ENT[k].note||'',kinds()[ENT[k].kind].name,r.java_tags.filter(g=>FIL.java_groups[g]).join(' '),r.families.filter(g=>FIL.bedrock_families[g]).join(' ')].join(' ').toLowerCase()};
+ if(q)keys=keys.filter(k=>hay(k).includes(q));else if(S.kind!=='all')keys=keys.filter(k=>ENT[k].kind===S.kind);
+ const card=k=>`<button class="ecard" data-ent="${k}"><span class="ic" aria-hidden="true">${kinds()[ENT[k].kind].icon}</span><b>${esc(entName(k))}</b><code>${esc(pickId(k,ed))}</code></button>`;
+ let html='';
+ if(!q&&S.kind==='all'){for(const [kk,v] of Object.entries(kinds())){const g=keys.filter(k=>ENT[k].kind===kk);if(g.length)html+=`<div class="catrow">${v.icon} ${v.name} <span style="font:15px Nunito;color:var(--soft)">${esc(v.kid)}</span></div>`+g.map(card).join('')}}
+ else html=keys.map(card).join('');
+ if(q){const other=ed==='java'?'bedrock':'java';const o=entKeys().filter(k=>!entIn(k,ed)&&entIn(k,other)&&hay(k).includes(q));
+  if(o.length)html+=`<p class="empty" style="grid-column:1/-1">Only on ${edName(other)}: ${o.map(k=>`<a href="#mob-${k}">${esc(entName(k))}</a>`).join(', ')}</p>`}
+ $('#mlist').innerHTML=html||`<p class="empty">Nothing matches “${esc(q)}”.</p>`;
+}
+
+let openEntName=null;
+function openEnt(k){
+ const r=ER()[k];if(!r)return;openEntName=k;openName=null;
+ const ed=S.ed,other=ed==='java'?'bedrock':'java',e=ENT[k],kd=kinds()[e.kind];
+ const inJ=entIn(k,'java'),inB=entIn(k,'bedrock');
+ let h=`<h2 id="dTitle" style="font-family:'Pixelify Sans'">${esc(entName(k))}</h2><div class="badges"><span class="${inJ?'on':''}">${inJ?'✓':'✗'} Java</span><span class="${inB?'on':''}">${inB?'✓':'✗'} Bedrock</span><span>${kd.icon} ${kd.name}</span></div>`;
+ h+=`<p class="lead">${esc(e.note||kd.kid)}</p>`;
+ h+=`<table class="tbl ids"><tr><td>Java ID</td><td>${inJ?r.java.map(i=>'<code>'+esc(i)+'</code>').join(', '):'Not in Java'}</td></tr><tr><td>Bedrock ID</td><td>${inB?r.bedrock.map(i=>'<code>'+esc(i)+'</code>').join(', '):'Not in Bedrock'}</td></tr></table>`;
+ if(!entIn(k,ed)){h+=`<div class="warn">This is <b>only in ${edName(other)}</b>. Switch editions at the top to see how to pick it.</div>`}
+ else{
+  const id=pickId(k,ed);
+  h+=`<h3 style="margin:16px 0 4px">Pick it with a filter</h3>`;
+  if(k==='player'){h+=cmdBox('@a')+`<p class="bsay">Every player. Also @p (nearest), @r (random), @s (yourself).</p>`}
+  else{
+   h+=cmdBox(`@e[type=${id}]`)+`<p class="bsay">All of them.</p>`;
+   h+=cmdBox(`@n[type=${id}]`)+`<p class="bsay">Just the closest one.</p>`;
+   h+=cmdBox(ed==='java'?`@e[type=${id},distance=..10]`:`@e[type=${id},r=10]`)+`<p class="bsay">Only the ones within 10 blocks.</p>`;
+   h+=cmdBox(`@e[type=!${id}]`)+`<p class="bsay">Everything <b>except</b> these.</p>`;
+   if(ed==='java'&&r.java.length>1&&k!=='boat')h+=`<div class="tip">💡 Java has ${r.java.length} different IDs for this: ${r.java.map(i=>'<code>'+esc(i)+'</code>').join(', ')}.</div>`;
+  }
+  const curated=ed==='java'?FIL.java_groups:FIL.bedrock_families;
+  const gs=(ed==='java'?r.java_tags:r.families).filter(g=>ed==='java'||g!==id);
+  if(gs.length){
+   const main=gs.filter(g=>curated[g]),more=gs.filter(g=>!curated[g]);
+   const chip=g=>`<span title="${esc(curated[g]||'')}">${ed==='java'?'type=#minecraft:'+esc(g):'family='+esc(g)}</span>`;
+   h+=`<h3 style="margin:16px 0 4px">Groups it belongs to</h3><p class="bsay">Use a group to pick lots of kinds at once. ${ed==='java'?'On Java, put a # in front: <code>@e[type=#minecraft:undead]</code>':'On Bedrock, use family=: <code>@e[family=undead]</code>'}</p>`;
+   if(main.length)h+=`<div class="chipset">${main.map(chip).join('')}</div>`;
+   if(more.length)h+=`<details class="syn"><summary>More groups (${more.length})</summary><div class="chipset">${more.map(chip).join('')}</div></details>`;
+  }
+  h+=`<h3 style="margin:16px 0 4px">Summon it</h3>`;
+  const canJ=ed==='java'&&!['player','fishing_bobber'].includes(k),canB=ed==='bedrock'&&r.summon_bedrock;
+  if(canJ||canB)h+=cmdBox(`/summon ${k==='boat'&&ed==='java'?'oak_boat':id}`);
+  else h+=`<p>You can't make this one with /summon.</p>`;
+ }
+ $('#detail').innerHTML=h;$('#sheet').hidden=false;$('#closeSheet').focus();
+ if(location.hash!=='#mob-'+k)history.replaceState(null,'','#mob-'+k);
+}
+
+/* ---------- filters ---------- */
+const famMembers=f=>entKeys().filter(k=>ER()[k].families.includes(f));
+function renderFilters(){
+ const ed=S.ed,k=edKey(),other=ed==='java'?'bedrock':'java',ok=ed==='java'?'b':'j';
+ $('#selTable').innerHTML=FIL.selectors.map(x=>`<tr><td><code class="sel" style="font-size:18px">${x.sel}</code></td><td>${x[k]?'':'<b>Not on '+edName(ed)+'.</b> '}${esc(x.kid)}${x.note?`<br><span class="bsay">${esc(x.note)}</span>`:''}</td></tr>`).join('');
+ $('#filterList').innerHTML=FIL.groups.map(g=>{
+  const fs=FIL.filters.filter(f=>f.group===g.id);
+  return `<h3 class="sub">${g.icon} ${esc(g.title)}</h3><div class="fgrid">`+fs.map(f=>{
+   const me=f[k],them=f[ok];
+   let c=`<div class="fcard"><h4>${esc(f.title)}</h4><p style="margin:0">${esc(f.kid)}</p>`;
+   if(me){c+=`<div class="form">${esc(me.form)}</div>`+me.ex.map(e=>cmdBox(e[0])+`<p class="bsay">${esc(e[1])}</p>`).join('')}
+   else c+=`<p class="no">✗ Not on ${edName(ed)}.</p>`;
+   if(f.tip)c+=`<div class="tip">💡 ${esc(f.tip)}</div>`;
+   c+=`<p class="other">${edName(other)}: ${them?'<code>'+esc(them.form)+'</code>':'not available'}</p></div>`;
+   return c}).join('')+`</div>`}).join('');
+ $('#recipes').innerHTML=`<table class="tbl">`+FIL.recipes.map(r=>`<tr><td style="white-space:normal;width:34%"><b>${esc(r.what)}</b></td><td>${cmdBox(r[k])}${r.both?`<p class="bsay">Or just: <code>${esc(r.both)}</code></p>`:''}${r.tip?`<p class="bsay">${esc(r.tip)}</p>`:''}</td></tr>`).join('')+`</table>`;
+ if(ed==='java'){
+  $('#groupsTitle').textContent='Groups (Java entity tags)';
+  $('#groupsIntro').innerHTML='On Java, a group goes in <code>type=</code> with a <b>#</b> in front: <code>@e[type=#minecraft:undead]</code>. Here are the most useful groups and what is in each one.';
+  $('#groupList').innerHTML=Object.entries(FIL.java_groups).filter(([g])=>EDATA.java_tags[g]).map(([g,kid])=>{const m=entKeys().filter(e=>ER()[e].java_tags.includes(g));return `<div class="grp"><code>type=#minecraft:${g}</code><p style="margin:4px 0">${esc(kid)}</p><div class="chipset">${m.map(e=>`<a href="#mob-${e}">${esc(entName(e))}</a>`).join('')}</div></div>`}).join('');
+ }else{
+  $('#groupsTitle').textContent='Groups (Bedrock families)';
+  $('#groupsIntro').innerHTML='On Bedrock, groups are called <b>families</b>: <code>@e[family=undead]</code>. You can use family= more than once. Here are the most useful families and what is in each one.';
+  $('#groupList').innerHTML=Object.entries(FIL.bedrock_families).map(([g,kid])=>{const m=famMembers(g);if(!m.length)return '';return `<div class="grp"><code>family=${g}</code><p style="margin:4px 0">${esc(kid)}</p><div class="chipset">${m.map(e=>`<a href="#mob-${e}">${esc(entName(e))}</a>`).join('')}</div></div>`}).join('');
+ }
+ fillBuilder();
+}
+
+const WHO={'@e':'Every entity (mobs and things)','@n':'The nearest entity','@a':'All players','@p':'The nearest player','@r':'A random player','@s':'Yourself','@initiator':'Player who clicked an NPC'};
+function fillBuilder(){
+ const ed=S.ed,keep=id=>$(id).value;
+ const w=keep('#bWho')||'@e',t=keep('#bType'),g=keep('#bGroup');
+ $('#bWho').innerHTML=Object.entries(WHO).filter(([s])=>ed==='bedrock'||s!=='@initiator').map(([s,l])=>`<option value="${s}">${s}  ${l}</option>`).join('');
+ $('#bWho').value=WHO[w]&&(ed==='bedrock'||w!=='@initiator')?w:'@e';
+ $('#bType').innerHTML='<option value="">Any kind</option>'+Object.entries(kinds()).map(([kk,v])=>{const ks=entKeys().filter(e=>ENT[e].kind===kk&&entIn(e,ed));return ks.length?`<optgroup label="${v.name}">${ks.map(e=>`<option value="${e}">${esc(entName(e))}</option>`).join('')}</optgroup>`:''}).join('');
+ $('#bType').value=t&&entIn(t,ed)?t:'';
+ const gl=ed==='java'?Object.keys(FIL.java_groups).filter(x=>EDATA.java_tags[x]):Object.keys(FIL.bedrock_families);
+ $('#bGroup').innerHTML='<option value="">No group</option>'+gl.map(x=>`<option value="${x}">${ed==='java'?'#minecraft:'+x:x}</option>`).join('');
+ $('#bGroup').value=gl.includes(g)?g:'';
+ buildSel();
+}
+function buildSel(){
+ const ed=S.ed,v=id=>$(id).value.trim(),num=id=>v(id)===''?null:Number(v(id));
+ let who=v('#bWho');const parts=[],say=[],warn=[];
+ const t=v('#bType'),nt=$('#bNotType').checked,g=v('#bGroup');
+ if(t){const id=pickId(t,ed);parts.push(`type=${nt?'!':''}${id}`);say.push(`${nt?'everything except':'only'} ${entName(t)}`);
+  if(t!=='player'&&!nt&&((ed==='java'&&['@a','@p','@r'].includes(who))||(ed==='bedrock'&&['@a','@p'].includes(who))))warn.push(`${who} only finds players. Pick @e or @n to find a ${entName(t)}.`)}
+ if(g){if(ed==='java'){if(t&&!nt)warn.push('On Java you can only use one kind OR one group (unless you use ! for “not”). The group was left out.');else{parts.push(`type=#minecraft:${g}`);say.push(`in the ${g} group`)}}
+  else{parts.push(`family=${g}`);say.push(`in the ${g} family`)}}
+ const mx=num('#bMax'),mn=num('#bMin');
+ if(mx!==null||mn!==null){if(ed==='java')parts.push(`distance=${mn??''}..${mx??''}`);else{if(mn!==null)parts.push(`rm=${mn}`);if(mx!==null)parts.push(`r=${mx}`)}
+  say.push(mn!==null&&mx!==null?`between ${mn} and ${mx} blocks away`:mx!==null?`within ${mx} blocks`:`at least ${mn} blocks away`)}
+ const cnt=num('#bCount'),so=v('#bSort');
+ if(cnt!==null||so!=='nearest'){
+  if(ed==='java'){if(['@s'].includes(who))warn.push('@s is always just one thing, so “how many” does nothing.');else{if(cnt!==null)parts.push(`limit=${cnt}`);parts.push(`sort=${so}`)}}
+  else{if(so==='random'){if(who==='@e'||who==='@a'||who==='@n'){who='@r';warn.push('Bedrock uses @r for random ones, so Who was switched to @r.')}if(cnt!==null)parts.push(`c=${cnt}`)}
+   else if(cnt!==null)parts.push(`c=${so==='furthest'?-cnt:cnt}`);else if(so==='furthest')parts.push('c=-1')}
+  say.push(`${so==='nearest'?'the closest':so==='furthest'?'the farthest':'random'} ${cnt??(so==='nearest'?'':'1')}`.trim())}
+ const tg=v('#bTag');if(tg){const nt2=$('#bNotTag').checked;parts.push(`tag=${nt2?'!':''}${tg}`);say.push(nt2?`without the tag ${tg}`:`with the tag ${tg}`)}
+ const nm=v('#bName');if(nm){parts.push(`name=${/\s/.test(nm)?'"'+nm+'"':nm}`);say.push(`named ${nm}`)}
+ const gm=v('#bMode');if(gm){parts.push(ed==='java'?`gamemode=${gm}`:`m=${gm}`);say.push(`in ${gm} mode`)}
+ const l1=num('#bLvMin'),l2=num('#bLvMax');
+ if(l1!==null||l2!==null){if(ed==='java')parts.push(`level=${l1??''}..${l2??''}`);else{if(l1!==null)parts.push(`lm=${l1}`);if(l2!==null)parts.push(`l=${l2}`)}say.push(`level ${l1??0}${l2!==null?' to '+l2:'+'}`)}
+ const ob=v('#bObj'),s1=num('#bScMin'),s2=num('#bScMax');
+ if(ob&&(s1!==null||s2!==null)){const rg=s1!==null&&s2!==null&&s1===s2?`${s1}`:`${s1??''}..${s2??''}`;parts.push(`scores={${ob}=${rg}}`);say.push(`with ${ob} score ${rg}`)}
+ else if(ob)warn.push('Add a number for the score, like “at least 1”.');
+ if((gm||l1!==null||l2!==null)&&['@e','@n'].includes(who))say.push('(only players can match game mode and level)');
+ const sel=who+(parts.length?`[${parts.join(',')}]`:'');
+ $('#bOut').innerHTML=hl(sel);
+ $('#bSay').textContent=`${WHO[who]}${say.length?': '+say.join(', '):''}.`;
+ $('#bWarn').innerHTML=warn.map(w=>`<div class="warn">${esc(w)}</div>`).join('');
+ $('#bTry').innerHTML=cmdBox(`/say I picked ${sel}`);
+}
 
 function renderProjects(){
  const k=edKey();const col={Impulse:'var(--orange)',Chain:'var(--chain)',Repeat:'var(--repeat)'};
@@ -478,8 +711,9 @@ function renderProjects(){
 function route(){
  const h=location.hash.slice(1);
  if(h.startsWith('cmd-')){showTab('commands');openCmd(h.slice(4));return}
+ if(h.startsWith('mob-')){if(!['mobs','filters'].includes(S.tab))showTab('mobs');openEnt(h.slice(4));return}
  if(!$('#sheet').hidden)$('#sheet').hidden=true;
- showTab(['learn','commands','blocks'].includes(h)?h:(S.tab||'learn'));
+ showTab(['learn','commands','filters','mobs','blocks'].includes(h)?h:(S.tab||'learn'));
 }
 function showTab(t){S.tab=t;save();$$('main>section').forEach(s=>s.hidden=s.id!==t);$$('.tabs a').forEach(a=>a.setAttribute('aria-current',a.dataset.tab===t?'page':'false'))}
 
@@ -488,6 +722,9 @@ document.addEventListener('click',e=>{
  if(t.dataset.setEd){S.ed=t.dataset.setEd;save();applyEd();return}
  if(t.dataset.cat){S.cat=t.dataset.cat;$('#q').value='';save();renderList();return}
  if(t.dataset.cmd){openCmd(t.dataset.cmd);return}
+ if(t.dataset.ent){openEnt(t.dataset.ent);return}
+ if(t.dataset.kind){S.kind=t.dataset.kind;$('#mq').value='';save();renderMobs();return}
+ if(t.id==='bReset'){$$('.bform input').forEach(i=>i.type==='checkbox'?i.checked=false:i.value='');$$('.bform select').forEach(x=>x.selectedIndex=0);$('#bWho').value='@e';buildSel();return}
  if(t.dataset.copy!==undefined){navigator.clipboard?.writeText(t.dataset.copy).then(()=>{t.textContent='Copied!';setTimeout(()=>t.textContent='Copy',1200)}).catch(()=>{t.textContent='Select & copy'});return}
  if(t.classList.contains('know')){e.stopPropagation();const l=t.closest('.lesson');const id=l.dataset.id;if(S.known[id])delete S.known[id];else S.known[id]=1;l.classList.remove('open');save();applySettings();return}
  if(t.dataset.knowAll){$$('#'+t.dataset.knowAll+' .lesson[data-id]').forEach(l=>S.known[l.dataset.id]=1);save();applySettings();return}
@@ -502,8 +739,10 @@ $('#setSheet').addEventListener('click',e=>{if(e.target.id==='setSheet')$('#setS
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('#sheet').hidden)closeCmd();$('#setSheet').hidden=true}});
 [['sHide','hide'],['sRemind','remind'],['sExpert','expert'],['sSyntax','syntax']].forEach(([id,k])=>$('#'+id).addEventListener('change',e=>{S[k]=e.target.checked;save();applySettings();renderList()}));
 $('#q').addEventListener('input',renderList);
+$('#mq').addEventListener('input',renderMobs);
+$$('.bform input,.bform select').forEach(x=>{x.addEventListener('input',buildSel);x.addEventListener('change',buildSel)});
 window.addEventListener('hashchange',route);
-$('#foot').innerHTML=`Command lists come straight from Mojang's own game files: <b>Java ${esc(DATA.java.version)}</b> (the game's data generator, via <a href="https://github.com/misode/mcmeta">misode/mcmeta</a>) and <b>Bedrock ${esc(DATA.bedrock.version)}</b> (<a href="https://github.com/Mojang/bedrock-samples">Mojang/bedrock-samples</a>). Last updated ${esc(DATA.built)}. Not an official Minecraft product. <a href="https://github.com/trentboeschen/slashcraft">Source on GitHub</a>.`;
+$('#foot').innerHTML=`Command lists come straight from Mojang's own game files: <b>Java ${esc(DATA.java.version)}</b> (the game's data generator, via <a href="https://github.com/misode/mcmeta">misode/mcmeta</a>) and <b>Bedrock ${esc(DATA.bedrock.version)}</b> (<a href="https://github.com/Mojang/bedrock-samples">Mojang/bedrock-samples</a>). Mob lists come from the same places (<b>Java ${esc(EDATA.java_version)}</b> / <b>Bedrock ${esc(EDATA.bedrock_version)}</b>). Last updated ${esc(DATA.built)}. Not an official Minecraft product. <a href="https://github.com/trentboeschen/slashcraft">Source on GitHub</a>.`;
 applySettings();applyEd();route();
 }).catch(e=>{document.querySelector('main').insertAdjacentHTML('afterbegin','<p class="warn">The command list could not load. Try refreshing the page.</p>')});
 </script>

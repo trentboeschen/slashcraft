@@ -1,7 +1,7 @@
 name: Check data
 
-# Runs on every push and pull request: makes sure both data files are valid
-# JSON and that every command in the game has a kid-friendly explanation.
+# Runs on every push and pull request: makes sure every data file is valid
+# JSON and that every command and mob in the game has a kid-friendly entry.
 on:
   push:
   pull_request:
@@ -16,7 +16,8 @@ jobs:
           python-version: "3.12"
       - name: Data files are valid JSON
         run: |
-          python3 -m json.tool data/commands-data.json > /dev/null
-          python3 -m json.tool data/content.json > /dev/null
+          for f in data/*.json; do python3 -m json.tool "$f" > /dev/null || { echo "Invalid JSON: $f"; exit 1; }; done
       - name: Every command has an explanation
         run: python3 scripts/check_coverage.py data/commands-data.json data/content.json
+      - name: Every mob and thing has an entry
+        run: python3 scripts/check_entities.py data/entities-data.json data/entities.json

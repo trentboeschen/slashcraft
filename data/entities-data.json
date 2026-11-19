@@ -1,0 +1,2998 @@
+{
+ "built": "2026-11-19",
+ "java_version": "26.3",
+ "bedrock_version": "1.26.60",
+ "java_tags": {
+  "accepts_iron_golem_gift": [
+   "copper_golem"
+  ],
+  "aquatic": [
+   "axolotl",
+   "cod",
+   "dolphin",
+   "elder_guardian",
+   "glow_squid",
+   "guardian",
+   "nautilus",
+   "pufferfish",
+   "salmon",
+   "squid",
+   "tadpole",
+   "tropical_fish",
+   "turtle",
+   "zombie_nautilus"
+  ],
+  "arrows": [
+   "arrow",
+   "spectral_arrow"
+  ],
+  "arthropod": [
+   "bee",
+   "cave_spider",
+   "endermite",
+   "silverfish",
+   "spider"
+  ],
+  "axolotl_always_hostiles": [
+   "drowned",
+   "elder_guardian",
+   "guardian"
+  ],
+  "axolotl_hunt_targets": [
+   "cod",
+   "glow_squid",
+   "pufferfish",
+   "salmon",
+   "squid",
+   "tadpole",
+   "tropical_fish"
+  ],
+  "beehive_inhabitors": [
+   "bee"
+  ],
+  "boat": [
+   "acacia_boat",
+   "bamboo_raft",
+   "birch_boat",
+   "cherry_boat",
+   "dark_oak_boat",
+   "jungle_boat",
+   "mangrove_boat",
+   "oak_boat",
+   "pale_oak_boat",
+   "poplar_boat",
+   "spruce_boat"
+  ],
+  "burn_in_daylight": [
+   "bogged",
+   "drowned",
+   "phantom",
+   "skeleton",
+   "stray",
+   "wither_skeleton",
+   "zombie",
+   "zombie_horse",
+   "zombie_nautilus",
+   "zombie_villager"
+  ],
+  "can_breathe_under_water": [
+   "armor_stand",
+   "axolotl",
+   "bogged",
+   "camel_husk",
+   "cod",
+   "copper_golem",
+   "drowned",
+   "elder_guardian",
+   "frog",
+   "glow_squid",
+   "guardian",
+   "husk",
+   "nautilus",
+   "parched",
+   "phantom",
+   "pufferfish",
+   "salmon",
+   "skeleton",
+   "skeleton_horse",
+   "squid",
+   "stray",
+   "tadpole",
+   "tropical_fish",
+   "turtle",
+   "wither",
+   "wither_skeleton",
+   "zoglin",
+   "zombie",
+   "zombie_horse",
+   "zombie_nautilus",
+   "zombie_villager",
+   "zombified_piglin"
+  ],
+  "can_equip_harness": [
+   "happy_ghast"
+  ],
+  "can_equip_saddle": [
+   "camel",
+   "camel_husk",
+   "donkey",
+   "horse",
+   "mule",
+   "nautilus",
+   "pig",
+   "skeleton_horse",
+   "strider",
+   "zombie_horse",
+   "zombie_nautilus"
+  ],
+  "can_float_while_ridden": [
+   "camel",
+   "camel_husk",
+   "donkey",
+   "horse",
+   "mule",
+   "zombie_horse"
+  ],
+  "can_turn_in_boats": [
+   "breeze"
+  ],
+  "can_wear_horse_armor": [
+   "horse",
+   "zombie_horse"
+  ],
+  "can_wear_nautilus_armor": [
+   "nautilus",
+   "zombie_nautilus"
+  ],
+  "candidate_for_iron_golem_gift": [
+   "copper_golem",
+   "villager"
+  ],
+  "cannot_be_age_locked": [
+   "skeleton_horse",
+   "villager",
+   "zombie_horse"
+  ],
+  "cannot_be_dismounted_by_item_usage": [
+   "interaction"
+  ],
+  "cannot_be_pushed_onto_boats": [
+   "cod",
+   "creaking",
+   "dolphin",
+   "elder_guardian",
+   "glow_squid",
+   "nautilus",
+   "player",
+   "pufferfish",
+   "salmon",
+   "squid",
+   "sulfur_cube",
+   "tadpole",
+   "tropical_fish",
+   "zombie_nautilus"
+  ],
+  "deflects_projectiles": [
+   "breeze"
+  ],
+  "dismounts_underwater": [
+   "camel",
+   "chicken",
+   "donkey",
+   "happy_ghast",
+   "horse",
+   "llama",
+   "mule",
+   "pig",
+   "ravager",
+   "spider",
+   "strider",
+   "trader_llama",
+   "zombie_horse"
+  ],
+  "fall_damage_immune": [
+   "allay",
+   "bat",
+   "bee",
+   "blaze",
+   "breeze",
+   "cat",
+   "chicken",
+   "copper_golem",
+   "ghast",
+   "happy_ghast",
+   "iron_golem",
+   "magma_cube",
+   "ocelot",
+   "parrot",
+   "phantom",
+   "shulker",
+   "snow_golem",
+   "wither"
+  ],
+  "followable_friendly_mobs": [
+   "armadillo",
+   "bee",
+   "camel",
+   "cat",
+   "chicken",
+   "cow",
+   "donkey",
+   "fox",
+   "goat",
+   "happy_ghast",
+   "horse",
+   "llama",
+   "mule",
+   "ocelot",
+   "panda",
+   "parrot",
+   "pig",
+   "polar_bear",
+   "rabbit",
+   "sheep",
+   "skeleton_horse",
+   "sniffer",
+   "strider",
+   "villager",
+   "wolf"
+  ],
+  "freeze_hurts_extra_types": [
+   "blaze",
+   "magma_cube",
+   "strider"
+  ],
+  "freeze_immune_entity_types": [
+   "polar_bear",
+   "snow_golem",
+   "stray",
+   "wither"
+  ],
+  "frog_food": [
+   "magma_cube",
+   "slime"
+  ],
+  "ignores_poison_and_regen": [
+   "bogged",
+   "camel_husk",
+   "drowned",
+   "husk",
+   "parched",
+   "phantom",
+   "skeleton",
+   "skeleton_horse",
+   "stray",
+   "wither",
+   "wither_skeleton",
+   "zoglin",
+   "zombie",
+   "zombie_horse",
+   "zombie_nautilus",
+   "zombie_villager",
+   "zombified_piglin"
+  ],
+  "illager": [
+   "evoker",
+   "illusioner",
+   "pillager",
+   "vindicator"
+  ],
+  "illager_friends": [
+   "evoker",
+   "illusioner",
+   "pillager",
+   "vindicator"
+  ],
+  "immune_to_infested": [
+   "silverfish"
+  ],
+  "immune_to_oozing": [
+   "slime"
+  ],
+  "impact_projectiles": [
+   "arrow",
+   "breeze_wind_charge",
+   "dragon_fireball",
+   "egg",
+   "fireball",
+   "firework_rocket",
+   "small_fireball",
+   "snowball",
+   "spectral_arrow",
+   "trident",
+   "wind_charge",
+   "wither_skull"
+  ],
+  "inverted_healing_and_harm": [
+   "bogged",
+   "camel_husk",
+   "drowned",
+   "husk",
+   "parched",
+   "phantom",
+   "skeleton",
+   "skeleton_horse",
+   "stray",
+   "wither",
+   "wither_skeleton",
+   "zoglin",
+   "zombie",
+   "zombie_horse",
+   "zombie_nautilus",
+   "zombie_villager",
+   "zombified_piglin"
+  ],
+  "nautilus_hostiles": [
+   "pufferfish"
+  ],
+  "no_anger_from_wind_charge": [
+   "bogged",
+   "breeze",
+   "cave_spider",
+   "husk",
+   "skeleton",
+   "slime",
+   "spider",
+   "stray",
+   "zombie"
+  ],
+  "non_controlling_rider": [
+   "magma_cube",
+   "slime",
+   "sulfur_cube"
+  ],
+  "not_affected_by_geysers": [
+   "ender_dragon"
+  ],
+  "not_scary_for_pufferfish": [
+   "cod",
+   "dolphin",
+   "elder_guardian",
+   "glow_squid",
+   "guardian",
+   "nautilus",
+   "pufferfish",
+   "salmon",
+   "squid",
+   "sulfur_cube",
+   "tadpole",
+   "tropical_fish",
+   "turtle",
+   "zombie_nautilus"
+  ],
+  "powder_snow_walkable_mobs": [
+   "endermite",
+   "fox",
+   "rabbit",
+   "silverfish"
+  ],
+  "raiders": [
+   "evoker",
+   "illusioner",
+   "pillager",
+   "ravager",
+   "vindicator",
+   "witch"
+  ],
+  "redirectable_projectile": [
+   "breeze_wind_charge",
+   "fireball",
+   "wind_charge"
+  ],
+  "sensitive_to_bane_of_arthropods": [
+   "bee",
+   "cave_spider",
+   "endermite",
+   "silverfish",
+   "spider"
+  ],
+  "sensitive_to_impaling": [
+   "axolotl",
+   "cod",
+   "dolphin",
+   "elder_guardian",
+   "glow_squid",
+   "guardian",
+   "nautilus",
+   "pufferfish",
+   "salmon",
+   "squid",
+   "tadpole",
+   "tropical_fish",
+   "turtle",
+   "zombie_nautilus"
+  ],
+  "sensitive_to_smite": [
+   "bogged",
+   "camel_husk",
+   "drowned",
+   "husk",
+   "parched",
+   "phantom",
+   "skeleton",
+   "skeleton_horse",
+   "stray",
+   "wither",
+   "wither_skeleton",
+   "zoglin",
+   "zombie",
+   "zombie_horse",
+   "zombie_nautilus",
+   "zombie_villager",
+   "zombified_piglin"
+  ],
+  "skeletons": [
+   "bogged",
+   "parched",
+   "skeleton",
+   "skeleton_horse",
+   "stray",
+   "wither_skeleton"
+  ],
+  "undead": [
+   "bogged",
+   "camel_husk",
+   "drowned",
+   "husk",
+   "parched",
+   "phantom",
+   "skeleton",
+   "skeleton_horse",
+   "stray",
+   "wither",
+   "wither_skeleton",
+   "zoglin",
+   "zombie",
+   "zombie_horse",
+   "zombie_nautilus",
+   "zombie_villager",
+   "zombified_piglin"
+  ],
+  "wither_friends": [
+   "bogged",
+   "camel_husk",
+   "drowned",
+   "husk",
+   "parched",
+   "phantom",
+   "skeleton",
+   "skeleton_horse",
+   "stray",
+   "wither",
+   "wither_skeleton",
+   "zoglin",
+   "zombie",
+   "zombie_horse",
+   "zombie_nautilus",
+   "zombie_villager",
+   "zombified_piglin"
+  ],
+  "zombies": [
+   "camel_husk",
+   "drowned",
+   "husk",
+   "zoglin",
+   "zombie",
+   "zombie_horse",
+   "zombie_nautilus",
+   "zombie_villager",
+   "zombified_piglin"
+  ]
+ },
+ "entities": {
+  "allay": {
+   "java": [
+    "allay"
+   ],
+   "bedrock": [
+    "allay"
+   ],
+   "java_tags": [
+    "fall_damage_immune"
+   ],
+   "families": [
+    "allay",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "area_effect_cloud": {
+   "java": [
+    "area_effect_cloud"
+   ],
+   "bedrock": [
+    "area_effect_cloud"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": false
+  },
+  "armadillo": {
+   "java": [
+    "armadillo"
+   ],
+   "bedrock": [
+    "armadillo"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "armadillo",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "armor_stand": {
+   "java": [
+    "armor_stand"
+   ],
+   "bedrock": [
+    "armor_stand"
+   ],
+   "java_tags": [
+    "can_breathe_under_water"
+   ],
+   "families": [
+    "armor_stand",
+    "inanimate",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "arrow": {
+   "java": [
+    "arrow"
+   ],
+   "bedrock": [
+    "arrow"
+   ],
+   "java_tags": [
+    "arrows",
+    "impact_projectiles"
+   ],
+   "families": [
+    "arrow",
+    "projectile"
+   ],
+   "summon_bedrock": true
+  },
+  "axolotl": {
+   "java": [
+    "axolotl"
+   ],
+   "bedrock": [
+    "axolotl"
+   ],
+   "java_tags": [
+    "aquatic",
+    "can_breathe_under_water",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "axolotl",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "bat": {
+   "java": [
+    "bat"
+   ],
+   "bedrock": [
+    "bat"
+   ],
+   "java_tags": [
+    "fall_damage_immune"
+   ],
+   "families": [
+    "bat",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "bee": {
+   "java": [
+    "bee"
+   ],
+   "bedrock": [
+    "bee"
+   ],
+   "java_tags": [
+    "arthropod",
+    "beehive_inhabitors",
+    "fall_damage_immune",
+    "followable_friendly_mobs",
+    "sensitive_to_bane_of_arthropods"
+   ],
+   "families": [
+    "arthropod",
+    "bee",
+    "mob",
+    "pacified"
+   ],
+   "summon_bedrock": true
+  },
+  "blaze": {
+   "java": [
+    "blaze"
+   ],
+   "bedrock": [
+    "blaze"
+   ],
+   "java_tags": [
+    "fall_damage_immune",
+    "freeze_hurts_extra_types"
+   ],
+   "families": [
+    "blaze",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "block_display": {
+   "java": [
+    "block_display"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "boat": {
+   "java": [
+    "acacia_boat",
+    "bamboo_raft",
+    "birch_boat",
+    "cherry_boat",
+    "dark_oak_boat",
+    "jungle_boat",
+    "mangrove_boat",
+    "oak_boat",
+    "pale_oak_boat",
+    "poplar_boat",
+    "spruce_boat"
+   ],
+   "bedrock": [
+    "boat"
+   ],
+   "java_tags": [
+    "boat"
+   ],
+   "families": [
+    "boat",
+    "inanimate"
+   ],
+   "summon_bedrock": true
+  },
+  "bogged": {
+   "java": [
+    "bogged"
+   ],
+   "bedrock": [
+    "bogged"
+   ],
+   "java_tags": [
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "no_anger_from_wind_charge",
+    "sensitive_to_smite",
+    "skeletons",
+    "undead",
+    "wither_friends"
+   ],
+   "families": [
+    "bogged",
+    "mob",
+    "monster",
+    "skeleton",
+    "undead"
+   ],
+   "summon_bedrock": true
+  },
+  "breeze": {
+   "java": [
+    "breeze"
+   ],
+   "bedrock": [
+    "breeze"
+   ],
+   "java_tags": [
+    "can_turn_in_boats",
+    "deflects_projectiles",
+    "fall_damage_immune",
+    "no_anger_from_wind_charge"
+   ],
+   "families": [
+    "breeze",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "breeze_wind_charge": {
+   "java": [
+    "breeze_wind_charge"
+   ],
+   "bedrock": [
+    "breeze_wind_charge_projectile"
+   ],
+   "java_tags": [
+    "impact_projectiles",
+    "redirectable_projectile"
+   ],
+   "families": [
+    "breeze_wind_charge_projectile",
+    "projectile",
+    "wind_charge",
+    "wind_charge_projectile"
+   ],
+   "summon_bedrock": false
+  },
+  "camel": {
+   "java": [
+    "camel"
+   ],
+   "bedrock": [
+    "camel"
+   ],
+   "java_tags": [
+    "can_equip_saddle",
+    "can_float_while_ridden",
+    "dismounts_underwater",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "camel",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "camel_husk": {
+   "java": [
+    "camel_husk"
+   ],
+   "bedrock": [
+    "camel_husk"
+   ],
+   "java_tags": [
+    "can_breathe_under_water",
+    "can_equip_saddle",
+    "can_float_while_ridden",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends",
+    "zombies"
+   ],
+   "families": [
+    "camel_husk",
+    "mob",
+    "undead"
+   ],
+   "summon_bedrock": true
+  },
+  "cat": {
+   "java": [
+    "cat"
+   ],
+   "bedrock": [
+    "cat"
+   ],
+   "java_tags": [
+    "fall_damage_immune",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "cat",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "cave_spider": {
+   "java": [
+    "cave_spider"
+   ],
+   "bedrock": [
+    "cave_spider"
+   ],
+   "java_tags": [
+    "arthropod",
+    "no_anger_from_wind_charge",
+    "sensitive_to_bane_of_arthropods"
+   ],
+   "families": [
+    "arthropod",
+    "cavespider",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "chest_boat": {
+   "java": [
+    "acacia_chest_boat",
+    "bamboo_chest_raft",
+    "birch_chest_boat",
+    "cherry_chest_boat",
+    "dark_oak_chest_boat",
+    "jungle_chest_boat",
+    "mangrove_chest_boat",
+    "oak_chest_boat",
+    "pale_oak_chest_boat",
+    "poplar_chest_boat",
+    "spruce_chest_boat"
+   ],
+   "bedrock": [
+    "chest_boat"
+   ],
+   "java_tags": [],
+   "families": [
+    "boat",
+    "inanimate"
+   ],
+   "summon_bedrock": true
+  },
+  "chest_minecart": {
+   "java": [
+    "chest_minecart"
+   ],
+   "bedrock": [
+    "chest_minecart"
+   ],
+   "java_tags": [],
+   "families": [
+    "inanimate",
+    "minecart"
+   ],
+   "summon_bedrock": true
+  },
+  "chicken": {
+   "java": [
+    "chicken"
+   ],
+   "bedrock": [
+    "chicken"
+   ],
+   "java_tags": [
+    "dismounts_underwater",
+    "fall_damage_immune",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "chicken",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "cod": {
+   "java": [
+    "cod"
+   ],
+   "bedrock": [
+    "cod"
+   ],
+   "java_tags": [
+    "aquatic",
+    "axolotl_hunt_targets",
+    "can_breathe_under_water",
+    "cannot_be_pushed_onto_boats",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "cod",
+    "fish"
+   ],
+   "summon_bedrock": true
+  },
+  "command_block_minecart": {
+   "java": [
+    "command_block_minecart"
+   ],
+   "bedrock": [
+    "command_block_minecart"
+   ],
+   "java_tags": [],
+   "families": [
+    "inanimate",
+    "minecart"
+   ],
+   "summon_bedrock": true
+  },
+  "copper_golem": {
+   "java": [
+    "copper_golem"
+   ],
+   "bedrock": [
+    "copper_golem"
+   ],
+   "java_tags": [
+    "accepts_iron_golem_gift",
+    "can_breathe_under_water",
+    "candidate_for_iron_golem_gift",
+    "fall_damage_immune"
+   ],
+   "families": [
+    "copper_golem",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "cow": {
+   "java": [
+    "cow"
+   ],
+   "bedrock": [
+    "cow"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "cow",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "creaking": {
+   "java": [
+    "creaking"
+   ],
+   "bedrock": [
+    "creaking"
+   ],
+   "java_tags": [
+    "cannot_be_pushed_onto_boats"
+   ],
+   "families": [
+    "creaking",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "creeper": {
+   "java": [
+    "creeper"
+   ],
+   "bedrock": [
+    "creeper"
+   ],
+   "java_tags": [],
+   "families": [
+    "creeper",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "cushion": {
+   "java": [
+    "cushion"
+   ],
+   "bedrock": [
+    "cushion"
+   ],
+   "java_tags": [],
+   "families": [
+    "actor",
+    "cushion",
+    "inanimate"
+   ],
+   "summon_bedrock": true
+  },
+  "dolphin": {
+   "java": [
+    "dolphin"
+   ],
+   "bedrock": [
+    "dolphin"
+   ],
+   "java_tags": [
+    "aquatic",
+    "cannot_be_pushed_onto_boats",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "dolphin",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "donkey": {
+   "java": [
+    "donkey"
+   ],
+   "bedrock": [
+    "donkey"
+   ],
+   "java_tags": [
+    "can_equip_saddle",
+    "can_float_while_ridden",
+    "dismounts_underwater",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "donkey",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "dragon_fireball": {
+   "java": [
+    "dragon_fireball"
+   ],
+   "bedrock": [
+    "dragon_fireball"
+   ],
+   "java_tags": [
+    "impact_projectiles"
+   ],
+   "families": [
+    "dragon_fireball",
+    "projectile"
+   ],
+   "summon_bedrock": false
+  },
+  "drowned": {
+   "java": [
+    "drowned"
+   ],
+   "bedrock": [
+    "drowned"
+   ],
+   "java_tags": [
+    "axolotl_always_hostiles",
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends",
+    "zombies"
+   ],
+   "families": [
+    "baby_undead",
+    "drowned",
+    "mob",
+    "monster",
+    "undead",
+    "zombie"
+   ],
+   "summon_bedrock": true
+  },
+  "egg": {
+   "java": [
+    "egg"
+   ],
+   "bedrock": [
+    "egg"
+   ],
+   "java_tags": [
+    "impact_projectiles"
+   ],
+   "families": [
+    "egg",
+    "projectile"
+   ],
+   "summon_bedrock": true
+  },
+  "elder_guardian": {
+   "java": [
+    "elder_guardian"
+   ],
+   "bedrock": [
+    "elder_guardian"
+   ],
+   "java_tags": [
+    "aquatic",
+    "axolotl_always_hostiles",
+    "can_breathe_under_water",
+    "cannot_be_pushed_onto_boats",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "guardian_elder",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "elder_guardian_ghost": {
+   "java": [],
+   "bedrock": [
+    "elder_guardian_ghost"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": true
+  },
+  "end_crystal": {
+   "java": [
+    "end_crystal"
+   ],
+   "bedrock": [
+    "ender_crystal"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": true
+  },
+  "ender_dragon": {
+   "java": [
+    "ender_dragon"
+   ],
+   "bedrock": [
+    "ender_dragon"
+   ],
+   "java_tags": [
+    "not_affected_by_geysers"
+   ],
+   "families": [
+    "dragon",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "ender_pearl": {
+   "java": [
+    "ender_pearl"
+   ],
+   "bedrock": [
+    "ender_pearl"
+   ],
+   "java_tags": [],
+   "families": [
+    "ender_pearl",
+    "projectile"
+   ],
+   "summon_bedrock": false
+  },
+  "enderman": {
+   "java": [
+    "enderman"
+   ],
+   "bedrock": [
+    "enderman"
+   ],
+   "java_tags": [],
+   "families": [
+    "enderman",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "endermite": {
+   "java": [
+    "endermite"
+   ],
+   "bedrock": [
+    "endermite"
+   ],
+   "java_tags": [
+    "arthropod",
+    "powder_snow_walkable_mobs",
+    "sensitive_to_bane_of_arthropods"
+   ],
+   "families": [
+    "arthropod",
+    "endermite",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "evoker": {
+   "java": [
+    "evoker"
+   ],
+   "bedrock": [
+    "evocation_illager"
+   ],
+   "java_tags": [
+    "illager",
+    "illager_friends",
+    "raiders"
+   ],
+   "families": [
+    "evocation_illager",
+    "illager",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "evoker_fangs": {
+   "java": [
+    "evoker_fangs"
+   ],
+   "bedrock": [
+    "evocation_fang"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": true
+  },
+  "experience_bottle": {
+   "java": [
+    "experience_bottle"
+   ],
+   "bedrock": [
+    "xp_bottle"
+   ],
+   "java_tags": [],
+   "families": [
+    "projectile",
+    "xp_bottle"
+   ],
+   "summon_bedrock": true
+  },
+  "experience_orb": {
+   "java": [
+    "experience_orb"
+   ],
+   "bedrock": [
+    "xp_orb"
+   ],
+   "java_tags": [],
+   "families": [
+    "inanimate"
+   ],
+   "summon_bedrock": true
+  },
+  "eye_of_ender": {
+   "java": [
+    "eye_of_ender"
+   ],
+   "bedrock": [
+    "eye_of_ender_signal"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": false
+  },
+  "falling_block": {
+   "java": [
+    "falling_block"
+   ],
+   "bedrock": [
+    "falling_block"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": false
+  },
+  "fireball": {
+   "java": [
+    "fireball"
+   ],
+   "bedrock": [
+    "fireball"
+   ],
+   "java_tags": [
+    "impact_projectiles",
+    "redirectable_projectile"
+   ],
+   "families": [
+    "fireball",
+    "projectile"
+   ],
+   "summon_bedrock": false
+  },
+  "firework_rocket": {
+   "java": [
+    "firework_rocket"
+   ],
+   "bedrock": [
+    "fireworks_rocket"
+   ],
+   "java_tags": [
+    "impact_projectiles"
+   ],
+   "families": [
+    "fireworks_rocket",
+    "projectile"
+   ],
+   "summon_bedrock": true
+  },
+  "fishing_bobber": {
+   "java": [
+    "fishing_bobber"
+   ],
+   "bedrock": [
+    "fishing_hook"
+   ],
+   "java_tags": [],
+   "families": [
+    "fishing_hook",
+    "projectile"
+   ],
+   "summon_bedrock": false
+  },
+  "fox": {
+   "java": [
+    "fox"
+   ],
+   "bedrock": [
+    "fox"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs",
+    "powder_snow_walkable_mobs"
+   ],
+   "families": [
+    "fox",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "frog": {
+   "java": [
+    "frog"
+   ],
+   "bedrock": [
+    "frog"
+   ],
+   "java_tags": [
+    "can_breathe_under_water"
+   ],
+   "families": [
+    "frog",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "furnace_minecart": {
+   "java": [
+    "furnace_minecart"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "ghast": {
+   "java": [
+    "ghast"
+   ],
+   "bedrock": [
+    "ghast"
+   ],
+   "java_tags": [
+    "fall_damage_immune"
+   ],
+   "families": [
+    "ghast",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "giant": {
+   "java": [
+    "giant"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "glow_item_frame": {
+   "java": [
+    "glow_item_frame"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "glow_squid": {
+   "java": [
+    "glow_squid"
+   ],
+   "bedrock": [
+    "glow_squid"
+   ],
+   "java_tags": [
+    "aquatic",
+    "axolotl_hunt_targets",
+    "can_breathe_under_water",
+    "cannot_be_pushed_onto_boats",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "mob",
+    "squid"
+   ],
+   "summon_bedrock": true
+  },
+  "goat": {
+   "java": [
+    "goat"
+   ],
+   "bedrock": [
+    "goat"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "animal",
+    "goat"
+   ],
+   "summon_bedrock": true
+  },
+  "guardian": {
+   "java": [
+    "guardian"
+   ],
+   "bedrock": [
+    "guardian"
+   ],
+   "java_tags": [
+    "aquatic",
+    "axolotl_always_hostiles",
+    "can_breathe_under_water",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "guardian",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "happy_ghast": {
+   "java": [
+    "happy_ghast"
+   ],
+   "bedrock": [
+    "happy_ghast"
+   ],
+   "java_tags": [
+    "can_equip_harness",
+    "dismounts_underwater",
+    "fall_damage_immune",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "happy_ghast",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "hoglin": {
+   "java": [
+    "hoglin"
+   ],
+   "bedrock": [
+    "hoglin"
+   ],
+   "java_tags": [],
+   "families": [
+    "hoglin",
+    "hoglin_adult",
+    "hoglin_baby",
+    "hoglin_huntable",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "hopper_minecart": {
+   "java": [
+    "hopper_minecart"
+   ],
+   "bedrock": [
+    "hopper_minecart"
+   ],
+   "java_tags": [],
+   "families": [
+    "inanimate",
+    "minecart"
+   ],
+   "summon_bedrock": true
+  },
+  "horse": {
+   "java": [
+    "horse"
+   ],
+   "bedrock": [
+    "horse"
+   ],
+   "java_tags": [
+    "can_equip_saddle",
+    "can_float_while_ridden",
+    "can_wear_horse_armor",
+    "dismounts_underwater",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "horse",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "husk": {
+   "java": [
+    "husk"
+   ],
+   "bedrock": [
+    "husk"
+   ],
+   "java_tags": [
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "no_anger_from_wind_charge",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends",
+    "zombies"
+   ],
+   "families": [
+    "baby_undead",
+    "husk",
+    "husk_rider",
+    "mob",
+    "monster",
+    "undead",
+    "zombie"
+   ],
+   "summon_bedrock": true
+  },
+  "illusioner": {
+   "java": [
+    "illusioner"
+   ],
+   "bedrock": [],
+   "java_tags": [
+    "illager",
+    "illager_friends",
+    "raiders"
+   ],
+   "families": []
+  },
+  "interaction": {
+   "java": [
+    "interaction"
+   ],
+   "bedrock": [],
+   "java_tags": [
+    "cannot_be_dismounted_by_item_usage"
+   ],
+   "families": []
+  },
+  "iron_golem": {
+   "java": [
+    "iron_golem"
+   ],
+   "bedrock": [
+    "iron_golem"
+   ],
+   "java_tags": [
+    "fall_damage_immune"
+   ],
+   "families": [
+    "irongolem",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "item": {
+   "java": [
+    "item"
+   ],
+   "bedrock": [
+    "item"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": false
+  },
+  "item_display": {
+   "java": [
+    "item_display"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "item_frame": {
+   "java": [
+    "item_frame"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "leash_knot": {
+   "java": [
+    "leash_knot"
+   ],
+   "bedrock": [
+    "leash_knot"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": true
+  },
+  "lightning_bolt": {
+   "java": [
+    "lightning_bolt"
+   ],
+   "bedrock": [
+    "lightning_bolt"
+   ],
+   "java_tags": [],
+   "families": [
+    "lightning"
+   ],
+   "summon_bedrock": true
+  },
+  "lingering_potion": {
+   "java": [
+    "lingering_potion"
+   ],
+   "bedrock": [
+    "lingering_potion"
+   ],
+   "java_tags": [],
+   "families": [
+    "lingering_potion",
+    "projectile"
+   ],
+   "summon_bedrock": false
+  },
+  "llama": {
+   "java": [
+    "llama"
+   ],
+   "bedrock": [
+    "llama"
+   ],
+   "java_tags": [
+    "dismounts_underwater",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "llama",
+    "mob"
+   ],
+   "summon_bedrock": true
+  },
+  "llama_spit": {
+   "java": [
+    "llama_spit"
+   ],
+   "bedrock": [
+    "llama_spit"
+   ],
+   "java_tags": [],
+   "families": [
+    "llama_spit",
+    "projectile"
+   ],
+   "summon_bedrock": false
+  },
+  "magma_cube": {
+   "java": [
+    "magma_cube"
+   ],
+   "bedrock": [
+    "magma_cube"
+   ],
+   "java_tags": [
+    "fall_damage_immune",
+    "freeze_hurts_extra_types",
+    "frog_food",
+    "non_controlling_rider"
+   ],
+   "families": [
+    "magmacube",
+    "mob",
+    "monster"
+   ],
+   "summon_bedrock": true
+  },
+  "mannequin": {
+   "java": [
+    "mannequin"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "marker": {
+   "java": [
+    "marker"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "minecart": {
+   "java": [
+    "minecart"
+   ],
+   "bedrock": [
+    "minecart"
+   ],
+   "java_tags": [],
+   "families": [
+    "inanimate",
+    "minecart"
+   ],
+   "summon_bedrock": true
+  },
+  "mooshroom": {
+   "java": [
+    "mooshroom"
+   ],
+   "bedrock": [
+    "mooshroom"
+   ],
+   "java_tags": [],
+   "families": [
+    "mob",
+    "mushroomcow"
+   ],
+   "summon_bedrock": true
+  },
+  "mule": {
+   "java": [
+    "mule"
+   ],
+   "bedrock": [
+    "mule"
+   ],
+   "java_tags": [
+    "can_equip_saddle",
+    "can_float_while_ridden",
+    "dismounts_underwater",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "mob",
+    "mule"
+   ],
+   "summon_bedrock": true
+  },
+  "nautilus": {
+   "java": [
+    "nautilus"
+   ],
+   "bedrock": [
+    "nautilus"
+   ],
+   "java_tags": [
+    "aquatic",
+    "can_breathe_under_water",
+    "can_equip_saddle",
+    "can_wear_nautilus_armor",
+    "cannot_be_pushed_onto_boats",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "mob",
+    "nautilus"
+   ],
+   "summon_bedrock": true
+  },
+  "npc": {
+   "java": [],
+   "bedrock": [
+    "npc"
+   ],
+   "java_tags": [],
+   "families": [
+    "mob",
+    "npc"
+   ],
+   "summon_bedrock": true
+  },
+  "ocelot": {
+   "java": [
+    "ocelot"
+   ],
+   "bedrock": [
+    "ocelot"
+   ],
+   "java_tags": [
+    "fall_damage_immune",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "mob",
+    "ocelot"
+   ],
+   "summon_bedrock": true
+  },
+  "ominous_item_spawner": {
+   "java": [
+    "ominous_item_spawner"
+   ],
+   "bedrock": [
+    "ominous_item_spawner"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": false
+  },
+  "painting": {
+   "java": [
+    "painting"
+   ],
+   "bedrock": [
+    "painting"
+   ],
+   "java_tags": [],
+   "families": [],
+   "summon_bedrock": false
+  },
+  "panda": {
+   "java": [
+    "panda"
+   ],
+   "bedrock": [
+    "panda"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "mob",
+    "panda",
+    "panda_aggressive"
+   ],
+   "summon_bedrock": true
+  },
+  "parched": {
+   "java": [
+    "parched"
+   ],
+   "bedrock": [
+    "parched"
+   ],
+   "java_tags": [
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "skeletons",
+    "undead",
+    "wither_friends"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "parched",
+    "skeleton",
+    "undead"
+   ],
+   "summon_bedrock": true
+  },
+  "parrot": {
+   "java": [
+    "parrot"
+   ],
+   "bedrock": [
+    "parrot"
+   ],
+   "java_tags": [
+    "fall_damage_immune",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "mob",
+    "parrot_tame",
+    "parrot_wild"
+   ],
+   "summon_bedrock": true
+  },
+  "phantom": {
+   "java": [
+    "phantom"
+   ],
+   "bedrock": [
+    "phantom"
+   ],
+   "java_tags": [
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "fall_damage_immune",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "phantom",
+    "undead"
+   ],
+   "summon_bedrock": true
+  },
+  "pig": {
+   "java": [
+    "pig"
+   ],
+   "bedrock": [
+    "pig"
+   ],
+   "java_tags": [
+    "can_equip_saddle",
+    "dismounts_underwater",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "mob",
+    "pig"
+   ],
+   "summon_bedrock": true
+  },
+  "piglin": {
+   "java": [
+    "piglin"
+   ],
+   "bedrock": [
+    "piglin"
+   ],
+   "java_tags": [],
+   "families": [
+    "baby_piglin",
+    "mob",
+    "monster",
+    "piglin",
+    "piglin_hunter"
+   ],
+   "summon_bedrock": true
+  },
+  "piglin_brute": {
+   "java": [
+    "piglin_brute"
+   ],
+   "bedrock": [
+    "piglin_brute"
+   ],
+   "java_tags": [],
+   "families": [
+    "adult_piglin",
+    "monster",
+    "piglin",
+    "piglin_brute"
+   ],
+   "summon_bedrock": true
+  },
+  "pillager": {
+   "java": [
+    "pillager"
+   ],
+   "bedrock": [
+    "pillager"
+   ],
+   "java_tags": [
+    "illager",
+    "illager_friends",
+    "raiders"
+   ],
+   "families": [
+    "illager",
+    "mob",
+    "monster",
+    "pillager"
+   ],
+   "summon_bedrock": true
+  },
+  "player": {
+   "java": [
+    "player"
+   ],
+   "bedrock": [
+    "player"
+   ],
+   "java_tags": [
+    "cannot_be_pushed_onto_boats"
+   ],
+   "families": [
+    "player"
+   ],
+   "summon_bedrock": false
+  },
+  "polar_bear": {
+   "java": [
+    "polar_bear"
+   ],
+   "bedrock": [
+    "polar_bear"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs",
+    "freeze_immune_entity_types"
+   ],
+   "families": [
+    "mob",
+    "polarbear"
+   ],
+   "summon_bedrock": true
+  },
+  "pufferfish": {
+   "java": [
+    "pufferfish"
+   ],
+   "bedrock": [
+    "pufferfish"
+   ],
+   "java_tags": [
+    "aquatic",
+    "axolotl_hunt_targets",
+    "can_breathe_under_water",
+    "cannot_be_pushed_onto_boats",
+    "nautilus_hostiles",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "fish",
+    "pufferfish"
+   ],
+   "summon_bedrock": true
+  },
+  "rabbit": {
+   "java": [
+    "rabbit"
+   ],
+   "bedrock": [
+    "rabbit"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs",
+    "powder_snow_walkable_mobs"
+   ],
+   "families": [
+    "mob",
+    "rabbit"
+   ],
+   "summon_bedrock": true
+  },
+  "ravager": {
+   "java": [
+    "ravager"
+   ],
+   "bedrock": [
+    "ravager"
+   ],
+   "java_tags": [
+    "dismounts_underwater",
+    "raiders"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "ravager"
+   ],
+   "summon_bedrock": true
+  },
+  "salmon": {
+   "java": [
+    "salmon"
+   ],
+   "bedrock": [
+    "salmon"
+   ],
+   "java_tags": [
+    "aquatic",
+    "axolotl_hunt_targets",
+    "can_breathe_under_water",
+    "cannot_be_pushed_onto_boats",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "fish",
+    "salmon"
+   ],
+   "summon_bedrock": true
+  },
+  "sheep": {
+   "java": [
+    "sheep"
+   ],
+   "bedrock": [
+    "sheep"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "mob",
+    "sheep"
+   ],
+   "summon_bedrock": true
+  },
+  "shulker": {
+   "java": [
+    "shulker"
+   ],
+   "bedrock": [
+    "shulker"
+   ],
+   "java_tags": [
+    "fall_damage_immune"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "shulker"
+   ],
+   "summon_bedrock": true
+  },
+  "shulker_bullet": {
+   "java": [
+    "shulker_bullet"
+   ],
+   "bedrock": [
+    "shulker_bullet"
+   ],
+   "java_tags": [],
+   "families": [
+    "projectile",
+    "shulker_bullet"
+   ],
+   "summon_bedrock": false
+  },
+  "silverfish": {
+   "java": [
+    "silverfish"
+   ],
+   "bedrock": [
+    "silverfish"
+   ],
+   "java_tags": [
+    "arthropod",
+    "immune_to_infested",
+    "powder_snow_walkable_mobs",
+    "sensitive_to_bane_of_arthropods"
+   ],
+   "families": [
+    "arthropod",
+    "mob",
+    "monster",
+    "silverfish"
+   ],
+   "summon_bedrock": true
+  },
+  "skeleton": {
+   "java": [
+    "skeleton"
+   ],
+   "bedrock": [
+    "skeleton"
+   ],
+   "java_tags": [
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "no_anger_from_wind_charge",
+    "sensitive_to_smite",
+    "skeletons",
+    "undead",
+    "wither_friends"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "skeleton",
+    "undead"
+   ],
+   "summon_bedrock": true
+  },
+  "skeleton_horse": {
+   "java": [
+    "skeleton_horse"
+   ],
+   "bedrock": [
+    "skeleton_horse"
+   ],
+   "java_tags": [
+    "can_breathe_under_water",
+    "can_equip_saddle",
+    "cannot_be_age_locked",
+    "followable_friendly_mobs",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "skeletons",
+    "undead",
+    "wither_friends"
+   ],
+   "families": [
+    "mob",
+    "skeletonhorse",
+    "undead"
+   ],
+   "summon_bedrock": true
+  },
+  "slime": {
+   "java": [
+    "slime"
+   ],
+   "bedrock": [
+    "slime"
+   ],
+   "java_tags": [
+    "frog_food",
+    "immune_to_oozing",
+    "no_anger_from_wind_charge",
+    "non_controlling_rider"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "slime"
+   ],
+   "summon_bedrock": true
+  },
+  "small_fireball": {
+   "java": [
+    "small_fireball"
+   ],
+   "bedrock": [
+    "small_fireball"
+   ],
+   "java_tags": [
+    "impact_projectiles"
+   ],
+   "families": [
+    "projectile",
+    "small_fireball"
+   ],
+   "summon_bedrock": false
+  },
+  "sniffer": {
+   "java": [
+    "sniffer"
+   ],
+   "bedrock": [
+    "sniffer"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "mob",
+    "sniffer"
+   ],
+   "summon_bedrock": true
+  },
+  "snow_golem": {
+   "java": [
+    "snow_golem"
+   ],
+   "bedrock": [
+    "snow_golem"
+   ],
+   "java_tags": [
+    "fall_damage_immune",
+    "freeze_immune_entity_types"
+   ],
+   "families": [
+    "mob",
+    "snowgolem"
+   ],
+   "summon_bedrock": true
+  },
+  "snowball": {
+   "java": [
+    "snowball"
+   ],
+   "bedrock": [
+    "snowball"
+   ],
+   "java_tags": [
+    "impact_projectiles"
+   ],
+   "families": [
+    "projectile",
+    "snowball"
+   ],
+   "summon_bedrock": true
+  },
+  "spawner_minecart": {
+   "java": [
+    "spawner_minecart"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "spectral_arrow": {
+   "java": [
+    "spectral_arrow"
+   ],
+   "bedrock": [],
+   "java_tags": [
+    "arrows",
+    "impact_projectiles"
+   ],
+   "families": []
+  },
+  "spider": {
+   "java": [
+    "spider"
+   ],
+   "bedrock": [
+    "spider"
+   ],
+   "java_tags": [
+    "arthropod",
+    "dismounts_underwater",
+    "no_anger_from_wind_charge",
+    "sensitive_to_bane_of_arthropods"
+   ],
+   "families": [
+    "arthropod",
+    "mob",
+    "monster",
+    "spider"
+   ],
+   "summon_bedrock": true
+  },
+  "splash_potion": {
+   "java": [
+    "splash_potion"
+   ],
+   "bedrock": [
+    "splash_potion"
+   ],
+   "java_tags": [],
+   "families": [
+    "projectile",
+    "splash_potion"
+   ],
+   "summon_bedrock": true
+  },
+  "squid": {
+   "java": [
+    "squid"
+   ],
+   "bedrock": [
+    "squid"
+   ],
+   "java_tags": [
+    "aquatic",
+    "axolotl_hunt_targets",
+    "can_breathe_under_water",
+    "cannot_be_pushed_onto_boats",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "mob",
+    "squid"
+   ],
+   "summon_bedrock": true
+  },
+  "stray": {
+   "java": [
+    "stray"
+   ],
+   "bedrock": [
+    "stray"
+   ],
+   "java_tags": [
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "freeze_immune_entity_types",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "no_anger_from_wind_charge",
+    "sensitive_to_smite",
+    "skeletons",
+    "undead",
+    "wither_friends"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "skeleton",
+    "stray",
+    "undead"
+   ],
+   "summon_bedrock": true
+  },
+  "strider": {
+   "java": [
+    "strider"
+   ],
+   "bedrock": [
+    "strider"
+   ],
+   "java_tags": [
+    "can_equip_saddle",
+    "dismounts_underwater",
+    "followable_friendly_mobs",
+    "freeze_hurts_extra_types"
+   ],
+   "families": [
+    "mob",
+    "strider",
+    "strider_adult",
+    "strider_baby"
+   ],
+   "summon_bedrock": true
+  },
+  "sulfur_cube": {
+   "java": [
+    "sulfur_cube"
+   ],
+   "bedrock": [
+    "sulfur_cube"
+   ],
+   "java_tags": [
+    "cannot_be_pushed_onto_boats",
+    "non_controlling_rider",
+    "not_scary_for_pufferfish"
+   ],
+   "families": [
+    "animal",
+    "mob",
+    "sulfur_cube"
+   ],
+   "summon_bedrock": true
+  },
+  "tadpole": {
+   "java": [
+    "tadpole"
+   ],
+   "bedrock": [
+    "tadpole"
+   ],
+   "java_tags": [
+    "aquatic",
+    "axolotl_hunt_targets",
+    "can_breathe_under_water",
+    "cannot_be_pushed_onto_boats",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "mob",
+    "tadpole"
+   ],
+   "summon_bedrock": true
+  },
+  "text_display": {
+   "java": [
+    "text_display"
+   ],
+   "bedrock": [],
+   "java_tags": [],
+   "families": []
+  },
+  "tnt": {
+   "java": [
+    "tnt"
+   ],
+   "bedrock": [
+    "tnt"
+   ],
+   "java_tags": [],
+   "families": [
+    "inanimate",
+    "tnt"
+   ],
+   "summon_bedrock": true
+  },
+  "tnt_minecart": {
+   "java": [
+    "tnt_minecart"
+   ],
+   "bedrock": [
+    "tnt_minecart"
+   ],
+   "java_tags": [],
+   "families": [
+    "inanimate",
+    "minecart"
+   ],
+   "summon_bedrock": true
+  },
+  "trader_llama": {
+   "java": [
+    "trader_llama"
+   ],
+   "bedrock": [
+    "trader_llama"
+   ],
+   "java_tags": [
+    "dismounts_underwater"
+   ],
+   "families": [
+    "llama",
+    "mob",
+    "trader_llama"
+   ],
+   "summon_bedrock": true
+  },
+  "trident": {
+   "java": [
+    "trident"
+   ],
+   "bedrock": [
+    "thrown_trident"
+   ],
+   "java_tags": [
+    "impact_projectiles"
+   ],
+   "families": [
+    "projectile",
+    "thrown_trident"
+   ],
+   "summon_bedrock": false
+  },
+  "tropical_fish": {
+   "java": [
+    "tropical_fish"
+   ],
+   "bedrock": [
+    "tropicalfish"
+   ],
+   "java_tags": [
+    "aquatic",
+    "axolotl_hunt_targets",
+    "can_breathe_under_water",
+    "cannot_be_pushed_onto_boats",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "fish",
+    "tropicalfish"
+   ],
+   "summon_bedrock": true
+  },
+  "turtle": {
+   "java": [
+    "turtle"
+   ],
+   "bedrock": [
+    "turtle"
+   ],
+   "java_tags": [
+    "aquatic",
+    "can_breathe_under_water",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling"
+   ],
+   "families": [
+    "aquatic",
+    "baby_turtle",
+    "mob",
+    "turtle"
+   ],
+   "summon_bedrock": true
+  },
+  "vex": {
+   "java": [
+    "vex"
+   ],
+   "bedrock": [
+    "vex"
+   ],
+   "java_tags": [],
+   "families": [
+    "mob",
+    "monster",
+    "vex"
+   ],
+   "summon_bedrock": true
+  },
+  "villager": {
+   "java": [
+    "villager"
+   ],
+   "bedrock": [
+    "villager"
+   ],
+   "java_tags": [
+    "candidate_for_iron_golem_gift",
+    "cannot_be_age_locked",
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "armorer",
+    "artisan",
+    "blacksmith",
+    "butcher",
+    "cartographer",
+    "cleric",
+    "farmer",
+    "fisherman",
+    "fletcher",
+    "leatherworker",
+    "librarian",
+    "mob",
+    "peasant",
+    "priest",
+    "shepherd",
+    "toolsmith",
+    "villager",
+    "weaponsmith"
+   ],
+   "summon_bedrock": true
+  },
+  "vindicator": {
+   "java": [
+    "vindicator"
+   ],
+   "bedrock": [
+    "vindicator"
+   ],
+   "java_tags": [
+    "illager",
+    "illager_friends",
+    "raiders"
+   ],
+   "families": [
+    "illager",
+    "mob",
+    "monster",
+    "vindicator"
+   ],
+   "summon_bedrock": true
+  },
+  "wandering_trader": {
+   "java": [
+    "wandering_trader"
+   ],
+   "bedrock": [
+    "wandering_trader"
+   ],
+   "java_tags": [],
+   "families": [
+    "mob",
+    "wandering_trader",
+    "wandering_trader_despawning"
+   ],
+   "summon_bedrock": true
+  },
+  "warden": {
+   "java": [
+    "warden"
+   ],
+   "bedrock": [
+    "warden"
+   ],
+   "java_tags": [],
+   "families": [
+    "mob",
+    "monster",
+    "warden"
+   ],
+   "summon_bedrock": true
+  },
+  "wind_charge": {
+   "java": [
+    "wind_charge"
+   ],
+   "bedrock": [
+    "wind_charge_projectile"
+   ],
+   "java_tags": [
+    "impact_projectiles",
+    "redirectable_projectile"
+   ],
+   "families": [
+    "projectile",
+    "wind_charge",
+    "wind_charge_projectile"
+   ],
+   "summon_bedrock": true
+  },
+  "witch": {
+   "java": [
+    "witch"
+   ],
+   "bedrock": [
+    "witch"
+   ],
+   "java_tags": [
+    "raiders"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "witch"
+   ],
+   "summon_bedrock": true
+  },
+  "wither": {
+   "java": [
+    "wither"
+   ],
+   "bedrock": [
+    "wither"
+   ],
+   "java_tags": [
+    "can_breathe_under_water",
+    "fall_damage_immune",
+    "freeze_immune_entity_types",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "skeleton",
+    "undead",
+    "wither"
+   ],
+   "summon_bedrock": true
+  },
+  "wither_skeleton": {
+   "java": [
+    "wither_skeleton"
+   ],
+   "bedrock": [
+    "wither_skeleton"
+   ],
+   "java_tags": [
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "skeletons",
+    "undead",
+    "wither_friends"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "skeleton",
+    "undead",
+    "wither"
+   ],
+   "summon_bedrock": true
+  },
+  "wither_skull": {
+   "java": [
+    "wither_skull"
+   ],
+   "bedrock": [
+    "wither_skull",
+    "wither_skull_dangerous"
+   ],
+   "java_tags": [
+    "impact_projectiles"
+   ],
+   "families": [
+    "projectile",
+    "wither_skull",
+    "wither_skull_dangerous"
+   ],
+   "summon_bedrock": false
+  },
+  "wolf": {
+   "java": [
+    "wolf"
+   ],
+   "bedrock": [
+    "wolf"
+   ],
+   "java_tags": [
+    "followable_friendly_mobs"
+   ],
+   "families": [
+    "mob",
+    "wolf"
+   ],
+   "summon_bedrock": true
+  },
+  "zoglin": {
+   "java": [
+    "zoglin"
+   ],
+   "bedrock": [
+    "zoglin"
+   ],
+   "java_tags": [
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends",
+    "zombies"
+   ],
+   "families": [
+    "mob",
+    "monster",
+    "undead",
+    "zoglin",
+    "zoglin_adult",
+    "zoglin_baby"
+   ],
+   "summon_bedrock": true
+  },
+  "zombie": {
+   "java": [
+    "zombie"
+   ],
+   "bedrock": [
+    "zombie"
+   ],
+   "java_tags": [
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "no_anger_from_wind_charge",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends",
+    "zombies"
+   ],
+   "families": [
+    "baby_undead",
+    "mob",
+    "monster",
+    "undead",
+    "zombie",
+    "zombie_rider"
+   ],
+   "summon_bedrock": true
+  },
+  "zombie_horse": {
+   "java": [
+    "zombie_horse"
+   ],
+   "bedrock": [
+    "zombie_horse"
+   ],
+   "java_tags": [
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "can_equip_saddle",
+    "can_float_while_ridden",
+    "can_wear_horse_armor",
+    "cannot_be_age_locked",
+    "dismounts_underwater",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends",
+    "zombies"
+   ],
+   "families": [
+    "mob",
+    "undead",
+    "zombiehorse"
+   ],
+   "summon_bedrock": true
+  },
+  "zombie_nautilus": {
+   "java": [
+    "zombie_nautilus"
+   ],
+   "bedrock": [
+    "zombie_nautilus"
+   ],
+   "java_tags": [
+    "aquatic",
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "can_equip_saddle",
+    "can_wear_nautilus_armor",
+    "cannot_be_pushed_onto_boats",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "not_scary_for_pufferfish",
+    "sensitive_to_impaling",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends",
+    "zombies"
+   ],
+   "families": [
+    "aquatic",
+    "mob",
+    "monster",
+    "undead",
+    "zombie_nautilus"
+   ],
+   "summon_bedrock": true
+  },
+  "zombie_villager": {
+   "java": [
+    "zombie_villager"
+   ],
+   "bedrock": [
+    "zombie_villager"
+   ],
+   "java_tags": [
+    "burn_in_daylight",
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends",
+    "zombies"
+   ],
+   "families": [
+    "armorer",
+    "butcher",
+    "cartographer",
+    "cleric",
+    "farmer",
+    "fisherman",
+    "fletcher",
+    "leatherworker",
+    "librarian",
+    "mob",
+    "monster",
+    "shepherd",
+    "toolsmith",
+    "undead",
+    "weaponsmith",
+    "zombie",
+    "zombie_villager"
+   ],
+   "summon_bedrock": true
+  },
+  "zombified_piglin": {
+   "java": [
+    "zombified_piglin"
+   ],
+   "bedrock": [
+    "zombie_pigman"
+   ],
+   "java_tags": [
+    "can_breathe_under_water",
+    "ignores_poison_and_regen",
+    "inverted_healing_and_harm",
+    "sensitive_to_smite",
+    "undead",
+    "wither_friends",
+    "zombies"
+   ],
+   "families": [
+    "baby_undead",
+    "baby_zombie_pigman",
+    "mob",
+    "monster",
+    "undead",
+    "zombie_pigman"
+   ],
+   "summon_bedrock": true
+  }
+ }
+}

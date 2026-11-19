@@ -2,8 +2,9 @@ name: Check for new Minecraft commands
 
 # Once a week (and whenever you press "Run workflow"), download the latest
 # official command data. If a new Java or Bedrock release is out, open a pull
-# request with the refreshed data/commands-data.json. If the release added
-# commands, the pull request lists them so explanations can be written.
+# request with the refreshed data/commands-data.json and data/entities-data.json.
+# If the release added commands or mobs, the pull request lists them so
+# explanations can be written.
 #
 # Needs: Settings -> Actions -> General -> Workflow permissions ->
 #        "Allow GitHub Actions to create and approve pull requests".
@@ -47,13 +48,15 @@ jobs:
         with:
           branch: update-command-data
           commit-message: Update command data from Mojang's latest releases
-          title: ${{ steps.update.outputs.code == '2' && 'New Minecraft commands need explanations' || 'Update command data to the latest Minecraft releases' }}
+          title: ${{ steps.update.outputs.code == '2' && 'New Minecraft commands or mobs need explanations' || 'Update command and mob data to the latest Minecraft releases' }}
           body: |
-            The weekly check found a new Java or Bedrock release and rebuilt `data/commands-data.json`.
+            The weekly check found a new Java or Bedrock release and rebuilt `data/commands-data.json` and `data/entities-data.json`.
 
-            ${{ steps.update.outputs.code == '2' && '**Some new commands have no explanation yet.** Add entries for them to `data/content.json` on this branch before merging (see the README).' || 'Every command already has an explanation. Skim the examples for any command whose syntax changed, then merge.' }}
+            ${{ steps.update.outputs.code == '2' && '**Some new commands or mobs have no entry yet.** Add them to `data/content.json` or `data/entities.json` on this branch before merging (see the README).' || 'Every command and mob already has an entry. Skim the examples for any command whose syntax changed, then merge.' }}
 
             ```
             ${{ steps.update.outputs.log }}
             ```
-          add-paths: data/commands-data.json
+          add-paths: |
+            data/commands-data.json
+            data/entities-data.json

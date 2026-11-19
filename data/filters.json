@@ -1,0 +1,259 @@
+{
+"selectors": [
+  {"sel": "@s", "j": true, "b": true, "kid": "Self: whoever (or whatever) is running the command.", "note": "Inside /execute as ..., @s means the one it's doing it for right now. In a command block on its own, @s finds nothing."},
+  {"sel": "@p", "j": true, "b": true, "kid": "The nearest player.", "note": "In a command block, that's the player closest to the block."},
+  {"sel": "@a", "j": true, "b": true, "kid": "All players, even dead ones."},
+  {"sel": "@r", "j": true, "b": true, "kid": "A random player.", "note": "On Bedrock, @r[type=cow] picks a random cow. On Java, use @e[type=cow,sort=random,limit=1] instead."},
+  {"sel": "@e", "j": true, "b": true, "kid": "Every entity: players, mobs, dropped items, arrows, boats... everything!", "note": "Almost always add a filter, like @e[type=zombie]."},
+  {"sel": "@n", "j": true, "b": true, "kid": "The nearest entity of any kind, not just players.", "note": "@n[type=pig] is the closest pig. Same as @e[...,limit=1,sort=nearest] on Java, or @e[...,c=1] on Bedrock."},
+  {"sel": "@initiator", "j": false, "b": true, "kid": "The player who clicked a button on an NPC's talking window.", "note": "Only works in commands an NPC runs."}
+],
+
+"groups": [
+  {"id": "what", "title": "What kind of thing", "icon": "🐷"},
+  {"id": "where", "title": "Where it is", "icon": "📍"},
+  {"id": "howmany", "title": "How many, and which ones", "icon": "🔢"},
+  {"id": "labels", "title": "Labels, scores & teams", "icon": "🏷️"},
+  {"id": "players", "title": "Players only", "icon": "🧑"},
+  {"id": "looking", "title": "Which way it's looking", "icon": "👀"},
+  {"id": "inside", "title": "What it's holding or carrying", "icon": "🎒"}
+],
+
+"filters": [
+  {"id": "type", "group": "what", "title": "Type of thing",
+   "kid": "Pick only one kind of mob or thing. Put ! in front to mean \"everything except\".",
+   "j": {"form": "type=<id>   type=!<id>   type=#<group>", "ex": [
+     ["/kill @e[type=zombie]", "Remove all zombies."],
+     ["/kill @e[type=!player]", "Remove everything that isn't a player."],
+     ["/effect give @e[type=#minecraft:undead] glowing 30", "Make every undead mob glow. #minecraft:undead is a group (see below)."]]},
+   "b": {"form": "type=<id>   type=!<id>", "ex": [
+     ["/kill @e[type=zombie]", "Remove all zombies."],
+     ["/kill @e[type=!player]", "Remove everything that isn't a player."],
+     ["/kill @e[type=!player,type=!item]", "Remove everything except players and dropped items."]]},
+   "tip": "Find every ID in the Mobs & more tab. Some are spelled differently on Java and Bedrock!"},
+
+  {"id": "family", "group": "what", "title": "Family (Bedrock) / Group (Java)",
+   "kid": "Pick a whole group of mobs at once, like all monsters or all undead.",
+   "j": {"form": "type=#<group>   type=!#<group>", "ex": [
+     ["/kill @e[type=#minecraft:skeletons]", "Remove every kind of skeleton."],
+     ["/effect give @e[type=#minecraft:raiders] glowing 60", "Find every raid mob."],
+     ["/kill @e[type=#minecraft:arrows]", "Clean up all arrows."]]},
+   "b": {"form": "family=<family>   family=!<family>", "ex": [
+     ["/kill @e[family=monster]", "Remove every monster."],
+     ["/effect @e[family=undead] glowing 60", "Make every undead mob glow."],
+     ["/kill @e[family=monster,family=!undead]", "Remove monsters that are NOT undead. You can use family more than once."]]},
+   "tip": "Java groups use type= with a # in front. Bedrock uses family=. The group lists are at the bottom of this page."},
+
+  {"id": "name", "group": "what", "title": "Name",
+   "kid": "Pick things with a certain name, like a pet you named with a name tag, or a player.",
+   "j": {"form": "name=<name>   name=!<name>   name=\"two words\"", "ex": [
+     ["/tp @e[type=pig,name=Bacon] @s", "Bring your pig named Bacon to you."],
+     ["/effect give @a[name=!Steve] slowness 10", "Slow everyone except Steve."],
+     ["/kill @e[name=\"Bad Guy\"]", "Names with spaces need quotes."]]},
+   "b": {"form": "name=<name>   name=!<name>   name=\"two words\"", "ex": [
+     ["/tp @e[type=pig,name=Bacon] @s", "Bring your pig named Bacon to you."],
+     ["/effect @a[name=!Steve] slowness 10", "Slow everyone except Steve."],
+     ["/kill @e[name=\"Bad Guy\"]", "Names with spaces need quotes."]]}},
+
+  {"id": "distance", "group": "where", "title": "How far away",
+   "kid": "Only pick things within some number of blocks, or farther than some number of blocks.",
+   "j": {"form": "distance=..10 (up to 10)   distance=5.. (5 or more)   distance=5..10", "ex": [
+     ["/kill @e[type=zombie,distance=..20]", "Zombies within 20 blocks."],
+     ["/tp @a[distance=50..] @s", "Bring back everyone who wandered more than 50 blocks away."],
+     ["/effect give @a[distance=5..10] speed 10", "Players between 5 and 10 blocks away."]]},
+   "b": {"form": "r=10 (up to 10)   rm=5 (5 or more)   rm=5,r=10", "ex": [
+     ["/kill @e[type=zombie,r=20]", "Zombies within 20 blocks."],
+     ["/tp @a[rm=50] @s", "Bring back everyone who wandered more than 50 blocks away."],
+     ["/effect @a[rm=5,r=10] speed 10", "Players between 5 and 10 blocks away."]]},
+   "tip": "Distance is measured from where the command runs: you, or the command block."},
+
+  {"id": "xyz", "group": "where", "title": "Start the search somewhere else",
+   "kid": "Measure distance from a different spot instead of from where the command runs.",
+   "j": {"form": "x=<x>,y=<y>,z=<z>", "ex": [
+     ["/kill @e[type=zombie,x=100,y=64,z=200,distance=..10]", "Zombies within 10 blocks of 100 64 200."]]},
+   "b": {"form": "x=<x>,y=<y>,z=<z>", "ex": [
+     ["/kill @e[type=zombie,x=100,y=64,z=200,r=10]", "Zombies within 10 blocks of 100 64 200."]]}},
+
+  {"id": "box", "group": "where", "title": "Inside a box",
+   "kid": "Pick things inside a box-shaped area. Start at x y z, then dx, dy and dz say how many blocks the box stretches east, up and south.",
+   "j": {"form": "x=..,y=..,z=..,dx=..,dy=..,dz=..", "ex": [
+     ["/tag @a[x=100,y=60,z=200,dx=10,dy=5,dz=10] add inArena", "Label everyone inside the arena box."],
+     ["/effect give @a[x=0,y=60,z=0,dx=5,dy=3,dz=5] regeneration 2", "Heal anyone standing in a 5×3×5 healing zone."]]},
+   "b": {"form": "x=..,y=..,z=..,dx=..,dy=..,dz=..", "ex": [
+     ["/tag @a[x=100,y=60,z=200,dx=10,dy=5,dz=10] add inArena", "Label everyone inside the arena box."],
+     ["/effect @a[x=0,y=60,z=0,dx=5,dy=3,dz=5] regeneration 2", "Heal anyone standing in a 5×3×5 healing zone."]]},
+   "tip": "Great in a Repeat command block for \"zones\": healing zones, no-build zones, finish lines."},
+
+  {"id": "count", "group": "howmany", "title": "How many, and which ones",
+   "kid": "Pick only a certain number, like the 3 closest, the farthest one, or random ones.",
+   "j": {"form": "limit=<number>,sort=nearest|furthest|random|arbitrary", "ex": [
+     ["/kill @e[type=cow,limit=3,sort=nearest]", "The 3 closest cows."],
+     ["/tp @s @e[type=player,limit=1,sort=furthest]", "Teleport to the farthest player."],
+     ["/give @a[limit=1,sort=random] diamond", "One lucky random player gets a diamond."]]},
+   "b": {"form": "c=<number> (closest)   c=-<number> (farthest)", "ex": [
+     ["/kill @e[type=cow,c=3]", "The 3 closest cows."],
+     ["/tp @s @a[c=-1]", "Teleport to the farthest player."],
+     ["/give @r diamond", "One lucky random player gets a diamond. (Use @r for random.)"]]},
+   "tip": "Java needs both limit and sort. Bedrock's c does both: positive means closest, negative means farthest."},
+
+  {"id": "tag", "group": "labels", "title": "Tag (label)",
+   "kid": "Pick things that have a label you added with /tag. Use ! for \"doesn't have this label\".",
+   "j": {"form": "tag=<tag>   tag=!<tag>   tag= (no tags at all)", "ex": [
+     ["/tag @s add hero", "First, label yourself."],
+     ["/effect give @a[tag=hero] strength 30", "Then give only heroes strength."],
+     ["/tag @a[tag=!hero] add villain", "Everyone who isn't a hero becomes a villain."]]},
+   "b": {"form": "tag=<tag>   tag=!<tag>   tag= (no tags at all)", "ex": [
+     ["/tag @s add hero", "First, label yourself."],
+     ["/effect @a[tag=hero] strength 30", "Then give only heroes strength."],
+     ["/tag @a[tag=!hero] add villain", "Everyone who isn't a hero becomes a villain."]]},
+   "tip": "You can use tag more than once: [tag=red,tag=!out] means \"has red AND doesn't have out\"."},
+
+  {"id": "scores", "group": "labels", "title": "Score",
+   "kid": "Pick players (or mobs) by their score on the scoreboard.",
+   "j": {"form": "scores={<objective>=<number or range>}", "ex": [
+     ["/give @a[scores={points=10..}] diamond", "Everyone with 10 or more points gets a diamond."],
+     ["/tp @a[scores={lives=0}] 0 100 0", "Send players with 0 lives to the lobby."]]},
+   "b": {"form": "scores={<objective>=<number or range>}", "ex": [
+     ["/give @a[scores={points=10..}] diamond", "Everyone with 10 or more points gets a diamond."],
+     ["/tp @a[scores={lives=0}] 0 100 0", "Send players with 0 lives to the lobby."]]},
+   "tip": "Ranges work like distance: 10.. means 10 or more, ..5 means 5 or less, 1..3 means 1 to 3. Make the score first with /scoreboard."},
+
+  {"id": "team", "group": "labels", "title": "Team",
+   "kid": "Pick players on a team you made with /team.",
+   "j": {"form": "team=<team>   team=!<team>   team= (on no team)", "ex": [
+     ["/tp @a[team=red] 10 64 0", "Send the red team to their base."],
+     ["/effect give @a[team=!red] glowing 10", "Make everyone NOT on red glow."]]},
+   "b": null,
+   "tip": "Bedrock has no teams. Use tags instead: tag=red."},
+
+  {"id": "gamemode", "group": "players", "title": "Game mode",
+   "kid": "Pick players who are in Survival, Creative, Adventure or Spectator.",
+   "j": {"form": "gamemode=survival|creative|adventure|spectator   gamemode=!creative", "ex": [
+     ["/give @a[gamemode=survival] bread 5", "Feed only the survival players."],
+     ["/gamemode survival @a[gamemode=!survival]", "Put everyone back in Survival."]]},
+   "b": {"form": "m=survival|creative|adventure|spectator (or s, c, a)   m=!creative", "ex": [
+     ["/give @a[m=survival] bread 5", "Feed only the survival players."],
+     ["/gamemode survival @a[m=!survival]", "Put everyone back in Survival."]]}},
+
+  {"id": "level", "group": "players", "title": "XP level",
+   "kid": "Pick players by their experience level.",
+   "j": {"form": "level=30..   level=..5   level=10..20", "ex": [
+     ["/say @a[level=30..] can enchant!", "Players with 30 or more levels."],
+     ["/xp add @a[level=..5] 5 levels", "Help players with 5 or fewer levels."]]},
+   "b": {"form": "lm=<min>   l=<max>", "ex": [
+     ["/say @a[lm=30] can enchant!", "Players with 30 or more levels."],
+     ["/xp 5L @a[l=5]", "Help players with 5 or fewer levels."]]},
+   "tip": "On Bedrock, lm is the Minimum and l is the most."},
+
+  {"id": "advancements", "group": "players", "title": "Advancements",
+   "kid": "Pick players who have (or haven't) earned an advancement.",
+   "j": {"form": "advancements={<advancement>=true|false}", "ex": [
+     ["/give @a[advancements={story/enter_the_nether=true}] fire_charge", "Reward players who've been to the Nether."]]},
+   "b": null},
+
+  {"id": "haspermission", "group": "players", "title": "Controls turned on or off",
+   "kid": "Pick players whose controls were turned on or off with /inputpermission.",
+   "j": null,
+   "b": {"form": "haspermission={<control>=enabled|disabled}", "ex": [
+     ["/say @a[haspermission={movement=disabled}] are frozen!", "Find frozen players."]]},
+   "tip": "Controls: camera, movement, jump, sneak, mount, dismount, lateral_movement, move_forward, move_backward, move_left, move_right."},
+
+  {"id": "xrot", "group": "looking", "title": "Looking up or down",
+   "kid": "Pick things by how far up or down they're looking. -90 is straight up, 0 is straight ahead, 90 is straight down.",
+   "j": {"form": "x_rotation=-90..-45", "ex": [
+     ["/effect give @a[x_rotation=-90..-60] levitation 1", "Look straight up to float!"]]},
+   "b": {"form": "rxm=<min>,rx=<max>", "ex": [
+     ["/effect @a[rxm=-90,rx=-60] levitation 1", "Look straight up to float!"]]}},
+
+  {"id": "yrot", "group": "looking", "title": "Facing north, south, east or west",
+   "kid": "Pick things by which way they're facing. 0 is south, 90 is west, 180 (or -180) is north, -90 is east.",
+   "j": {"form": "y_rotation=-45..45", "ex": [
+     ["/say @a[y_rotation=-45..45] is facing south", "Players facing south."]]},
+   "b": {"form": "rym=<min>,ry=<max>", "ex": [
+     ["/say @a[rym=-45,ry=45] is facing south", "Players facing south."]]}},
+
+  {"id": "hasitem", "group": "inside", "title": "Has an item",
+   "kid": "Pick players or mobs carrying a certain item, even in a certain slot.",
+   "j": null,
+   "b": {"form": "hasitem={item=<item>,quantity=<range>,location=<slot>,slot=<number>}", "ex": [
+     ["/say @a[hasitem={item=diamond}] has a diamond!", "Anyone with at least one diamond."],
+     ["/effect @a[hasitem={item=golden_sword,location=slot.weapon.mainhand}] strength 1", "Holding a golden sword gives strength."],
+     ["/clear @a[hasitem={item=dirt,quantity=64..}] dirt", "Take all the dirt from anyone with 64 or more."],
+     ["/say @a[hasitem={item=diamond,quantity=0}] has no diamonds", "quantity=0 means they have none."]]},
+   "tip": "Slots: slot.weapon.mainhand, slot.weapon.offhand, slot.armor.head, slot.armor.chest, slot.armor.legs, slot.armor.feet, slot.hotbar, slot.inventory, slot.enderchest. Java has no hasitem filter: use /execute if items entity @s weapon.mainhand diamond_sword run ... instead."},
+
+  {"id": "nbt", "group": "inside", "title": "Hidden data (NBT)",
+   "kid": "Pick things by their hidden details, like what they're holding or what color a sheep is.",
+   "j": {"form": "nbt={...}   nbt=!{...}", "ex": [
+     ["/effect give @a[nbt={SelectedItem:{id:\"minecraft:golden_sword\"}}] strength 1", "Holding a golden sword gives strength."],
+     ["/say @a[nbt={Inventory:[{id:\"minecraft:diamond\"}]}] has a diamond!", "Anyone with a diamond anywhere in their inventory."],
+     ["/kill @e[type=sheep,nbt={Color:14b}]", "Only red sheep. 14 is the number for red."]]},
+   "b": null,
+   "tip": "Punctuation must be perfect. Checking NBT many times a second can cause lag. To check what a player is holding, /execute if items is faster."},
+
+  {"id": "predicate", "group": "inside", "title": "Predicate (data packs)",
+   "kid": "Pick things that pass a test written in a data pack. For advanced map makers.",
+   "j": {"form": "predicate=<pack>:<name>   predicate=!<pack>:<name>", "ex": [
+     ["/kill @e[predicate=mypack:is_on_fire]", "Only works if a data pack defines this test."]]},
+   "b": null},
+
+  {"id": "has_property", "group": "inside", "title": "Property (add-ons)",
+   "kid": "Pick mobs by a property that an add-on gave them. For advanced add-on makers.",
+   "j": null,
+   "b": {"form": "has_property={<property>=<value>}", "ex": [
+     ["/kill @e[has_property={mypack:angry=true}]", "Only works if an add-on defines this property."]]}}
+],
+
+"recipes": [
+  {"what": "The single closest zombie", "j": "@e[type=zombie,limit=1,sort=nearest]", "b": "@e[type=zombie,c=1]", "both": "@n[type=zombie]"},
+  {"what": "Every player except me", "j": "@a[name=!YourName]", "b": "@a[name=!YourName]", "tip": "Or, inside /execute as @s: @a[distance=0.1..] (Java) / @a[rm=0.1] (Bedrock)."},
+  {"what": "All monsters within 30 blocks", "j": "@e[type=#minecraft:undead,distance=..30]", "b": "@e[family=monster,r=30]", "tip": "Java has no single \"monster\" group, so this Java version finds undead ones."},
+  {"what": "Players standing on a diamond block", "j": "execute as @a at @s if block ~ ~-1 ~ diamond_block run ...", "b": "execute as @a at @s if block ~ ~-1 ~ diamond_block run ...", "tip": "That's a job for /execute, not a filter."},
+  {"what": "Players with 3 or more points", "j": "@a[scores={points=3..}]", "b": "@a[scores={points=3..}]"},
+  {"what": "Players holding a diamond sword", "j": "execute as @a if items entity @s weapon.mainhand diamond_sword run ...", "b": "@a[hasitem={item=diamond_sword,location=slot.weapon.mainhand}]", "tip": "Java has no item filter, so use /execute if items. It also works with nbt=, but that can cause lag."},
+  {"what": "All dropped items near me", "j": "@e[type=item,distance=..10]", "b": "@e[type=item,r=10]"},
+  {"what": "Every mob but not players, items or pets", "j": "@e[type=!player,type=!item,type=!wolf,type=!cat]", "b": "@e[type=!player,type=!item,type=!wolf,type=!cat]"},
+  {"what": "Survival players who are NOT tagged \"safe\"", "j": "@a[gamemode=survival,tag=!safe]", "b": "@a[m=survival,tag=!safe]"},
+  {"what": "Players inside a 10×10 room starting at 0 60 0", "j": "@a[x=0,y=60,z=0,dx=10,dy=5,dz=10]", "b": "@a[x=0,y=60,z=0,dx=10,dy=5,dz=10]"}
+],
+
+"java_groups": {
+  "undead": "Undead mobs: zombies, skeletons, phantoms, the wither and more. Healing potions hurt them.",
+  "zombies": "Every kind of zombie, including husks, drowned and zombie horses.",
+  "skeletons": "Every kind of skeleton, including strays, bogged and skeleton horses.",
+  "arthropod": "Bugs: spiders, bees, silverfish and endermites.",
+  "aquatic": "Water creatures: fish, squid, dolphins, turtles, guardians and more.",
+  "illager": "Illagers: pillagers, vindicators, evokers.",
+  "raiders": "Everything that shows up in a raid.",
+  "arrows": "Arrows and spectral arrows.",
+  "boat": "Every kind of boat and raft (without chests).",
+  "impact_projectiles": "Things you throw or shoot that break when they hit something.",
+  "burn_in_daylight": "Mobs that catch fire in the sun.",
+  "can_breathe_under_water": "Mobs that never drown.",
+  "fall_damage_immune": "Mobs that don't get hurt from falling.",
+  "followable_friendly_mobs": "Friendly mobs that a baby animal might follow.",
+  "beehive_inhabitors": "Things that can live in a beehive.",
+  "frog_food": "What frogs eat.",
+  "wither_friends": "Mobs the Wither won't attack."
+},
+
+"bedrock_families": {
+  "monster": "Hostile mobs.",
+  "mob": "Almost every living creature (not players, items or projectiles).",
+  "undead": "Undead mobs: zombies, skeletons, phantoms, the wither and more.",
+  "zombie": "Zombies, husks, drowned and zombie villagers.",
+  "skeleton": "Skeletons, strays, bogged, parched, wither skeletons and the wither.",
+  "arthropod": "Bugs: spiders, bees, silverfish and endermites.",
+  "aquatic": "Water creatures.",
+  "fish": "Fish: cod, salmon, pufferfish and tropical fish.",
+  "illager": "Pillagers, vindicators and evokers.",
+  "villager": "Villagers.",
+  "player": "Players.",
+  "inanimate": "Objects like boats, minecarts, armor stands and TNT.",
+  "minecart": "Every kind of minecart.",
+  "boat": "Boats and chest boats.",
+  "projectile": "Arrows, snowballs, potions, fireballs and other flying things.",
+  "baby_undead": "Undead mobs that can be babies.",
+  "lightning": "Lightning bolts."
+}
+}
